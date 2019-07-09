@@ -1,0 +1,14 @@
+.DS_Store
+.env
+
+node_modules
+/api-test.json
+log
+
+# Test coverage output files
+coverage.html
+lcov.info
+
+# IDE
+.idea
+.vscode
