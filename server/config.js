@@ -1,7 +1,3 @@
-// Load application configuration using Dotenv
-// (see https://www.npmjs.com/package/dotenv)
-require('dotenv').config()
-
 const Joi = require('@hapi/joi')
 
 // Define environment options
@@ -13,58 +9,35 @@ const PRODUCTION = 'production'
 const ERROR = 'error'
 const INFO = 'info'
 const DEBUG = 'debug'
+const dotenv = require('dotenv')
+dotenv.config() // Load variables from .env before any other code (especially before requiring the config.js)
 
-// Define data store options
-const IN_MEMORY = 'in-memory'
-const DYNAMICS = 'dynamics'
-
-const DEFAULT_PORT = 3010
+const DEFAULT_PORT = 3000
 
 // Define the config schema
 const schema = {
   port: Joi.number().default(DEFAULT_PORT),
   env: Joi.string().valid(DEVELOPMENT, TEST, PRODUCTION).default(DEVELOPMENT),
-  dataStore: Joi.string().valid(IN_MEMORY, DYNAMICS).default(IN_MEMORY),
-  // ------ Dynamics Config ------
-  authorityUrl: Joi.string().uri(),
-  clientId: Joi.string().guid(),
-  clientSecret: Joi.string(),
-  resource: Joi.string().uri(),
-  errbitHost: Joi.string().uri(),
-  errbitKey: Joi.string(),
-  errbitEnabled: Joi.string(),
-  loggingLevel: Joi.string().valid(ERROR, INFO, DEBUG).default(INFO)
-}
 
-const {
-  PORT,
-  NODE_ENV,
-  DATA_STORE,
-  AZURE_ACTIVE_DIRECTORY_HOST,
-  AZURE_ACTIVE_DIRECTORY_TENANT,
-  SERVER_TO_SERVER_CLIENT_ID,
-  SERVER_TO_SERVER_CLIENT_SECRET,
-  DYNAMICS_RESOURCE_ADDR,
-  ERRBIT_HOST,
-  ERRBIT_API_KEY,
-  ERRBIT_ENABLED,
-  ERRBIT_LEVEL
-} = process.env
+  // Logging
+  logLevel: Joi.string().valid(ERROR, INFO, DEBUG).default(INFO),
+  airbrakeEnabled: Joi.bool().default(true),
+  airbrakeHost: Joi.when('airbrakeEnabled', { is: true, then: Joi.string().uri().required() }),
+  airbrakeKey: Joi.when('airbrakeEnabled', { is: true, then: Joi.string().min(32).required() }),
+  airbrakeLogLevel: Joi.string().valid(ERROR, INFO, DEBUG).default(INFO)
+}
 
 // Build the config
 const config = {
-  port: PORT,
-  env: NODE_ENV,
-  dataStore: DATA_STORE,
-  // ------ Dynamics Config ------
-  authorityUrl: `https://${AZURE_ACTIVE_DIRECTORY_HOST}/${AZURE_ACTIVE_DIRECTORY_TENANT}`,
-  clientId: SERVER_TO_SERVER_CLIENT_ID,
-  clientSecret: SERVER_TO_SERVER_CLIENT_SECRET,
-  resource: DYNAMICS_RESOURCE_ADDR,
-  errbitHost: ERRBIT_HOST,
-  errbitKey: ERRBIT_API_KEY,
-  errbitEnabled: ERRBIT_ENABLED,
-  loggingLevel: ERRBIT_LEVEL
+  port: process.env.PORT,
+  env: process.env.NODE_ENV,
+
+  // Logging
+  logLevel: process.env.LOG_LEVEL,
+  airbrakeEnabled: process.env.AIRBRAKE_ENABLED,
+  airbrakeHost: process.env.AIRBRAKE_HOST,
+  airbrakeKey: process.env.AIRBRAKE_PROJECT_KEY,
+  airbrakeLogLevel: process.env.AIRBRAKE_LOG_LEVEL
 }
 
 // Validate the config
@@ -84,9 +57,11 @@ value.loggingLevels = { DEBUG, INFO, ERROR }
 value.isDev = value.env === DEVELOPMENT
 value.isProd = value.env === PRODUCTION
 value.isTest = value.env === TEST
-value.isDebug = value.loggingLevel === DEBUG
-value.isInfo = value.loggingLevel === INFO
-value.isError = value.loggingLevel === ERROR
+value.isDebug = value.airbrakeLogLevel === DEBUG
+value.isInfo = value.airbrakeLogLevel === INFO
+value.isError = value.airbrakeLogLevel === ERROR
+
+value.dataStore = 'in-memory'
 
 // Export the validated config
 module.exports = value

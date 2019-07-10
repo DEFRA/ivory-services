@@ -1,7 +1,7 @@
 const requireAll = require('require-all')
 
 // Requires all the "*.dal.js" files in the current folder
-// eg. when the current directory contains files /application.dal.js and /contact.dal.js they will be exported as an object of classes { Application, Contact }
+// eg. when the current directory contains files /registration.dal.js and /person.dal.js they will be exported as an object of classes { Registration, Person }
 module.exports = requireAll({
   dirname: __dirname,
   filter: /^(.+).dal\.js$/,
