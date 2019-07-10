@@ -1,6 +1,6 @@
 # Ivory API Service
 
-[![Build Status](https://travis-ci.org/DEFRA/ivory-api.svg?branch=master)](https://travis-ci.org/DEFRA/ivory-api)
+[![Build Status](https://travis-ci.com/DEFRA/ivory-api.svg?branch=master)](https://travis-ci.com/DEFRA/ivory-api)
 [![Known Vulnerabilities](https://snyk.io/test/github/defra/ivory-api/badge.svg)](https://snyk.io/test/github/defra/ivory-api)
 [![Code Climate](https://codeclimate.com/github/DEFRA/ivory-api/badges/gpa.svg)](https://codeclimate.com/github/DEFRA/ivory-api)
 [![Test Coverage](https://codeclimate.com/github/DEFRA/ivory-api/badges/coverage.svg)](https://codeclimate.com/github/DEFRA/ivory-api/coverage)

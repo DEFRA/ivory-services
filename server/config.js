@@ -12,7 +12,7 @@ const DEBUG = 'debug'
 const dotenv = require('dotenv')
 dotenv.config() // Load variables from .env before any other code (especially before requiring the config.js)
 
-const DEFAULT_PORT = 3000
+const DEFAULT_PORT = 3010
 
 // Define the config schema
 const schema = {
