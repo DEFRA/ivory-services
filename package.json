@@ -18,7 +18,7 @@
   "scripts": {
     "start": "node index",
     "docker:build": "docker build --no-cache -t ivory/api .",
-    "docker:run": "docker run -p \"3000:3000\" --env-file .env ivory/api",
+    "docker:run": "docker run -p \"3010:3010\" --env-file .env ivory/api",
     "lint": "standard",
     "unit-test": "lab --pattern test --coverage --reporter console --output stdout --reporter html --output coverage.html --reporter lcov --output lcov.info --verbose -I 'core,__core-js_shared__'",
     "api-test": "lab --pattern api --reporter console --output stdout --reporter json --output api-test.json --verbose -I 'core,__core-js_shared__'",
