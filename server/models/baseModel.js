@@ -1,6 +1,5 @@
 const Joi = require('@hapi/joi')
-const { dataStore } = require('../config')
-const Dal = require(`./${dataStore}-dal`)
+const Dal = require(`../dal`)
 
 module.exports = class BaseModel {
   static get schema () {

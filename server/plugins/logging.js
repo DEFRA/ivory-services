@@ -1,49 +1,34 @@
-const config = require('../config')
-
-const squeezeConfig = [{
-  'error': '*',
-  'log': '*',
-  'ops': '*',
-  'request': '*',
-  'response': '*'
-}]
-
 module.exports = {
   plugin: require('@hapi/good'),
   options: {
     ops: {
-      // Log ops stats every 30 seconds
-      interval: 30000
+      interval: 60000
     },
     reporters: {
-      // Output to console
-      consoleReporter: [
+      console: [
         {
           module: '@hapi/good-squeeze',
           name: 'Squeeze',
-          args: squeezeConfig
+          args: [{
+            log: '*',
+            error: '*',
+            response: { exclude: 'asset' },
+            request: '*',
+            ops: '*'
+          }]
         }, {
-          module: '@hapi/good-console',
-          args: [
-            {
-              format: 'YYYY-MM-DD HH:mm:ss',
-              utc: false
-            }]
-        }, 'stdout'],
-
-      // Output to file
-      fileReporter: [
-        {
-          module: '@hapi/good-squeeze',
-          name: 'Squeeze',
-          args: squeezeConfig
-        }, {
-          module: '@hapi/good-squeeze',
-          name: 'SafeJson'
-        }, {
-          module: 'good-file',
-          args: ['./log/' + config.env + '.log']
-        }]
+          module: 'defra-logging-facade',
+          args: [{
+            goodEventLevels: {
+              log: 'info',
+              error: 'error',
+              ops: 'debug',
+              request: 'info',
+              response: 'info'
+            }
+          }]
+        }
+      ]
     }
   }
 }
