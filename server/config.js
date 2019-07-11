@@ -19,6 +19,9 @@ const schema = {
   port: Joi.number().default(DEFAULT_PORT),
   env: Joi.string().valid(DEVELOPMENT, TEST, PRODUCTION).default(DEVELOPMENT),
 
+  // Persistence
+  postgresPassword: Joi.string().required,
+
   // Logging
   logLevel: Joi.string().valid(ERROR, INFO, DEBUG).default(INFO),
   airbrakeEnabled: Joi.bool().default(true),
@@ -31,6 +34,9 @@ const schema = {
 const config = {
   port: process.env.PORT,
   env: process.env.NODE_ENV,
+
+  // Persistence
+  postgresPassword: process.env.POSTGRES_PASSWORD,
 
   // Logging
   logLevel: process.env.LOG_LEVEL,
