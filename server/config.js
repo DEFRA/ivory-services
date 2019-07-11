@@ -20,7 +20,8 @@ const schema = {
   env: Joi.string().valid(DEVELOPMENT, TEST, PRODUCTION).default(DEVELOPMENT),
 
   // Persistence
-  postgresPassword: Joi.string().required,
+  postgresEnabled: Joi.bool().default(true),
+  postgresPassword: Joi.when('postgresEnabled', { is: true, then: Joi.string().min(6).required() }),
 
   // Logging
   logLevel: Joi.string().valid(ERROR, INFO, DEBUG).default(INFO),
@@ -36,6 +37,7 @@ const config = {
   env: process.env.NODE_ENV,
 
   // Persistence
+  postgresEnabled: process.env.POSTGRES_ENABLED,
   postgresPassword: process.env.POSTGRES_PASSWORD,
 
   // Logging
