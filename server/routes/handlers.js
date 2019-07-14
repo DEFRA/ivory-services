@@ -1,4 +1,3 @@
-
 const Boom = require('@hapi/boom')
 
 module.exports = class Handlers {
@@ -65,6 +64,7 @@ module.exports = class Handlers {
         handler: handleGet,
         options: {
           tags: ['api'],
+          security: true,
           validate: {
             query: schema,
             failAction: handleError
@@ -76,6 +76,7 @@ module.exports = class Handlers {
         handler: handleGetById,
         options: {
           tags: ['api'],
+          security: true,
           validate: {
             params,
             failAction: handleError
@@ -87,6 +88,10 @@ module.exports = class Handlers {
         handler: handlePost,
         options: {
           tags: ['api'],
+          security: true,
+          payload: {
+            allow: ['application/json']
+          },
           validate: {
             payload: schema,
             failAction: handleError
@@ -98,6 +103,10 @@ module.exports = class Handlers {
         handler: handlePatch,
         options: {
           tags: ['api'],
+          security: true,
+          payload: {
+            allow: ['application/json']
+          },
           validate: {
             params,
             payload: schema,
@@ -110,6 +119,10 @@ module.exports = class Handlers {
         handler: handleDelete,
         options: {
           tags: ['api'],
+          security: true,
+          payload: {
+            allow: ['application/json']
+          },
           validate: {
             params,
             failAction: handleError
