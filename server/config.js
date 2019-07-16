@@ -28,7 +28,10 @@ const schema = {
   airbrakeEnabled: Joi.bool().default(true),
   airbrakeHost: Joi.when('airbrakeEnabled', { is: true, then: Joi.string().uri().required() }),
   airbrakeKey: Joi.when('airbrakeEnabled', { is: true, then: Joi.string().min(32).required() }),
-  airbrakeLogLevel: Joi.string().valid(ERROR, INFO, DEBUG).default(INFO)
+  airbrakeLogLevel: Joi.string().valid(ERROR, INFO, DEBUG).default(INFO),
+
+  // Reference data
+  loadReferenceData: Joi.bool().default(false)
 }
 
 // Build the config
@@ -45,7 +48,10 @@ const config = {
   airbrakeEnabled: process.env.AIRBRAKE_ENABLED,
   airbrakeHost: process.env.AIRBRAKE_HOST,
   airbrakeKey: process.env.AIRBRAKE_PROJECT_KEY,
-  airbrakeLogLevel: process.env.AIRBRAKE_LOG_LEVEL
+  airbrakeLogLevel: process.env.AIRBRAKE_LOG_LEVEL,
+
+  // Reference data
+  loadReferenceData: process.env.LOAD_REFERENCE_DATA
 }
 
 // Validate the config

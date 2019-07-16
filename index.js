@@ -1,6 +1,7 @@
 const createServer = require('./server')
 const config = require('./server/config')
 const { logger } = require('defra-logging-facade')
+const loadReferenceData = require('./reference-data/load-reference-data')
 
 createServer()
   .then((server) => {
@@ -8,6 +9,9 @@ createServer()
 
     server.events.on('start', () => {
       logger.info(`Log level: ${config.logLevel}`)
+      if (config.loadReferenceData) {
+        loadReferenceData(server.info.uri)
+      }
     })
 
     return server.start()
