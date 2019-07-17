@@ -11,7 +11,7 @@ module.exports = class Group extends BaseModel {
   static get schema () {
     return {
       type: Joi.string().example('type'),
-      title: Joi.string().example('title'),
+      title: Joi.string().example('pageHeading'),
       description: Joi.string().example('description'),
       hint: Joi.string().example('hint'),
       multiple: Joi.bool().default(false)
