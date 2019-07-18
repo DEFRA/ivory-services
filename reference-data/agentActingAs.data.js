@@ -1,5 +1,4 @@
 module.exports = {
-  title: 'How are you acting on behalf of the owner?',
   choices: [
     {
       label: 'Professional advisor',

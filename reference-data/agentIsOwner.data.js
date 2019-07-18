@@ -1,5 +1,4 @@
 module.exports = {
-  title: 'Who owns the item?',
   choices: [
     {
       label: 'I own it',
