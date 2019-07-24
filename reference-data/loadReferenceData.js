@@ -1,5 +1,4 @@
 const wreck = require('@hapi/wreck')
-const { logger } = require('defra-logging-facade')
 
 const groups = Object.entries(require('./index')).map(([prop, data]) => {
   data.type = prop
@@ -15,14 +14,10 @@ async function loadReferenceData (uri) {
   Promise.all(groups.map(async (groupData) => {
     const { type, title, choices, hint } = groupData
     const group = await load(`${uri}/groups`, { type, title, hint })
-    logger.debug({ group })
 
     const { id: groupId } = group
 
-    return Promise.all(choices.map(async ({ label, shortName, hint }, rank) => {
-      const choice = await load(`${uri}/choices`, { label, shortName, groupId, rank, hint })
-      logger.debug({ choice })
-    }))
+    return Promise.all(choices.map(async ({ label, shortName, hint }, rank) => load(`${uri}/choices`, { label, shortName, groupId, rank, hint })))
   }))
 }
 

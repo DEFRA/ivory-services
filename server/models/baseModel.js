@@ -1,5 +1,6 @@
 const Joi = require('@hapi/joi')
 const Dal = require(`../dal`)
+const { logger } = require('defra-logging-facade')
 
 module.exports = class BaseModel {
   static get schema () {
@@ -24,6 +25,7 @@ module.exports = class BaseModel {
   }
 
   async save () {
+    logger.debug(`Saving: `, this)
     return Dal[this.constructor.name].save(this)
   }
 

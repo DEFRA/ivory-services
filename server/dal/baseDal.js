@@ -1,9 +1,9 @@
-
+const cloneDeep = require('lodash.clonedeep')
 const uuid = require('uuid/v1')
 
 module.exports = class BaseDal {
   static async findAll (query) {
-    const allResults = Object.values(this.dataStore)
+    const allResults = Object.values(this.dataStore).map((result) => cloneDeep(result))
     if (query) {
       return allResults.filter((result) => !Object.entries(query).find(([propName, val]) => result[propName] !== val))
     }
@@ -11,15 +11,15 @@ module.exports = class BaseDal {
   }
 
   static async find (id) {
-    return this.dataStore[id]
+    return cloneDeep(this.dataStore[id])
   }
 
   static async save (data) {
     if (!data.id) {
       data.id = uuid()
     }
-    this.dataStore[data.id] = data
-    return data
+    this.dataStore[data.id] = cloneDeep(data)
+    return cloneDeep(data)
   }
 
   static async delete (id) {

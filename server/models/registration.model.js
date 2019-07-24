@@ -5,7 +5,7 @@ const uuid = require('uuid/v1')
 module.exports = class Registration extends BaseModel {
   static get params () {
     return {
-      id: Joi.string().guid()
+      id: Joi.string().guid().example(uuid())
     }
   }
 
