@@ -1,10 +1,11 @@
 const Joi = require('@hapi/joi')
 const BaseModel = require('./baseModel')
+const uuid = require('uuid/v1')
 
 module.exports = class Group extends BaseModel {
   static get params () {
     return {
-      id: Joi.string().guid()
+      id: Joi.string().guid().example(uuid())
     }
   }
 
