@@ -6,5 +6,15 @@ module.exports = {
       .reduce((obj, key) => {
         return (obj && obj[key] !== 'undefined') ? obj[key] : undefined
       }, nestedObj)
+  },
+
+  cloneAndMerge (...args) {
+    const obj = Object.assign({}, ...args)
+    Object.entries(obj).forEach(([prop, val]) => {
+      if (val === undefined) {
+        delete obj[prop]
+      }
+    })
+    return obj
   }
 }

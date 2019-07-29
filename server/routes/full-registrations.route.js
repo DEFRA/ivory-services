@@ -1,29 +1,20 @@
 const Boom = require('@hapi/boom')
 const Joi = require('@hapi/joi')
 const { logger } = require('defra-logging-facade')
+const { cloneAndMerge } = require('../lib/utils')
 const { Registration, Person, Item, Address } = require('../models')
 
-function clone (...args) {
-  const obj = Object.assign({}, ...args)
-  Object.entries(obj).forEach(([prop, val]) => {
-    if (val === undefined) {
-      delete obj[prop]
-    }
-  })
-  return obj
-}
-
-const addressSchema = clone(Address.schema, Address.params)
+const addressSchema = cloneAndMerge(Address.schema, Address.params)
 const address = Joi.object(addressSchema).label('Full-Address')
 
-const personSchema = clone(Person.schema, Person.params, { address, addressId: undefined })
+const personSchema = cloneAndMerge(Person.schema, Person.params, { address, addressId: undefined })
 const agent = Joi.object(personSchema).label('Full-Person')
 const owner = Joi.object(personSchema).label('Full-Person')
 
-const itemSchema = clone(Item.schema, Item.params)
+const itemSchema = cloneAndMerge(Item.schema, Item.params)
 const item = Joi.object(itemSchema).label('Full-Item')
 
-const registrationSchema = clone(Registration.schema, { owner, agent, item, ownerId: undefined, agentId: undefined, itemId: undefined })
+const registrationSchema = cloneAndMerge(Registration.schema, { owner, agent, item, ownerId: undefined, agentId: undefined, itemId: undefined })
 const registration = Joi.object(registrationSchema).label('Full-Registration')
 
 function buildInData (data, payload, path) {
