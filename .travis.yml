@@ -14,7 +14,7 @@ after_script:
 
 addons:
   code_climate:
-    repo_token: 909583142520558cf54101032cbc08668ef4b9f412f10643cb9a3b2500477bfa
+    repo_token: a01373c503924b20de1d91536c33d41863f8ba54c1e0c4a861adf63304a3c585
 
 env:
   - AIRBRAKE_ENABLED=false

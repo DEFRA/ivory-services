@@ -1,9 +1,9 @@
 # Ivory API Service
 
-[![Build Status](https://travis-ci.com/DEFRA/ivory-api.svg?branch=master)](https://travis-ci.com/DEFRA/ivory-api)
-[![Known Vulnerabilities](https://snyk.io/test/github/defra/ivory-api/badge.svg)](https://snyk.io/test/github/defra/ivory-api)
-[![Code Climate](https://codeclimate.com/github/DEFRA/ivory-api/badges/gpa.svg)](https://codeclimate.com/github/DEFRA/ivory-api)
-[![Test Coverage](https://codeclimate.com/github/DEFRA/ivory-api/badges/coverage.svg)](https://codeclimate.com/github/DEFRA/ivory-api/coverage)
+[![Build Status](https://travis-ci.com/DEFRA/ivory-services.svg?branch=master)](https://travis-ci.com/DEFRA/ivory-services)
+[![Known Vulnerabilities](https://snyk.io/test/github/defra/ivory-services/badge.svg)](https://snyk.io/test/github/defra/ivory-services)
+[![Code Climate](https://codeclimate.com/github/DEFRA/ivory-services/badges/gpa.svg)](https://codeclimate.com/github/DEFRA/ivory-services)
+[![Test Coverage](https://codeclimate.com/github/DEFRA/ivory-services/badges/coverage.svg)](https://codeclimate.com/github/DEFRA/ivory-services/coverage)
 
 ## Development Team
 
@@ -32,7 +32,7 @@ Clone the repository and install its package
 dependencies:
 
 ```bash
-git clone https://github.com/DEFRA/ivory-api.git && cd ivory-api
+git clone https://github.com/DEFRA/ivory-services.git && cd ivory-services
 npm install
 ```
 
