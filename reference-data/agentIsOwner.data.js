@@ -2,11 +2,13 @@ module.exports = {
   choices: [
     {
       label: 'I own it',
-      shortName: 'agent'
+      shortName: 'agent',
+      value: true
     },
     {
       label: 'Someone else owns it',
-      shortName: 'someone-else'
+      shortName: 'someone-else',
+      value: false
     }
   ]
 }

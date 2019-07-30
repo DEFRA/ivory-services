@@ -1,6 +1,6 @@
 const wreck = require('@hapi/wreck')
 
-const groups = Object.entries(require('./index')).map(([prop, data]) => {
+const groups = Object.entries(require('../reference-data')).map(([prop, data]) => {
   data.type = prop
   return data
 })
@@ -17,7 +17,7 @@ async function loadReferenceData (uri) {
 
     const { id: groupId } = group
 
-    return Promise.all(choices.map(async ({ label, shortName, hint }, rank) => load(`${uri}/choices`, { label, shortName, groupId, rank, hint })))
+    return Promise.all(choices.map(async ({ label, shortName, hint, value }, rank) => load(`${uri}/choices`, { label, shortName, groupId, rank, hint, value })))
   }))
 }
 

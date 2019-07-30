@@ -11,7 +11,7 @@ module.exports = {
   cloneAndMerge (...args) {
     const obj = Object.assign({}, ...args)
     Object.entries(obj).forEach(([prop, val]) => {
-      if (val === undefined) {
+      if (val === null) {
         delete obj[prop]
       }
     })
