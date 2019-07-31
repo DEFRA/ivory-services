@@ -1,3 +1,5 @@
+const uuid = require('uuid/v4')
+
 module.exports = {
   // Usage: const val = getNestedVal(myObj, 'a.b.c')
   getNestedVal (nestedObj, path) {
@@ -16,5 +18,9 @@ module.exports = {
       }
     })
     return obj
+  },
+
+  uuid () {
+    return uuid()
   }
 }

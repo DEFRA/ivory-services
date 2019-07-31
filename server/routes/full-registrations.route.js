@@ -1,21 +1,6 @@
 const Boom = require('@hapi/boom')
-const Joi = require('@hapi/joi')
 const { logger } = require('defra-logging-facade')
-const { cloneAndMerge } = require('../lib/utils')
-const { Registration, Person, Item, Address } = require('../models')
-
-const addressSchema = cloneAndMerge(Address.schema, Address.params)
-const address = Joi.object(addressSchema).label('Full-Address')
-
-const personSchema = cloneAndMerge(Person.schema, Person.params, { address, addressId: null })
-const agent = Joi.object(personSchema).label('Full-Person')
-const owner = Joi.object(personSchema).label('Full-Person')
-
-const itemSchema = cloneAndMerge(Item.schema, Item.params)
-const item = Joi.object(itemSchema).label('Full-Item')
-
-const registrationSchema = cloneAndMerge(Registration.schema, { owner, agent, item, ownerId: null, agentId: null, itemId: null })
-const registration = Joi.object(registrationSchema).label('Full-Registration')
+const { FullRegistration, Registration, Person, Item, Address } = require('../models')
 
 function buildInData (data, payload, path) {
   data[path] = payload
@@ -193,6 +178,6 @@ const handlers = new Handlers()
 
 module.exports = handlers.routes({
   path: '/full-registrations',
-  params: Registration.params,
-  schema: registration
+  params: FullRegistration.params,
+  schema: FullRegistration.schema
 })
