@@ -1,6 +1,6 @@
 const Joi = require('@hapi/joi')
 const BaseModel = require('./baseModel')
-const uuid = require('uuid/v1')
+const { uuid } = require('../lib/utils')
 
 module.exports = class Choice extends BaseModel {
   static get params () {

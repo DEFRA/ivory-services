@@ -22,7 +22,7 @@
     "docker:build": "docker build --no-cache -t ivory/api .",
     "docker:run": "docker run -p \"3010:3010\" --env-file .env ivory/api",
     "lint": "standard",
-    "unit-test": "lab --pattern test --coverage --reporter console --output stdout --reporter html --output coverage.html --reporter lcov --output lcov.info --verbose -I 'core,__core-js_shared__'",
+    "unit-test": "lab --coverage --reporter console --output stdout --reporter lcov --output lcov.info --reporter html --output coverage.html --verbose",
     "api-test": "lab --pattern api --reporter console --output stdout --reporter json --output api-test.json --verbose -I 'core,__core-js_shared__'",
     "test": "npm run lint && npm run unit-test"
   },
@@ -45,6 +45,7 @@
     "hapi-robots": "^3.2.0",
     "hapi-router": "^5.0.0",
     "hapi-swagger": "^10.0.2",
+    "lodash.camelcase": "^4.3.0",
     "lodash.clonedeep": "^4.5.0",
     "require-all": "^3.0.0",
     "uuid": "^3.3.2"

@@ -18,3 +18,4 @@ addons:
 
 env:
   - AIRBRAKE_ENABLED=false
+    POSTGRES_ENABLED=false

@@ -1,5 +1,5 @@
 const cloneDeep = require('lodash.clonedeep')
-const uuid = require('uuid/v1')
+const utils = require('../lib/utils')
 
 module.exports = class BaseDal {
   static async findAll (query) {
@@ -16,7 +16,7 @@ module.exports = class BaseDal {
 
   static async save (data) {
     if (!data.id) {
-      data.id = uuid()
+      data.id = utils.uuid()
     }
     this.dataStore[data.id] = cloneDeep(data)
     return cloneDeep(data)
