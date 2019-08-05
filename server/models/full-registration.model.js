@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi')
 const BaseModel = require('./baseModel')
 
-const { cloneAndMerge } = require('../lib/utils')
+const { cloneAndMerge } = require('ivory').utils
 const Registration = require('./registration.model')
 const Address = require('./address.model')
 const Item = require('./item.model')

@@ -2,7 +2,7 @@ const sinon = require('sinon')
 const Lab = require('@hapi/lab')
 const lab = exports.lab = Lab.script()
 const Code = require('@hapi/code')
-const utils = require('../lib/utils')
+const { utils } = require('ivory')
 const TestHelper = require('../../test-helper')
 const BaseDal = require('../dal/baseDal')
 

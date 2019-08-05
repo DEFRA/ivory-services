@@ -1,5 +1,5 @@
 const cloneDeep = require('lodash.clonedeep')
-const utils = require('../lib/utils')
+const { utils } = require('ivory')
 
 module.exports = class BaseDal {
   static async findAll (query) {
