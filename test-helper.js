@@ -5,7 +5,7 @@ const dotenv = require('dotenv')
 const config = require('./server/config')
 const { logger } = require('defra-logging-facade')
 const routesPlugin = require('./server/plugins/hapi-router')
-const { uuid } = require('ivory').utils
+const { uuid } = require('ivory-shared').utils
 
 const UNKNOWN_GUID = uuid()
 const INVALID_GUID = 'INVALID-GUID'

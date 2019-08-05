@@ -4,7 +4,7 @@ const Joi = require('@hapi/joi')
 const lab = exports.lab = Lab.script()
 const TestHelper = require('../../test-helper')
 const Registration = require('../models/registration.model')
-const { uuid } = require('ivory').utils
+const { uuid } = require('ivory-shared').utils
 
 const registration = {
   itemId: uuid(),

@@ -1,6 +1,6 @@
 const Joi = require('@hapi/joi')
 const BaseModel = require('./baseModel')
-const { uuid } = require('ivory').utils
+const { uuid } = require('ivory-shared').utils
 
 module.exports = class Registration extends BaseModel {
   static get params () {
