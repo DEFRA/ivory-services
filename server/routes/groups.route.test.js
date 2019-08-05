@@ -4,7 +4,7 @@ const Boom = require('@hapi/boom')
 const TestHelper = require('../../test-helper')
 const path = '/groups'
 const { Group } = require('../models')
-const { uuid } = require('../lib/utils')
+const { uuid } = require('ivory').utils
 
 const { emptyMessage } = TestHelper
 

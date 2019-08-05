@@ -6,7 +6,7 @@ const TestHelper = require('../../test-helper')
 const path = '/full-registrations'
 const models = require('../models')
 const { FullRegistration, Registration, Person, Address, Item } = models
-const { uuid, cloneAndMerge } = require('../lib/utils')
+const { uuid, cloneAndMerge } = require('ivory').utils
 
 const UNKNOWN_GUID = uuid()
 const INVALID_GUID = 'INVALID-GUID'
