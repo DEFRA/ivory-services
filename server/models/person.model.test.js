@@ -19,6 +19,8 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     data = Object.assign({}, person)
   })
 
+  TestHelper.modelTableTest(lab, Person)
+
   lab.test('Person data validates correctly', async () => {
     const { value } = Joi.validate(data, Person.schema, { abortEarly: false })
     Code.expect(value).to.equal(data)

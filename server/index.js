@@ -2,6 +2,7 @@ const Hapi = require('@hapi/hapi')
 const config = require('./config')
 const { logger } = require('defra-logging-facade')
 const loadReferenceData = require('../reference-data/loadReferenceData')
+const { Choice, Group, Address, Person, Item, Registration } = require('./dal')
 
 const serverOptions = {
   port: config.port,
@@ -14,12 +15,18 @@ const serverOptions = {
   }
 }
 
-function startHandler (server) {
+async function startHandler (server) {
   logger.info(`Ivory service is starting...`)
   logger.info(`Log level: ${config.logLevel}`)
 
   if (config.loadReferenceData) {
-    loadReferenceData(server.info.uri)
+    await Group.createTable()
+    await Choice.createTable()
+    await Address.createTable()
+    await Person.createTable()
+    await Item.createTable()
+    await Registration.createTable()
+    await loadReferenceData()
   }
 
   // listen on SIGTERM signal and gracefully stop the server
@@ -47,6 +54,13 @@ async function createServer () {
     require('./plugins/hapi-robots'),
     require('./plugins/error-routes')
   ])
+
+  // // Register the database plugin only if not running in test
+  // if (config.postgresEnabled && !config.isTest) {
+  //   await server.register([
+  //     require('./plugins/hapi-postgres')
+  //   ])
+  // }
 
   if (config.isDev) {
     await server.register([

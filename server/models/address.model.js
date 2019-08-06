@@ -11,11 +11,11 @@ module.exports = class Address extends BaseModel {
 
   static get schema () {
     return {
-      postcode: Joi.string().example('WA4 1AB'),
-      buildingNumber: Joi.string(),
-      street: Joi.string().optional(),
+      addressLine1: Joi.string(),
+      addressLine2: Joi.string().optional(),
       town: Joi.string(),
       county: Joi.string().optional(),
+      postcode: Joi.string().example('WA4 1AB'),
       country: Joi.string().optional(),
       uprn: Joi.string()
     }

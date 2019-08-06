@@ -30,8 +30,8 @@ lab.experiment(TestHelper.getFile(__filename), () => {
           address: {
             id: uuid(),
             postcode: 'WA4 1AB',
-            buildingNumber: '12',
-            street: 'Tiny street',
+            addressLine1: '12',
+            addressLine2: 'Tiny street',
             town: 'Big town',
             county: 'Medium County',
             country: 'Little Britain',
@@ -45,8 +45,8 @@ lab.experiment(TestHelper.getFile(__filename), () => {
           address: {
             id: uuid(),
             postcode: 'WA4 1AB',
-            buildingNumber: '12',
-            street: 'Tiny street',
+            addressLine1: '12',
+            addressLine2: 'Tiny street',
             town: 'Big town',
             county: 'Medium County',
             country: 'Little Britain',
@@ -76,6 +76,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     delete registration.owner
     delete registration.item
     sandbox.stub(Registration, 'getById').value(async () => stubGetById(Registration, registration))
+    sandbox.stub(Registration.prototype, 'save').value(async (data) => this)
 
     const { address: agentAddress } = agent
     const { address: ownerAddress } = owner
@@ -91,6 +92,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
           return stubGetById(Person, owner)
       }
     })
+    sandbox.stub(Person.prototype, 'save').value(async (data) => this)
     sandbox.stub(Address, 'getById').value(async (id) => {
       switch (id) {
         case agentAddress.id:
@@ -99,7 +101,9 @@ lab.experiment(TestHelper.getFile(__filename), () => {
           return stubGetById(Address, ownerAddress)
       }
     })
+    sandbox.stub(Address.prototype, 'save').value(async (data) => this)
     sandbox.stub(Item, 'getById').value(async () => stubGetById(Item, item))
+    sandbox.stub(Item.prototype, 'save').value(async () => this)
   })
 
   /** ********************** GET By Id ************************** **/

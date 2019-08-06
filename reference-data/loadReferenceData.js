@@ -1,23 +1,23 @@
-const wreck = require('@hapi/wreck')
+const { Choice, Group } = require('../server/models')
 
 const groups = Object.entries(require('../reference-data')).map(([prop, data]) => {
   data.type = prop
   return data
 })
 
-async function load (uri, data) {
-  const res = await wreck.request('POST', uri, { payload: data })
-  return wreck.read(res, { json: true })
+async function load (Model, data) {
+  const model = new Model(data)
+  return model.save()
 }
 
 async function loadReferenceData (uri) {
-  Promise.all(groups.map(async (groupData) => {
+  return Promise.all(groups.map(async (groupData) => {
     const { type, title, choices, hint } = groupData
-    const group = await load(`${uri}/groups`, { type, title, hint })
+    const group = await load(Group, { type, title, hint })
 
     const { id: groupId } = group
 
-    return Promise.all(choices.map(async ({ label, shortName, hint, value }, rank) => load(`${uri}/choices`, { label, shortName, groupId, rank, hint, value })))
+    return Promise.all(choices.map(async ({ label, shortName, hint, value }, rank) => load(Choice, { label, shortName, groupId, rank, hint, value })))
   }))
 }
 

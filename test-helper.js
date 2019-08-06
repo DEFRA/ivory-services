@@ -2,10 +2,17 @@ const sinon = require('sinon')
 const Code = require('@hapi/code')
 const Boom = require('@hapi/boom')
 const dotenv = require('dotenv')
+
+// SET Environment variables before loading the config
+process.env.AIRBRAKE = false
+process.env.POSTGRES_ENABLED = false
+process.env.LOG_LEVEL = 'error'
 const config = require('./server/config')
-const { logger } = require('defra-logging-facade')
+
+// const { logger } = require('defra-logging-facade')
 const routesPlugin = require('./server/plugins/hapi-router')
 const { uuid } = require('ivory-shared').utils
+const Dal = require('./server/dal')
 
 const UNKNOWN_GUID = uuid()
 const INVALID_GUID = 'INVALID-GUID'
@@ -18,9 +25,6 @@ module.exports = class TestHelper {
     const { stubCallback, mocks } = options || {}
 
     lab.beforeEach(async ({ context }) => {
-      // Add env variables
-      process.env.LOG_LEVEL = 'error'
-
       // Add mocks to the context
       context.mocks = mocks
 
@@ -50,9 +54,6 @@ module.exports = class TestHelper {
 
       // Stop the server
       await server.stop()
-
-      // Remove env variables
-      delete process.env.LOG_LEVEL
     })
   }
 
@@ -64,6 +65,17 @@ module.exports = class TestHelper {
     Code.expect(actual.statusCode).to.equal(expected.statusCode)
     Code.expect(actual.headers['content-type']).to.include('application/json')
     Code.expect(JSON.parse(actual.payload)).to.equal(expected.payload)
+  }
+
+  static modelTableTest (lab, Model) {
+    lab.test('Params and Schema match Table definitions', async () => {
+      const tableKeys = Object.keys(Dal[Model.name].table)
+      const schemaKeys = Object.keys(Model.schema)
+      const paramsKeys = Object.keys(Model.params)
+      Code.expect(tableKeys).includes(paramsKeys)
+      Code.expect(tableKeys).includes(schemaKeys)
+      Code.expect(tableKeys.length).to.equal(schemaKeys.length + paramsKeys.length)
+    })
   }
 
   /** ************************* GET All **************************** **/
@@ -292,11 +304,11 @@ module.exports = class TestHelper {
     sandbox.stub(dotenv, 'config').value(() => {})
     sandbox.stub(config, 'airbrakeEnabled').value(false)
     sandbox.stub(config, 'postgresEnabled').value(false)
-    sandbox.stub(logger, 'debug').value(() => undefined)
-    sandbox.stub(logger, 'info').value(() => undefined)
-    sandbox.stub(logger, 'warn').value(() => undefined)
-    sandbox.stub(logger, 'error').value(() => undefined)
-    sandbox.stub(logger, 'serverError').value(() => undefined)
+    // sandbox.stub(logger, 'debug').value(() => undefined)
+    // sandbox.stub(logger, 'info').value(() => undefined)
+    // sandbox.stub(logger, 'warn').value(() => undefined)
+    // sandbox.stub(logger, 'error').value(() => undefined)
+    // sandbox.stub(logger, 'serverError').value(() => undefined)
     sandbox.stub(config, 'logLevel').value('error')
   }
 
