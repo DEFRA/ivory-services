@@ -29,17 +29,17 @@
   "dependencies": {
     "@hapi/boom": "^7.4.2",
     "@hapi/good": "^8.2.0",
-    "@hapi/good-console": "^8.1.0",
-    "@hapi/good-squeeze": "^5.2.0",
-    "@hapi/hapi": "^18.3.1",
+    "@hapi/good-console": "^8.1.1",
+    "@hapi/good-squeeze": "^5.2.1",
+    "@hapi/hapi": "^18.3.2",
     "@hapi/inert": "^5.2.1",
-    "@hapi/joi": "^15.1.0",
-    "@hapi/vision": "^5.5.2",
+    "@hapi/joi": "^15.1.1",
+    "@hapi/vision": "^5.5.3",
     "adal-node": "^0.1.28",
     "blipp": "^4.0.0",
     "cross-fetch": "^3.0.4",
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#master",
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.1.0",
     "glob": "^7.1.4",
     "govuk-frontend": "2.13.0",
     "hapi-robots": "^3.2.0",
@@ -49,7 +49,7 @@
     "lodash.camelcase": "^4.3.0",
     "lodash.clonedeep": "^4.5.0",
     "require-all": "^3.0.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@hapi/code": "^6.0.0",
