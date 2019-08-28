@@ -41,10 +41,10 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
   })
 
-  lab.test(`Group data invalidates unknown field correctly`, async () => {
+  lab.test('Group data invalidates unknown field correctly', async () => {
     data.unknown = 'blah'
     const { error } = Joi.validate(data, Group.schema, { abortEarly: false })
-    Code.expect(error.toString()).to.contain(`"unknown" is not allowed`)
+    Code.expect(error.toString()).to.contain('"unknown" is not allowed')
   })
 
   lab.test('Group parameter validate correctly', async () => {

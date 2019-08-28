@@ -16,7 +16,7 @@ const serverOptions = {
 }
 
 async function startHandler (server) {
-  logger.info(`Ivory service is starting...`)
+  logger.info('Ivory service is starting...')
   logger.info(`Log level: ${config.logLevel}`)
 
   if (config.loadReferenceData) {
@@ -32,7 +32,7 @@ async function startHandler (server) {
   // listen on SIGTERM signal and gracefully stop the server
   process.on('SIGTERM', function () {
     logger.info('Received SIGTERM scheduling shutdown...')
-    logger.info(`Ivory service is stopping...`)
+    logger.info('Ivory service is stopping...')
 
     server.stop({ timeout: 10000 }).then(function (err) {
       logger.info('Shutdown complete')

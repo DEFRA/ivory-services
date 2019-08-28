@@ -27,7 +27,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
 
   lab.experiment('BaseModel without a valid schema set', () => {
     lab.experiment('constructor', () => {
-      lab.test(`fails to instantiate due to bad data`, async () => {
+      lab.test('fails to instantiate due to bad data', async () => {
         let model
         let error
 
@@ -60,7 +60,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
 
     lab.experiment('constructor', () => {
-      lab.test(`fails to instantiate due to bad data`, async () => {
+      lab.test('fails to instantiate due to bad data', async () => {
         let model
         let error
 
@@ -79,7 +79,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
 
     lab.experiment('getAll', () => {
-      lab.test(`successfully retrieves all models`, async () => {
+      lab.test('successfully retrieves all models', async () => {
         allModels = ['a', 'b', 'c']
         const results = await BaseModel.getAll({})
         Code.expect(results).to.equal(allModels)
@@ -87,7 +87,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
 
     lab.experiment('getById', () => {
-      lab.test(`successfully retrieves a model by id`, async () => {
+      lab.test('successfully retrieves a model by id', async () => {
         model = new BaseModel({ data: 'some data' })
         const result = await BaseModel.getById()
         Code.expect(result).to.equal(model)
@@ -95,7 +95,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
 
     lab.experiment('save', () => {
-      lab.test(`successfully saves a model`, async () => {
+      lab.test('successfully saves a model', async () => {
         model = new BaseModel({ data: 'some data' })
         const result = await model.save()
         Code.expect(result).to.equal(model)
@@ -103,7 +103,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
 
     lab.experiment('delete', () => {
-      lab.test(`successfully deletes a model`, async () => {
+      lab.test('successfully deletes a model', async () => {
         model = new BaseModel({ data: 'some data' })
         const result = await model.delete()
         Code.expect(result).to.equal(model)

@@ -46,10 +46,10 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
   })
 
-  lab.test(`Choice data invalidates unknown field correctly`, async () => {
+  lab.test('Choice data invalidates unknown field correctly', async () => {
     data.unknown = 'blah'
     const { error } = Joi.validate(data, Choice.schema, { abortEarly: false })
-    Code.expect(error.toString()).to.contain(`"unknown" is not allowed`)
+    Code.expect(error.toString()).to.contain('"unknown" is not allowed')
   })
 
   lab.test('Choice parameter validate correctly', async () => {

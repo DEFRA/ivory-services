@@ -42,28 +42,28 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
   })
 
-  lab.test(`Registration data invalidates itemId field correctly`, async () => {
+  lab.test('Registration data invalidates itemId field correctly', async () => {
     data.itemId = 'invalid guid'
     const { error } = Joi.validate(data, Registration.schema, { abortEarly: false })
     Code.expect(error.toString()).to.contain(TestHelper.invalidGuidMessage('itemId'))
   })
 
-  lab.test(`Registration data invalidates ownerId field correctly`, async () => {
+  lab.test('Registration data invalidates ownerId field correctly', async () => {
     data.ownerId = 'invalid guid'
     const { error } = Joi.validate(data, Registration.schema, { abortEarly: false })
     Code.expect(error.toString()).to.contain(TestHelper.invalidGuidMessage('ownerId'))
   })
 
-  lab.test(`Registration data invalidates agentId field correctly`, async () => {
+  lab.test('Registration data invalidates agentId field correctly', async () => {
     data.agentId = 'invalid guid'
     const { error } = Joi.validate(data, Registration.schema, { abortEarly: false })
     Code.expect(error.toString()).to.contain(TestHelper.invalidGuidMessage('agentId'))
   })
 
-  lab.test(`Registration data invalidates unknown field correctly`, async () => {
+  lab.test('Registration data invalidates unknown field correctly', async () => {
     data.unknown = 'blah'
     const { error } = Joi.validate(data, Registration.schema, { abortEarly: false })
-    Code.expect(error.toString()).to.contain(`"unknown" is not allowed`)
+    Code.expect(error.toString()).to.contain('"unknown" is not allowed')
   })
 
   lab.test('Registration parameter validate correctly', async () => {

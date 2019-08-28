@@ -43,44 +43,44 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
 
     lab.experiment('findAll', () => {
-      lab.test(`successfully retrieves all models filtered where type = "x"`, async ({ context }) => {
+      lab.test('successfully retrieves all models filtered where type = "x"', async ({ context }) => {
         await BaseDal.findAll({ type: 'x' })
-        Code.expect(context.getQueryText()).to.equal(`SELECT * FROM "basedal" WHERE type = 'x'`)
+        Code.expect(context.getQueryText()).to.equal('SELECT * FROM "basedal" WHERE type = \'x\'')
       })
 
-      lab.test(`successfully retrieves all models`, async ({ context }) => {
+      lab.test('successfully retrieves all models', async ({ context }) => {
         await BaseDal.findAll()
-        Code.expect(context.getQueryText()).to.equal(`SELECT * FROM "basedal"`)
+        Code.expect(context.getQueryText()).to.equal('SELECT * FROM "basedal"')
       })
     })
 
     lab.experiment('find', () => {
-      lab.test(`successfully retrieves a model by id`, async ({ context }) => {
+      lab.test('successfully retrieves a model by id', async ({ context }) => {
         await BaseDal.find('b')
-        Code.expect(context.getQueryText()).to.equal(`SELECT * FROM "basedal" WHERE id = 'b'`)
+        Code.expect(context.getQueryText()).to.equal('SELECT * FROM "basedal" WHERE id = \'b\'')
       })
     })
 
     lab.experiment('save', () => {
-      lab.test(`successfully creates a new model`, async ({ context }) => {
+      lab.test('successfully creates a new model', async ({ context }) => {
         const { sandbox } = context
         const id = 'my-new-id'
         sandbox.stub(utils, 'uuid').value(() => id)
         await BaseDal.save({ type: 'z', foo: 'baa' })
-        Code.expect(context.getQueryText()).to.equal(`INSERT INTO "basedal" (type, foo) VALUES ($1, $2) RETURNING *;`)
+        Code.expect(context.getQueryText()).to.equal('INSERT INTO "basedal" (type, foo) VALUES ($1, $2) RETURNING *;')
         Code.expect(context.getDataArray()).to.equal(['z', 'baa'])
       })
 
-      lab.test(`successfully updates an existing model`, async ({ context }) => {
+      lab.test('successfully updates an existing model', async ({ context }) => {
         await BaseDal.save({ id: 'c', type: 'z' })
-        Code.expect(context.getQueryText()).to.equal(`UPDATE "basedal" SET id = 'c', type = 'z' WHERE id = 'c'; SELECT * FROM "basedal" WHERE id = 'c'`)
+        Code.expect(context.getQueryText()).to.equal('UPDATE "basedal" SET id = \'c\', type = \'z\' WHERE id = \'c\'; SELECT * FROM "basedal" WHERE id = \'c\'')
       })
     })
 
     lab.experiment('delete', () => {
-      lab.test(`successfully deletes a model`, async ({ context }) => {
+      lab.test('successfully deletes a model', async ({ context }) => {
         await BaseDal.delete('c')
-        Code.expect(context.getQueryText()).to.equal(`DELETE FROM "basedal" WHERE id = 'c'`)
+        Code.expect(context.getQueryText()).to.equal('DELETE FROM "basedal" WHERE id = \'c\'')
       })
     })
   })

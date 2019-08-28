@@ -31,10 +31,10 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
   })
 
-  lab.test(`Item data invalidates unknown field correctly`, async () => {
+  lab.test('Item data invalidates unknown field correctly', async () => {
     data.unknown = 'blah'
     const { error } = Joi.validate(data, Item.schema, { abortEarly: false })
-    Code.expect(error.toString()).to.contain(`"unknown" is not allowed`)
+    Code.expect(error.toString()).to.contain('"unknown" is not allowed')
   })
 
   lab.test('Item parameter validate correctly', async () => {

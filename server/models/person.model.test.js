@@ -34,22 +34,22 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
   })
 
-  lab.test(`Person data invalidates addressId field correctly`, async () => {
+  lab.test('Person data invalidates addressId field correctly', async () => {
     data.addressId = 'invalid guid'
     const { error } = Joi.validate(data, Person.schema, { abortEarly: false })
     Code.expect(error.toString()).to.contain(TestHelper.invalidGuidMessage('addressId'))
   })
 
-  lab.test(`Person data invalidates email field correctly`, async () => {
+  lab.test('Person data invalidates email field correctly', async () => {
     data.email = 'invalid email'
     const { error } = Joi.validate(data, Person.schema, { abortEarly: false })
     Code.expect(error.toString()).to.contain(TestHelper.invalidEmailMessage('email'))
   })
 
-  lab.test(`Person data invalidates unknown field correctly`, async () => {
+  lab.test('Person data invalidates unknown field correctly', async () => {
     data.unknown = 'blah'
     const { error } = Joi.validate(data, Person.schema, { abortEarly: false })
-    Code.expect(error.toString()).to.contain(`"unknown" is not allowed`)
+    Code.expect(error.toString()).to.contain('"unknown" is not allowed')
   })
 
   lab.test('Person parameter validate correctly', async () => {

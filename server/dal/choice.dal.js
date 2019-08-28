@@ -4,7 +4,7 @@ module.exports = class Choice extends BaseDal {
   static get table () {
     return {
       id: 'uuid default uuid_generate_v1() not null constraint choice_pk primary key',
-      groupId: `uuid constraint choice_group_id_fk references "group"`,
+      groupId: 'uuid constraint choice_group_id_fk references "group"',
       rank: 'integer default 0',
       label: 'varchar not null',
       heading: 'varchar',
