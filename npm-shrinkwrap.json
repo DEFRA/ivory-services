@@ -3127,8 +3127,8 @@
       "integrity": "sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo="
     },
     "ivory-shared": {
-      "version": "git+https://github.com/DEFRA/ivory-shared.git#cb19bec0249b9f00e66f6c898d482225dd656ccc",
-      "from": "git+https://github.com/DEFRA/ivory-shared.git#master",
+      "version": "git+https://github.com/DEFRA/ivory-shared.git#2513912d8aadffa544f3e9c9af9fb02bfeb7150b",
+      "from": "git+https://github.com/DEFRA/ivory-shared.git#2513912d8aadffa544f3e9c9af9fb02bfeb7150b",
       "requires": {
         "lodash": "^4.17.15"
       },
