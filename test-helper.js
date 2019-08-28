@@ -2,9 +2,10 @@ const sinon = require('sinon')
 const Code = require('@hapi/code')
 const Boom = require('@hapi/boom')
 const dotenv = require('dotenv')
+const { logger } = require('defra-logging-facade')
 
 // SET Environment variables before loading the config
-process.env.AIRBRAKE = false
+process.env.AIRBRAKE_ENABLED = false
 process.env.POSTGRES_ENABLED = false
 process.env.LOG_LEVEL = 'error'
 const config = require('./server/config')
@@ -304,11 +305,11 @@ module.exports = class TestHelper {
     sandbox.stub(dotenv, 'config').value(() => {})
     sandbox.stub(config, 'airbrakeEnabled').value(false)
     sandbox.stub(config, 'postgresEnabled').value(false)
-    // sandbox.stub(logger, 'debug').value(() => undefined)
-    // sandbox.stub(logger, 'info').value(() => undefined)
-    // sandbox.stub(logger, 'warn').value(() => undefined)
-    // sandbox.stub(logger, 'error').value(() => undefined)
-    // sandbox.stub(logger, 'serverError').value(() => undefined)
+    sandbox.stub(logger, 'debug').value(() => undefined)
+    sandbox.stub(logger, 'info').value(() => undefined)
+    sandbox.stub(logger, 'warn').value(() => undefined)
+    sandbox.stub(logger, 'error').value(() => undefined)
+    sandbox.stub(logger, 'serverError').value(() => undefined)
     sandbox.stub(config, 'logLevel').value('error')
   }
 

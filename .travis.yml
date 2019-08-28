@@ -16,5 +16,3 @@ addons:
   code_climate:
     repo_token: a01373c503924b20de1d91536c33d41863f8ba54c1e0c4a861adf63304a3c585
 
-env:
-  - AIRBRAKE_ENABLED=false

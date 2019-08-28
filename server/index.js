@@ -55,13 +55,6 @@ async function createServer () {
     require('./plugins/error-routes')
   ])
 
-  // // Register the database plugin only if not running in test
-  // if (config.postgresEnabled && !config.isTest) {
-  //   await server.register([
-  //     require('./plugins/hapi-postgres')
-  //   ])
-  // }
-
   if (config.isDev) {
     await server.register([
       require('blipp'),
