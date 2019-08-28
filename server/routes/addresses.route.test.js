@@ -9,8 +9,8 @@ const { emptyMessage } = TestHelper
 
 const emptyAddress = {
   postcode: '',
-  buildingNumber: '',
-  street: '',
+  addressLine1: '',
+  addressLine2: '',
   town: '',
   county: '',
   country: '',
@@ -23,8 +23,8 @@ lab.experiment(TestHelper.getFile(__filename), () => {
       id: 'a5754ea4-aee8-40d3-a0d7-e7681ed8ef3a',
       model: new Address({
         postcode: 'WA4 1AB',
-        buildingNumber: '21',
-        street: 'Jump Street',
+        addressLine1: '21',
+        addressLine2: 'Jump Street',
         town: 'Miami',
         county: 'Florida',
         country: 'United states of America',
@@ -43,7 +43,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
   routesHelper.postRequestTests({ lab, Model: Address, url: path }, () => {
     lab.test('responds with "Bad Data" when invalid data is posted', async ({ context }) => {
       const { request, server } = context
-      const message = `${emptyMessage('postcode')}. ${emptyMessage('buildingNumber')}. ${emptyMessage('street')}. ${emptyMessage('town')}. ${emptyMessage('county')}. ${emptyMessage('country')}. ${emptyMessage('uprn')}`
+      const message = `${emptyMessage('addressLine1')}. ${emptyMessage('addressLine2')}. ${emptyMessage('town')}. ${emptyMessage('county')}. ${emptyMessage('postcode')}. ${emptyMessage('country')}. ${emptyMessage('uprn')}`
       const expectedResponse = Boom.badData(message).output
       TestHelper.testResponse(await server.inject(request(emptyAddress)), expectedResponse)
     })
@@ -53,7 +53,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
   routesHelper.patchRequestTests({ lab, Model: Address, url: path }, () => {
     lab.test('responds with "Bad Data" when invalid data is patched', async ({ context }) => {
       const { mocks, request, server } = context
-      const message = `${emptyMessage('postcode')}. ${emptyMessage('buildingNumber')}. ${emptyMessage('street')}. ${emptyMessage('town')}. ${emptyMessage('county')}. ${emptyMessage('country')}. ${emptyMessage('uprn')}`
+      const message = `${emptyMessage('addressLine1')}. ${emptyMessage('addressLine2')}. ${emptyMessage('town')}. ${emptyMessage('county')}. ${emptyMessage('postcode')}. ${emptyMessage('country')}. ${emptyMessage('uprn')}`
       const expectedResponse = Boom.badData(message).output
       TestHelper.testResponse(await server.inject(request(mocks.id, emptyAddress)), expectedResponse)
     })

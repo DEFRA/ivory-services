@@ -26,7 +26,9 @@ module.exports = class BaseModel {
 
   async save () {
     logger.debug(`Saving: `, this)
-    return Dal[this.constructor.name].save(this)
+    const result = await Dal[this.constructor.name].save(this)
+    logger.debug(`Saved: `, result)
+    return result
   }
 
   async delete () {

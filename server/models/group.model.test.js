@@ -20,6 +20,8 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     data = Object.assign({}, group)
   })
 
+  TestHelper.modelTableTest(lab, Group)
+
   lab.test('Group data validates correctly', async () => {
     const { value } = Joi.validate(data, Group.schema, { abortEarly: false })
     Code.expect(value).to.equal(data)

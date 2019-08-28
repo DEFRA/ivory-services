@@ -1,5 +1,6 @@
 const Boom = require('@hapi/boom')
 const { logger } = require('defra-logging-facade')
+const { utils } = require('ivory-shared')
 const { FullRegistration, Registration, Person, Item, Address } = require('../models')
 
 function buildInData (data, payload, path) {
@@ -59,9 +60,14 @@ class Handlers {
     return registration
   }
 
-  async handlePost (request) {
+  async saveData (payload, registrationId) {
     // flatten data from payload
-    const data = buildInData({}, request.payload, 'registration')
+    const data = buildInData({}, payload, 'registration')
+
+    // Make sure the registration has it's ID if it was passed in
+    if (registrationId) {
+      data.registration.id = registrationId
+    }
 
     // sort the keys of the objects to be persisted into the order they should be saved
     const keys = Object.keys(data).sort((first, second) => first.split('.').length > second.split('.').length)
@@ -80,16 +86,20 @@ class Handlers {
           const message = `Could not find ${Model.name} with id: ${current.id}`
           logger.warn(message)
           return Boom.badData(message)
-        } else {
-          Object.assign(model, current)
         }
+        Object.assign(model, current)
+
+        // Conversion to a model object must be done without the id so that it passes validation
+        delete model.id
+        model = new Model(model)
+        model.id = current.id
       } else {
         model = new Model(current)
       }
       // Now find and add the id's of the linked records
       const linked = Object.keys(result).filter((prop) => prop.startsWith(`${key}.`) && !prop.substr(key.length + 1).includes('.'))
       linked.forEach((prop) => {
-        const id = result[prop].id
+        const id = utils.getNestedVal(result, `${prop}.id`)
         if (id) {
           const localProp = prop.split(key + '.').pop()
           model[localProp + 'Id'] = id
@@ -97,14 +107,19 @@ class Handlers {
       })
       result[key] = await model.save()
     }
+    return result
+  }
 
+  async handlePost (request) {
+    const result = await this.saveData(request.payload)
     return this.handleGetById({ params: { id: result.registration.id } })
   }
 
   async handlePatch (request) {
     const registration = await Registration.getById(request.params.id)
     if (registration) {
-      return this.handlePost(request)
+      const result = await this.saveData(request.payload, registration.id)
+      return this.handleGetById({ params: { id: result.registration.id } })
     }
     return Boom.notFound()
   }

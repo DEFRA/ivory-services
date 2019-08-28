@@ -7,8 +7,8 @@ const Address = require('../models/address.model')
 
 const address = {
   postcode: 'WA4 1AB',
-  buildingNumber: '12',
-  street: 'Tiny street',
+  addressLine1: '12',
+  addressLine2: 'Tiny street',
   town: 'Big town',
   county: 'Medium County',
   country: 'Little Britain',
@@ -21,6 +21,8 @@ lab.experiment(TestHelper.getFile(__filename), () => {
   lab.beforeEach(() => {
     data = Object.assign({}, address)
   })
+
+  TestHelper.modelTableTest(lab, Address)
 
   lab.test('Address data validates correctly', async () => {
     const { value } = Joi.validate(data, Address.schema, { abortEarly: false })

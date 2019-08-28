@@ -21,7 +21,11 @@ const schema = {
 
   // Persistence
   postgresEnabled: Joi.bool().default(true),
+  postgresUser: Joi.when('postgresEnabled', { is: true, then: Joi.string().min(6).required() }),
   postgresPassword: Joi.when('postgresEnabled', { is: true, then: Joi.string().min(6).required() }),
+  postgresDatabase: Joi.when('postgresEnabled', { is: true, then: Joi.string().min(6).required() }),
+  postgresHost: Joi.when('postgresEnabled', { is: true, then: Joi.string().min(2).required() }),
+  postgresPort: Joi.when('postgresEnabled', { is: true, then: Joi.number().required() }),
 
   // Logging
   logLevel: Joi.string().valid(ERROR, INFO, DEBUG).default(INFO),
@@ -42,6 +46,10 @@ const config = {
   // Persistence
   postgresEnabled: process.env.POSTGRES_ENABLED,
   postgresPassword: process.env.POSTGRES_PASSWORD,
+  postgresUser: process.env.POSTGRES_USER,
+  postgresDatabase: process.env.POSTGRES_DATABASE,
+  postgresHost: process.env.POSTGRES_HOST,
+  postgresPort: process.env.POSTGRES_PORT,
 
   // Logging
   logLevel: process.env.LOG_LEVEL,
