@@ -828,9 +828,9 @@
       "dev": true
     },
     "adal-node": {
-      "version": "0.2.0",
-      "resolved": "https://registry.npmjs.org/adal-node/-/adal-node-0.2.0.tgz",
-      "integrity": "sha512-DzkdOpBbOnqErw2TWT0PFA5gsKgmxIfdr/ZgL+if8+ln/tz8JAkk/MtUhH3ftnInrcJVsnR7re4UhpR+KDRnTw==",
+      "version": "0.2.1",
+      "resolved": "https://registry.npmjs.org/adal-node/-/adal-node-0.2.1.tgz",
+      "integrity": "sha512-C/oasZuTy0NIqh5wPWjG/09XaG+zS7elC8upf1ZVExt9lSRncme4Ejbx8CKYk+wsGgj609y84txtRAXQVvqApg==",
       "requires": {
         "@types/node": "^8.0.47",
         "async": "^2.6.3",
