@@ -96,11 +96,14 @@ module.exports = class BaseDal {
         ', ')}) VALUES (${values.join(', ')}) RETURNING *;`
       logger.debug(queryText, dataArray)
       const result = await this.pool.query(queryText, dataArray)
-        .catch((errors) => {
-          logger.error(errors)
-          return errors
+        .catch((error) => {
+          logger.error(error)
+          return error
         })
-      return this.dalToModel(result.rows.pop())
+      if (result.rows) {
+        return this.dalToModel(result.rows.pop())
+      }
+      throw result
     }
   }
 
