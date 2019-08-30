@@ -43,7 +43,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
   routesHelper.postRequestTests({ lab, Model: Address, url: path }, () => {
     lab.test('responds with "Bad Data" when invalid data is posted', async ({ context }) => {
       const { request, server } = context
-      const message = `${emptyMessage('addressLine1')}. ${emptyMessage('addressLine2')}. ${emptyMessage('town')}. ${emptyMessage('county')}. ${emptyMessage('postcode')}. ${emptyMessage('country')}. ${emptyMessage('uprn')}`
+      const message = `${emptyMessage('addressLine1')}. ${emptyMessage('town')}. ${emptyMessage('postcode')}. ${emptyMessage('uprn')}`
       const expectedResponse = Boom.badData(message).output
       TestHelper.testResponse(await server.inject(request(emptyAddress)), expectedResponse)
     })
@@ -53,7 +53,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
   routesHelper.patchRequestTests({ lab, Model: Address, url: path }, () => {
     lab.test('responds with "Bad Data" when invalid data is patched', async ({ context }) => {
       const { mocks, request, server } = context
-      const message = `${emptyMessage('addressLine1')}. ${emptyMessage('addressLine2')}. ${emptyMessage('town')}. ${emptyMessage('county')}. ${emptyMessage('postcode')}. ${emptyMessage('country')}. ${emptyMessage('uprn')}`
+      const message = `${emptyMessage('addressLine1')}. ${emptyMessage('town')}. ${emptyMessage('postcode')}. ${emptyMessage('uprn')}`
       const expectedResponse = Boom.badData(message).output
       TestHelper.testResponse(await server.inject(request(mocks.id, emptyAddress)), expectedResponse)
     })
