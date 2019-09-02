@@ -81,3 +81,4 @@ async function createServer () {
 }
 
 module.exports = createServer
+module.exports.startHandler = startHandler
