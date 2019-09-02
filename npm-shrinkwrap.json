@@ -232,9 +232,9 @@
       }
     },
     "@hapi/hoek": {
-      "version": "8.2.1",
-      "resolved": "https://registry.npmjs.org/@hapi/hoek/-/hoek-8.2.1.tgz",
-      "integrity": "sha512-JPiBy+oSmsq3St7XlipfN5pNA6bDJ1kpa73PrK/zR29CVClDVqy04AanM/M/qx5bSF+I61DdCfAvRrujau+zRg=="
+      "version": "8.2.2",
+      "resolved": "https://registry.npmjs.org/@hapi/hoek/-/hoek-8.2.2.tgz",
+      "integrity": "sha512-18P3VwngjNEcmvPj1mmiHLPyUPjhPAxIyJKDj4PRIY0F5ac3P0Vd0hkASPyWXHK0rfY3P9N2FoxV8ZuYaRBZ1g=="
     },
     "@hapi/inert": {
       "version": "5.2.1",
@@ -2561,7 +2561,7 @@
       "integrity": "sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo="
     },
     "ivory-shared": {
-      "version": "git+https://github.com/DEFRA/ivory-shared.git#a219415c0eb31dfe75896ba385ff826aab27c70d",
+      "version": "git+https://github.com/DEFRA/ivory-shared.git#b81be760cf04749ee4b1f1cb57709eee1798c6d4",
       "from": "git+https://github.com/DEFRA/ivory-shared.git#master",
       "requires": {
         "lodash": "^4.17.15"
@@ -2639,9 +2639,9 @@
           }
         },
         "@hapi/hoek": {
-          "version": "8.2.1",
-          "resolved": "https://registry.npmjs.org/@hapi/hoek/-/hoek-8.2.1.tgz",
-          "integrity": "sha512-JPiBy+oSmsq3St7XlipfN5pNA6bDJ1kpa73PrK/zR29CVClDVqy04AanM/M/qx5bSF+I61DdCfAvRrujau+zRg=="
+          "version": "8.2.2",
+          "resolved": "https://registry.npmjs.org/@hapi/hoek/-/hoek-8.2.2.tgz",
+          "integrity": "sha512-18P3VwngjNEcmvPj1mmiHLPyUPjhPAxIyJKDj4PRIY0F5ac3P0Vd0hkASPyWXHK0rfY3P9N2FoxV8ZuYaRBZ1g=="
         },
         "@hapi/joi": {
           "version": "15.1.1",
@@ -2655,9 +2655,9 @@
           }
         },
         "@hapi/lab": {
-          "version": "20.2.1",
-          "resolved": "https://registry.npmjs.org/@hapi/lab/-/lab-20.2.1.tgz",
-          "integrity": "sha512-PNnWs61KHNGLpJiOUZAwboV4uVf7DuTsPW7+zHhl+xI9rqKSRMiNF0HXW8Mpo1D3AdUismDwhsfXDC7zjB4grg==",
+          "version": "20.2.2",
+          "resolved": "https://registry.npmjs.org/@hapi/lab/-/lab-20.2.2.tgz",
+          "integrity": "sha512-oiRVnD8yBp/gbxPFq0YRFmVa04ep/8h61swZz/Ce3NTyqmm7SnS57jI+n0X0tUFZNgoVpw4T2GQuLofT5F3rSw==",
           "requires": {
             "@hapi/bossy": "4.x.x",
             "@hapi/eslint-config-hapi": "12.x.x",
@@ -3354,9 +3354,9 @@
           "integrity": "sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ="
         },
         "eslint": {
-          "version": "6.2.2",
-          "resolved": "https://registry.npmjs.org/eslint/-/eslint-6.2.2.tgz",
-          "integrity": "sha512-mf0elOkxHbdyGX1IJEUsNBzCDdyoUgljF3rRlgfyYh0pwGnreLc0jjD6ZuleOibjmnUWZLY2eXwSooeOgGJ2jw==",
+          "version": "6.3.0",
+          "resolved": "https://registry.npmjs.org/eslint/-/eslint-6.3.0.tgz",
+          "integrity": "sha512-ZvZTKaqDue+N8Y9g0kp6UPZtS4FSY3qARxBs7p4f0H0iof381XHduqVerFWtK8DPtKmemqbqCFENWSQgPR/Gow==",
           "requires": {
             "@babel/code-frame": "^7.0.0",
             "ajv": "^6.10.0",
@@ -7370,9 +7370,9 @@
       "integrity": "sha1-cAcEaNbSl3ylI3suUZyn0Gouo/0="
     },
     "swagger-ui-dist": {
-      "version": "3.23.6",
-      "resolved": "https://registry.npmjs.org/swagger-ui-dist/-/swagger-ui-dist-3.23.6.tgz",
-      "integrity": "sha512-fQvjwnezUed1JHNtqudePjgWUl+GuUiI9l+8i/FjAEIZugkiDV2bS0mf+lKRphBjDcifKs0gGpqswJLcOxAfbA=="
+      "version": "3.23.7",
+      "resolved": "https://registry.npmjs.org/swagger-ui-dist/-/swagger-ui-dist-3.23.7.tgz",
+      "integrity": "sha512-uU7GqkCb/mVvZgjkoiyhRoSSH3MP24IdbR4/2oZlUm17nNs0kHcpcvEPv+hi/p+eL93BAP8MOWClZcQSRNZXVg=="
     },
     "table": {
       "version": "5.4.6",
