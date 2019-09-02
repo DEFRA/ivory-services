@@ -137,4 +137,19 @@ module.exports = class BaseDal {
       })
     return result
   }
+
+  static async dropTable () {
+    const queryText = `
+      DELETE FROM "${this.tableName}";
+      DROP TABLE "${this.tableName}"
+    `
+    logger.debug(queryText)
+    const result = this.pool.query(queryText)
+      .catch((errors) => {
+        if (errors.message !== `relation "${this.tableName}" does not exist`) {
+          logger.error(errors)
+        }
+      })
+    return result
+  }
 }

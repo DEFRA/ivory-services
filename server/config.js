@@ -34,8 +34,12 @@ const schema = {
   airbrakeKey: Joi.when('airbrakeEnabled', { is: true, then: Joi.string().min(32).required() }),
   airbrakeLogLevel: Joi.string().valid(ERROR, INFO, DEBUG).default(INFO),
 
-  // Reference data
-  loadReferenceData: Joi.bool().default(false)
+  // Initialise database
+  dropCreateAndInitialiseDatabase: Joi.when('env', {
+    is: PRODUCTION,
+    then: Joi.forbidden(),
+    otherwise: Joi.bool().valid(true, false).default(false)
+  })
 }
 
 // Build the config
@@ -58,8 +62,8 @@ const config = {
   airbrakeKey: process.env.AIRBRAKE_PROJECT_KEY,
   airbrakeLogLevel: process.env.AIRBRAKE_LOG_LEVEL,
 
-  // Reference data
-  loadReferenceData: process.env.LOAD_REFERENCE_DATA
+  // Initialise database
+  dropCreateAndInitialiseDatabase: process.env.DROP_CREATE_AND_INITIALISE_DATABASE
 }
 
 // Validate the config

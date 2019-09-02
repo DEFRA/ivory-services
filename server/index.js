@@ -19,13 +19,23 @@ async function startHandler (server) {
   logger.info('Ivory service is starting...')
   logger.info(`Log level: ${config.logLevel}`)
 
-  if (config.loadReferenceData) {
-    await Group.createTable()
-    await Choice.createTable()
-    await Address.createTable()
-    await Person.createTable()
-    await Item.createTable()
-    await Registration.createTable()
+  if (config.dropCreateAndInitialiseDatabase) {
+    await Registration.dropTable()
+    await Item.dropTable()
+    await Choice.dropTable()
+    await Group.dropTable()
+    await Person.dropTable()
+    await Address.dropTable()
+  }
+
+  await Group.createTable()
+  await Choice.createTable()
+  await Address.createTable()
+  await Person.createTable()
+  await Item.createTable()
+  await Registration.createTable()
+
+  if (config.dropCreateAndInitialiseDatabase) {
     await loadReferenceData()
   }
 
@@ -71,3 +81,4 @@ async function createServer () {
 }
 
 module.exports = createServer
+module.exports.startHandler = startHandler
