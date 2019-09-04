@@ -4,11 +4,11 @@ module.exports = class Address extends BaseDal {
   static get table () {
     return {
       id: 'uuid default uuid_generate_v1() not null constraint address_pk primary key',
-      addressLine1: 'varchar not null',
+      addressLine1: 'varchar',
       addressLine2: 'varchar',
-      town: 'varchar not null',
+      town: 'varchar',
       county: 'varchar',
-      postcode: 'varchar not null',
+      postcode: 'varchar',
       country: 'varchar',
       uprn: 'varchar'
     }
