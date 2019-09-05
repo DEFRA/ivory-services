@@ -4,7 +4,7 @@ module.exports = class Person extends BaseDal {
   static get table () {
     return {
       id: 'uuid default uuid_generate_v1() not null constraint person_pk primary key',
-      fullName: 'varchar not null',
+      fullName: 'varchar',
       email: 'varchar',
       addressId: 'uuid constraint person_address_id_fk references address'
     }
