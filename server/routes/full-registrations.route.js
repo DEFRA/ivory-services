@@ -99,7 +99,7 @@ class Handlers {
       // Now find and add the id's of the linked records
       const linked = Object.keys(result).filter((prop) => prop.startsWith(`${key}.`) && !prop.substr(key.length + 1).includes('.'))
       linked.forEach((prop) => {
-        const id = utils.getNestedVal(result, `${prop}.id`)
+        const id = utils.getNestedVal(result[prop], 'id')
         if (id) {
           const localProp = prop.split(key + '.').pop()
           model[localProp + 'Id'] = id

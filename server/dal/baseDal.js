@@ -141,7 +141,7 @@ module.exports = class BaseDal {
   static async dropTable () {
     const queryText = `
       DELETE FROM "${this.tableName}";
-      DROP TABLE "${this.tableName}"
+      DROP TABLE "${this.tableName}";
     `
     logger.debug(queryText)
     const result = this.pool.query(queryText)
