@@ -17,7 +17,7 @@ module.exports = class BaseModel {
   }
 
   static async getAll (query) {
-    return Dal[this.name].findAll(query)
+    return await Dal[this.name].findAll(query) || []
   }
 
   static async getById (id) {

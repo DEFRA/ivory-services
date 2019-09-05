@@ -24,16 +24,18 @@ module.exports = class BaseDal {
     if (Array.isArray(data)) {
       return data.map((row) => this.dalToModel(row))
     }
-    const props = Object.keys(this.table)
-    const cols = props.map((prop) => prop.toLowerCase())
-    const model = {}
-    Object.entries(data).forEach(([col, val]) => {
-      if (val !== null) {
-        const pos = cols.indexOf(col)
-        model[props[pos]] = val
-      }
-    })
-    return model
+    if (typeof data === 'object') {
+      const props = Object.keys(this.table)
+      const cols = props.map((prop) => prop.toLowerCase())
+      const model = {}
+      Object.entries(data).forEach(([col, val]) => {
+        if (val !== null) {
+          const pos = cols.indexOf(col)
+          model[props[pos]] = val
+        }
+      })
+      return model
+    }
   }
 
   static async findAll (query) {
@@ -44,23 +46,28 @@ module.exports = class BaseDal {
       .join(' AND ') : ''
     const queryText = `SELECT * FROM "${this.tableName}" ${where}`
     logger.debug(queryText)
-    const { rows } = await this.pool.query(queryText)
+    const result = await this.pool.query(queryText)
       .catch((errors) => {
         logger.error(errors)
         return errors
       })
-    return this.dalToModel(rows)
+    if (result.rowCount) {
+      return this.dalToModel(result.rows)
+    }
   }
 
   static async find (id) {
     const queryText = `SELECT * FROM "${this.tableName}" WHERE id = '${id}'`
     logger.debug(queryText)
-    const { rows } = await this.pool.query(queryText)
+    const result = await this.pool.query(queryText)
       .catch((errors) => {
         logger.error(errors)
         return errors
       })
-    return this.dalToModel(rows.pop())
+    if (result.rows) {
+      return this.dalToModel(result.rows.pop())
+    }
+    throw result
   }
 
   static async save (data) {
@@ -110,12 +117,10 @@ module.exports = class BaseDal {
   static async delete (id) {
     const queryText = `DELETE FROM "${this.tableName}" WHERE id = '${id}'`
     logger.debug(queryText)
-    const result = await this.pool.query(queryText)
-      .catch((errors) => {
-        logger.error(errors)
-        return errors
-      })
-    return result
+    return this.pool.query(queryText).catch((errors) => {
+      logger.error(errors)
+      return errors
+    })
   }
 
   static get tableName () {
@@ -131,11 +136,10 @@ module.exports = class BaseDal {
       ALTER TABLE "${this.tableName}" OWNER TO ${config.postgresUser};
     `
     logger.debug(queryText)
-    const result = this.pool.query(queryText)
+    return this.pool.query(queryText)
       .catch((errors) => {
         logger.error(errors)
       })
-    return result
   }
 
   static async dropTable () {
@@ -144,12 +148,11 @@ module.exports = class BaseDal {
       DROP TABLE "${this.tableName}";
     `
     logger.debug(queryText)
-    const result = this.pool.query(queryText)
+    return this.pool.query(queryText)
       .catch((errors) => {
         if (errors.message !== `relation "${this.tableName}" does not exist`) {
           logger.error(errors)
         }
       })
-    return result
   }
 }

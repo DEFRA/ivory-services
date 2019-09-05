@@ -5,19 +5,23 @@ const groups = Object.entries(require('../reference-data')).map(([prop, data]) =
   return data
 })
 
-async function load (Model, data) {
-  const model = new Model(data)
-  return model.save()
-}
-
-async function loadReferenceData (uri) {
+async function loadReferenceData () {
   return Promise.all(groups.map(async (groupData) => {
     const { type, title, choices, hint } = groupData
-    const group = await load(Group, { type, title, hint })
+    const result = await Group.getAll({ type })
+    const group = new Group(result.length ? result.pop() : { type })
+    if (title !== undefined) group.title = title
+    if (hint !== undefined) group.hint = hint
+    const { id: groupId } = await group.save()
 
-    const { id: groupId } = group
-
-    return Promise.all(choices.map(async ({ label, shortName, hint, value }, rank) => load(Choice, { label, shortName, groupId, rank, hint, value })))
+    return Promise.all(choices.map(async ({ label, shortName, hint, value }, rank) => {
+      const result = await Choice.getAll({ shortName })
+      const choice = new Choice(result.length ? result.pop() : { shortName, rank, groupId })
+      if (label !== undefined) choice.label = label
+      if (hint !== undefined) choice.hint = hint
+      if (value !== undefined) choice.value = value
+      await choice.save()
+    }))
   }))
 }
 

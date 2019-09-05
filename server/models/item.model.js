@@ -11,6 +11,7 @@ module.exports = class Item extends BaseModel {
 
   static get schema () {
     return {
+      id: Joi.string().guid().allow(null).optional().example(uuid()),
       description: Joi.string()
     }
   }

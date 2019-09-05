@@ -5,6 +5,7 @@ module.exports.Pool = class Pool {
 
   async query () {
     return {
+      rowCount: 0,
       rows: []
     }
   }

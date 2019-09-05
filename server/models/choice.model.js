@@ -11,6 +11,7 @@ module.exports = class Choice extends BaseModel {
 
   static get schema () {
     return {
+      id: Joi.string().guid().allow(null).optional().example(uuid()),
       groupId: Joi.string().guid().example(uuid()),
       rank: Joi.number().example(10),
       label: Joi.string().example('label'),

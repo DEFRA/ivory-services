@@ -8,7 +8,8 @@ module.exports = class Registration extends BaseDal {
       agentId: 'uuid constraint registration_person_id_fk_2 references person',
       itemId: 'uuid constraint registration_item_id_fk references item',
       agentActingAs: 'varchar',
-      agentIsOwner: 'boolean default true'
+      agentIsOwner: 'boolean default true',
+      dealingIntent: 'varchar'
     }
   }
 }
