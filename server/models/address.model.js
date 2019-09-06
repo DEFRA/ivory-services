@@ -11,6 +11,7 @@ module.exports = class Address extends BaseModel {
 
   static get schema () {
     return {
+      id: Joi.string().guid().allow(null).optional().example(uuid()),
       addressLine1: Joi.string(),
       addressLine2: Joi.string().allow(null, '').optional(),
       town: Joi.string(),

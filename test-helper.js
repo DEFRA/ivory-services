@@ -75,7 +75,7 @@ module.exports = class TestHelper {
       const paramsKeys = Object.keys(Model.params)
       Code.expect(tableKeys).includes(paramsKeys)
       Code.expect(tableKeys).includes(schemaKeys)
-      Code.expect(tableKeys.length).to.equal(schemaKeys.length + paramsKeys.length)
+      Code.expect(tableKeys.length).to.equal(schemaKeys.length)
     })
   }
 

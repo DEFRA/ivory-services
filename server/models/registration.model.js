@@ -11,11 +11,13 @@ module.exports = class Registration extends BaseModel {
 
   static get schema () {
     return {
+      id: Joi.string().guid().allow(null).optional().example(uuid()),
       itemId: Joi.string().guid().example(uuid()),
       ownerId: Joi.string().guid().example(uuid()),
       agentId: Joi.string().guid().example(uuid()),
       agentActingAs: Joi.string(),
-      agentIsOwner: Joi.bool().default(true)
+      agentIsOwner: Joi.bool().default(true),
+      dealingIntent: Joi.string()
     }
   }
 }

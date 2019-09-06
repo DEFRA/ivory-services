@@ -35,9 +35,7 @@ async function startHandler (server) {
   await Item.createTable()
   await Registration.createTable()
 
-  if (config.dropCreateAndInitialiseDatabase) {
-    await loadReferenceData()
-  }
+  await loadReferenceData()
 
   // listen on SIGTERM signal and gracefully stop the server
   process.on('SIGTERM', function () {
