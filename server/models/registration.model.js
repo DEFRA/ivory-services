@@ -17,7 +17,8 @@ module.exports = class Registration extends BaseModel {
       agentId: Joi.string().guid().example(uuid()),
       agentActingAs: Joi.string(),
       agentIsOwner: Joi.bool().default(true),
-      dealingIntent: Joi.string()
+      dealingIntent: Joi.string(),
+      itemType: Joi.string()
     }
   }
 }
