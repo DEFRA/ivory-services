@@ -7,6 +7,7 @@ module.exports = class Registration extends BaseDal {
       ownerId: 'uuid constraint registration_person_id_fk references person',
       agentId: 'uuid constraint registration_person_id_fk_2 references person',
       itemId: 'uuid constraint registration_item_id_fk references item',
+      registrationNumber: 'varchar',
       agentActingAs: 'varchar',
       agentIsOwner: 'boolean default true',
       dealingIntent: 'varchar',
