@@ -25,8 +25,15 @@ function getModel (type) {
 }
 
 class Handlers {
-  async handleGetById (request) {
-    const registration = await Registration.getById(request.params.id)
+  async handleGet (request) {
+    const registrations = await Registration.getAll(request.query)
+    return Promise.all(registrations.map(({ id }) => {
+      return this.handleGetById(request, id)
+    }))
+  }
+
+  async handleGetById (request, id = request.params.id) {
+    const registration = await Registration.getById(id)
     if (!registration) {
       return Boom.notFound()
     }
@@ -135,13 +142,33 @@ class Handlers {
   }
 
   routes ({ path, params, schema }) {
+    const handleGet = this.handleGet.bind(this)
     const handleGetById = this.handleGetById.bind(this)
     const handlePost = this.handlePost.bind(this)
     const handlePatch = this.handlePatch.bind(this)
     const handleError = this.handleError.bind(this)
 
+    const query = {}
+    Object.entries(schema).forEach(([prop, val]) => {
+      if (val._type !== 'object') {
+        query[prop] = val
+      }
+    })
+
     return [
       {
+        method: 'GET',
+        path,
+        handler: handleGet,
+        options: {
+          tags: ['api'],
+          security: true,
+          validate: {
+            query,
+            failAction: handleError
+          }
+        }
+      }, {
         method: 'GET',
         path: `${path}/{id}`,
         handler: handleGetById,
