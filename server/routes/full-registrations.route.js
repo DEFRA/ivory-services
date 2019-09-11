@@ -25,14 +25,7 @@ function getModel (type) {
 }
 
 class Handlers {
-  async handleGet (request) {
-    const registrations = await Registration.getAll(request.query)
-    return Promise.all(registrations.map(({ id }) => {
-      return this.handleGetById(request, id)
-    }))
-  }
-
-  async handleGetById (request, id = request.params.id) {
+  async getData (id) {
     const registration = await Registration.getById(id)
     if (!registration) {
       return Boom.notFound()
@@ -65,6 +58,17 @@ class Handlers {
     }
 
     return registration
+  }
+
+  async handleGet (request) {
+    const registrations = await Registration.getAll(request.query)
+    return Promise.all(registrations.map(({ id }) => {
+      return this.getData(id)
+    }))
+  }
+
+  async handleGetById (request) {
+    return this.getData(request.params.id)
   }
 
   async saveData (payload, registrationId) {
