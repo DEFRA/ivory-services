@@ -41,7 +41,8 @@ module.exports = class BaseDal {
   static async findAll (query) {
     const where = !isEmpty(query) ? 'WHERE ' + Object.entries(query)
       .map(([col, val]) => {
-        return `${col.toLowerCase()} = ${this.table[col].includes('varchar') ? `'${val}'` : val}`
+        const def = this.table[col]
+        return `${col.toLowerCase()} = ${def.includes('varchar') || def.includes('uuid') ? `'${val}'` : val}`
       })
       .join(' AND ') : ''
     const queryText = `SELECT * FROM "${this.tableName}" ${where}`
