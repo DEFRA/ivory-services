@@ -32,12 +32,12 @@
     "@hapi/good": "^8.2.2",
     "@hapi/good-console": "^8.1.2",
     "@hapi/good-squeeze": "^5.2.1",
-    "@hapi/hapi": "^18.3.2",
+    "@hapi/hapi": "^18.4.0",
     "@hapi/inert": "^5.2.2",
     "@hapi/joi": "^15.1.1",
     "@hapi/vision": "^5.5.4",
     "adal-node": "^0.2.1",
-    "blipp": "^4.0.0",
+    "blipp": "^4.0.1",
     "cross-fetch": "^3.0.4",
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#master",
     "dotenv": "^8.1.0",
@@ -60,7 +60,7 @@
     "eslint-utils": "^1.4.2",
     "node-sass": "4.12.0",
     "sinon": "^7.4.2",
-    "standard": "14.2.0",
+    "standard": "14.3.0",
     "supertest": "^4.0.2"
   }
 }
