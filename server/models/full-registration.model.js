@@ -1,30 +1,22 @@
+
 const Joi = require('@hapi/joi')
 const BaseModel = require('./baseModel')
 
 const { cloneAndMerge } = require('ivory-shared').utils
-const Registration = require('./registration.model')
-const Address = require('./address.model')
-const Item = require('./item.model')
-const Person = require('./person.model')
+const { params, schema } = require('./registration.model')
 
-const addressSchema = cloneAndMerge(Address.schema, Address.params)
-const address = Joi.object(addressSchema).label('Full-Address')
+const address = Joi.object(require('./address.model').schema).label('Person-Address')
+const item = Joi.object(require('./item.model').schema).label('Registration-Item')
+const person = Joi.object(cloneAndMerge(require('./person.model').schema, { address, addressId: null })).label('Registration-Person')
 
-const personSchema = cloneAndMerge(Person.schema, Person.params, { address, addressId: null })
-const agent = Joi.object(personSchema).label('Full-Person')
-const owner = Joi.object(personSchema).label('Full-Person')
-
-const itemSchema = cloneAndMerge(Item.schema, Item.params)
-const item = Joi.object(itemSchema).label('Full-Item')
-
-const registrationSchema = cloneAndMerge(Registration.schema, { owner, agent, item, ownerId: null, agentId: null, itemId: null })
+const fullRegistration = cloneAndMerge(schema, { owner: person, agent: person, item, ownerId: null, agentId: null, itemId: null })
 
 module.exports = class FullRegistration extends BaseModel {
   static get params () {
-    return Registration.params
+    return params
   }
 
   static get schema () {
-    return registrationSchema
+    return fullRegistration
   }
 }
