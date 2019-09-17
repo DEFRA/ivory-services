@@ -1,4 +1,5 @@
 const Boom = require('@hapi/boom')
+const Joi = require('@hapi/joi')
 const { logger } = require('defra-logging-facade')
 const { utils } = require('ivory-shared')
 const { FullRegistration, Registration, Person, Item, Address } = require('../models')
@@ -152,12 +153,7 @@ class Handlers {
     const handlePatch = this.handlePatch.bind(this)
     const handleError = this.handleError.bind(this)
 
-    const query = {}
-    Object.entries(schema).forEach(([prop, val]) => {
-      if (val._type !== 'object') {
-        query[prop] = val
-      }
-    })
+    const query = utils.cloneAndMerge(Registration.schema, { ownerId: null, agentId: null, itemId: null })
 
     return [
       {
@@ -225,5 +221,5 @@ const handlers = new Handlers()
 module.exports = handlers.routes({
   path: '/full-registrations',
   params: FullRegistration.params,
-  schema: FullRegistration.schema
+  schema: Joi.object(FullRegistration.schema).label('Full-Registration')
 })
