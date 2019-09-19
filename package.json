@@ -46,7 +46,7 @@
     "govuk-frontend": "2.13.0",
     "hapi-robots": "^3.2.0",
     "hapi-router": "^5.0.0",
-    "hapi-swagger": "^10.1.1",
+    "hapi-swagger": "^10.1.2",
     "ivory-shared": "git+https://github.com/DEFRA/ivory-shared.git#master",
     "lodash.camelcase": "^4.3.0",
     "lodash.clonedeep": "^4.5.0",
@@ -60,7 +60,7 @@
     "eslint-utils": "^1.4.2",
     "node-sass": "4.12.0",
     "sinon": "^7.4.2",
-    "standard": "14.3.0",
+    "standard": "14.3.1",
     "supertest": "^4.0.2"
   }
 }
