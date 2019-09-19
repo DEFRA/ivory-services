@@ -26,6 +26,15 @@ function getModel (type) {
 }
 
 class Handlers {
+  async getPerson (id) {
+    const person = await Person.getById(id)
+    if (person.addressId) {
+      person.address = await Address.getById(person.addressId)
+      delete person.addressId
+    }
+    return person
+  }
+
   async getData (id) {
     const registration = await Registration.getById(id)
     if (!registration) {
@@ -34,23 +43,13 @@ class Handlers {
     const { ownerId, agentId, itemId } = registration
 
     if (ownerId) {
-      const owner = await Person.getById(ownerId)
+      registration.owner = await this.getPerson(ownerId)
       delete registration.ownerId
-      if (owner.addressId) {
-        owner.address = await Address.getById(owner.addressId)
-        delete owner.addressId
-      }
-      registration.owner = owner
     }
 
     if (agentId) {
-      const agent = await Person.getById(agentId)
+      registration.agent = await this.getPerson(agentId)
       delete registration.agentId
-      if (agent.addressId) {
-        agent.address = await Address.getById(agent.addressId)
-        delete agent.addressId
-      }
-      registration.agent = agent
     }
 
     if (itemId) {
