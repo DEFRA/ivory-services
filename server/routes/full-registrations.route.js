@@ -2,7 +2,7 @@ const Boom = require('@hapi/boom')
 const Joi = require('@hapi/joi')
 const { logger } = require('defra-logging-facade')
 const { utils } = require('ivory-shared')
-const { FullRegistration, Registration, Person, Item, Address } = require('../models')
+const { FullRegistration, Registration, Person, Item, Payment, Address } = require('../models')
 
 function buildInData (data, payload, path) {
   data[path] = payload
@@ -19,6 +19,7 @@ function getModel (type) {
   switch (type) {
     case 'address': return Address
     case 'item': return Item
+    case 'payment': return Payment
     case 'owner':
     case 'agent': return Person
     case 'registration': return Registration
@@ -40,7 +41,7 @@ class Handlers {
     if (!registration) {
       return Boom.notFound()
     }
-    const { ownerId, agentId, itemId } = registration
+    const { ownerId, agentId, itemId, paymentId } = registration
 
     if (ownerId) {
       registration.owner = await this.getPerson(ownerId)
@@ -55,6 +56,11 @@ class Handlers {
     if (itemId) {
       registration.item = await Item.getById(registration.itemId)
       delete registration.itemId
+    }
+
+    if (paymentId) {
+      registration.payment = await Payment.getById(registration.paymentId)
+      delete registration.paymentId
     }
 
     return registration

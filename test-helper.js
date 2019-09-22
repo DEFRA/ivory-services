@@ -329,6 +329,10 @@ module.exports = class TestHelper {
     return `child "${prop}" fails because ["${prop}" must be a number]`
   }
 
+  static invalidTimestampMessage (prop) {
+    return `child "${prop}" fails because ["${prop}" must be a valid timestamp or number of milliseconds]`
+  }
+
   static invalidStringMessage (prop) {
     return `child "${prop}" fails because ["${prop}" must be a string]`
   }
