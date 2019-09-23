@@ -2,7 +2,7 @@ const Hapi = require('@hapi/hapi')
 const config = require('./config')
 const { logger } = require('defra-logging-facade')
 const loadReferenceData = require('../reference-data/loadReferenceData')
-const { Choice, Group, Address, Person, Item, Registration } = require('./dal')
+const { Choice, Group, Address, Person, Item, Payment, Registration } = require('./dal')
 
 const serverOptions = {
   port: config.port,
@@ -26,6 +26,7 @@ async function startHandler (server) {
     await Group.dropTable()
     await Person.dropTable()
     await Address.dropTable()
+    await Payment.dropTable()
   }
 
   await Group.createTable()
@@ -33,6 +34,7 @@ async function startHandler (server) {
   await Address.createTable()
   await Person.createTable()
   await Item.createTable()
+  await Payment.createTable()
   await Registration.createTable()
 
   await loadReferenceData()

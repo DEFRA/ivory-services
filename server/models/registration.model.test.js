@@ -10,6 +10,7 @@ const registration = {
   itemId: uuid(),
   ownerId: uuid(),
   agentId: uuid(),
+  paymentId: uuid(),
   agentActingAs: 'Agent acting as',
   agentIsOwner: true
 }
