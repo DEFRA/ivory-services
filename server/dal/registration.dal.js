@@ -12,7 +12,6 @@ module.exports = class Registration extends BaseDal {
       agentActingAs: 'varchar',
       agentIsOwner: 'boolean default true',
       dealingIntent: 'varchar',
-      itemType: 'varchar',
       status: 'varchar'
     }
   }

@@ -13,7 +13,9 @@ const choice = {
   heading: 'Choice heading',
   shortName: 'Choice shortname',
   hint: 'Choice hint',
-  value: true
+  value: true,
+  ageExemptionDeclaration: 'ageExemptionDeclaration',
+  volumeExemptionDeclaration: 'volumeExemptionDeclaration'
 }
 
 lab.experiment(TestHelper.getFile(__filename), () => {

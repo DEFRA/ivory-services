@@ -7,7 +7,7 @@ const { FullRegistration, Registration, Person, Item, Payment, Address } = requi
 function buildInData (data, payload, path) {
   data[path] = payload
   Object.entries(payload).forEach(([prop, val]) => {
-    if (typeof val === 'object') {
+    if (val !== null && typeof val === 'object') {
       buildInData(data, val, `${path}.${prop}`)
       delete payload[prop]
     }
