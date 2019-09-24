@@ -16,7 +16,7 @@ module.exports = class Group extends BaseModel {
       title: Joi.string().example('pageHeading'),
       description: Joi.string().example('description'),
       hint: Joi.string().example('hint'),
-      multiple: Joi.bool().default(false)
+      multiple: Joi.bool()
     }
   }
 }
