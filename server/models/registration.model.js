@@ -20,7 +20,8 @@ module.exports = class Registration extends BaseModel {
       agentActingAs: Joi.string(),
       agentIsOwner: Joi.bool().example(true),
       dealingIntent: Joi.string(),
-      itemType: Joi.string()
+      itemType: Joi.string(),
+      status: Joi.string().default('draft')
     }
   }
 }
