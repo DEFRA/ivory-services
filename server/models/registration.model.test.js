@@ -12,7 +12,8 @@ const registration = {
   agentId: uuid(),
   paymentId: uuid(),
   agentActingAs: 'Agent acting as',
-  agentIsOwner: true
+  agentIsOwner: true,
+  status: 'draft'
 }
 
 lab.experiment(TestHelper.getFile(__filename), () => {
