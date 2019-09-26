@@ -1440,9 +1440,9 @@
       }
     },
     "end-of-stream": {
-      "version": "1.4.4",
-      "resolved": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.4.tgz",
-      "integrity": "sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==",
+      "version": "1.4.3",
+      "resolved": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.3.tgz",
+      "integrity": "sha512-cbNhPFS6MlYlWTGncSiDYbdqKhwWFy7kNeb1YSOG6K65i/wPTkLVCJQj0hXA4j0m5Da+hBWnqopEnu1FFelisQ==",
       "requires": {
         "once": "^1.4.0"
       }
@@ -2244,9 +2244,9 @@
       "dev": true
     },
     "handlebars": {
-      "version": "4.3.1",
-      "resolved": "https://registry.npmjs.org/handlebars/-/handlebars-4.3.1.tgz",
-      "integrity": "sha512-c0HoNHzDiHpBt4Kqe99N8tdLPKAnGCQ73gYMPWtAYM4PwGnf7xl8PBUHJqh9ijlzt2uQKaSRxbXRt+rZ7M2/kA==",
+      "version": "4.3.0",
+      "resolved": "https://registry.npmjs.org/handlebars/-/handlebars-4.3.0.tgz",
+      "integrity": "sha512-7XlnO8yBXOdi7AzowjZssQr47Ctidqm7GbgARapOaqSN9HQhlClnOkR9HieGauIT3A8MBC6u9wPCXs97PCYpWg==",
       "requires": {
         "neo-async": "^2.6.0",
         "optimist": "^0.6.1",
@@ -2616,9 +2616,9 @@
           "integrity": "sha512-O4QDrx+JoGKZc6aN64L04vqa7e41tIiLU+OvKdcYaEMP97UttL0f9GIi9/0A4WAMx0uBd6SidDIhktZhgOcN8Q=="
         },
         "@hapi/boom": {
-          "version": "7.4.10",
-          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.10.tgz",
-          "integrity": "sha512-QCeJhQTtY8U3N5H8IO/PMp6sMSCW0189ylquqfHX9PJkxSHvqKAgNzKvg5APjOKK1dcK8obTeg/UICkb3b3fXw==",
+          "version": "7.4.9",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.9.tgz",
+          "integrity": "sha512-grHr7kbkvgN8UBht1dFoNYj7XMcozYC/tDJ+W7NVnLha4ZsU9UQvjwm24Qhbdrr3+o+mRfxvHBLFGBAJvkz4XQ==",
           "requires": {
             "@hapi/hoek": "8.x.x"
           }
@@ -2846,14 +2846,14 @@
           "integrity": "sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA=="
         },
         "@types/node": {
-          "version": "12.7.8",
-          "resolved": "https://registry.npmjs.org/@types/node/-/node-12.7.8.tgz",
-          "integrity": "sha512-FMdVn84tJJdV+xe+53sYiZS4R5yn1mAIxfj+DVoNiQjTYz1+OYmjwEZr1ev9nU0axXwda0QDbYl06QHanRVH3A=="
+          "version": "12.7.5",
+          "resolved": "https://registry.npmjs.org/@types/node/-/node-12.7.5.tgz",
+          "integrity": "sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w=="
         },
         "acorn": {
-          "version": "7.1.0",
-          "resolved": "https://registry.npmjs.org/acorn/-/acorn-7.1.0.tgz",
-          "integrity": "sha512-kL5CuoXA/dgxlBbVrflsflzQ3PAas7RYZB52NOm/6839iVYJgKMJ3cQJD+t2i5+qFa8h3MDpEOJiS64E8JLnSQ=="
+          "version": "7.0.0",
+          "resolved": "https://registry.npmjs.org/acorn/-/acorn-7.0.0.tgz",
+          "integrity": "sha512-PaF/MduxijYYt7unVGRuds1vBC9bFxbNf+VWqhOClfdgy7RlVkQqt610ig1/yxTgsDIfW1cWDel5EBbOy3jdtQ=="
         },
         "acorn-jsx": {
           "version": "5.0.2",
@@ -3848,9 +3848,9 @@
           "integrity": "sha1-TK+tdrxi8C+gObL5Tpo906ORpyU="
         },
         "handlebars": {
-          "version": "4.3.1",
-          "resolved": "https://registry.npmjs.org/handlebars/-/handlebars-4.3.1.tgz",
-          "integrity": "sha512-c0HoNHzDiHpBt4Kqe99N8tdLPKAnGCQ73gYMPWtAYM4PwGnf7xl8PBUHJqh9ijlzt2uQKaSRxbXRt+rZ7M2/kA==",
+          "version": "4.2.1",
+          "resolved": "https://registry.npmjs.org/handlebars/-/handlebars-4.2.1.tgz",
+          "integrity": "sha512-bqPIlDk06UWbVEIFoYj+LVo42WhK96J+b25l7hbFDpxrOXMphFM3fNIm+cluwg4Pk2jiLjWU5nHQY7igGE75NQ==",
           "requires": {
             "neo-async": "^2.6.0",
             "optimist": "^0.6.1",
@@ -5643,9 +5643,9 @@
       "dev": true
     },
     "mime-db": {
-      "version": "1.42.0",
-      "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.42.0.tgz",
-      "integrity": "sha512-UbfJCR4UAVRNgMpfImz05smAXK7+c+ZntjaA26ANtkXLlOe947Aag5zdIcKQULAiF9Cq4WxBi9jUs5zkA84bYQ=="
+      "version": "1.41.0",
+      "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.41.0.tgz",
+      "integrity": "sha512-B5gxBI+2K431XW8C2rcc/lhppbuji67nf9v39eH8pkWoZDxnAL0PxdpH32KYRScniF8qDHBDlI+ipgg5WrCUYw=="
     },
     "mime-types": {
       "version": "2.1.24",
