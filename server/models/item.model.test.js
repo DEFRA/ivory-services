@@ -6,7 +6,12 @@ const TestHelper = require('../../test-helper')
 const Item = require('../models/item.model')
 
 const item = {
-  description: 'item description'
+  description: 'item description',
+  itemType: 'item-type',
+  ageExemptionDeclaration: true,
+  ageExemptionDescription: 'age exemption',
+  volumeExemptionDeclaration: true,
+  volumeExemptionDescription: 'volume exemption'
 }
 
 lab.experiment(TestHelper.getFile(__filename), () => {
@@ -25,9 +30,15 @@ lab.experiment(TestHelper.getFile(__filename), () => {
 
   Object.keys(item).forEach((field) => {
     lab.test(`Item data invalidates ${field} correctly`, async () => {
-      data[field] = false
+      let val = false
+      let testError = TestHelper.invalidStringMessage(field)
+      if (field.endsWith('Declaration')) {
+        val = 'invalid-data'
+        testError = TestHelper.invalidBooleanMessage(field)
+      }
+      data[field] = val
       const { error } = Joi.validate(data, Item.schema, { abortEarly: false })
-      Code.expect(error.toString()).to.contain(TestHelper.invalidStringMessage(field))
+      Code.expect(error.toString()).to.contain(testError)
     })
   })
 

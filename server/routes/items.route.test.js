@@ -12,7 +12,12 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     mocks: {
       id: 'a5754ea4-aee8-40d3-a0d7-e7681ed8ef3a',
       model: new Item({
-        description: 'A description of the item containing ivory'
+        description: 'A description of the item containing ivory',
+        itemType: 'item-type',
+        ageExemptionDeclaration: true,
+        ageExemptionDescription: 'age exemption',
+        volumeExemptionDeclaration: true,
+        volumeExemptionDescription: 'volume exemption'
       })
     }
   })

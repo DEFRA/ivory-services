@@ -24,7 +24,7 @@ module.exports = class BaseDal {
     if (Array.isArray(data)) {
       return data.map((row) => this.dalToModel(row))
     }
-    if (typeof data === 'object') {
+    if (data !== null && typeof data === 'object') {
       const props = Object.keys(this.table)
       const cols = props.map((prop) => prop.toLowerCase())
       const model = {}
@@ -74,7 +74,7 @@ module.exports = class BaseDal {
   static async save (data) {
     if (data.id) {
       const setArray = Object.entries(data).map(([col, val]) => {
-        return `${col.toLowerCase()} = '${val}'`
+        return `${col.toLowerCase()} = ${val === null ? null : `'${val}'`}`
       }).join(', ')
       const queryText = `UPDATE "${this.tableName}" SET ${setArray} WHERE id = '${data.id}'`
       logger.debug(queryText)

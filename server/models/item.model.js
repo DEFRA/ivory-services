@@ -12,7 +12,12 @@ module.exports = class Item extends BaseModel {
   static get schema () {
     return {
       id: Joi.string().guid().allow(null).optional().example(uuid()),
-      description: Joi.string()
+      itemType: Joi.string().allow(null),
+      description: Joi.string().allow(null),
+      ageExemptionDeclaration: Joi.bool().allow(null).example(false),
+      ageExemptionDescription: Joi.string().allow(null),
+      volumeExemptionDeclaration: Joi.bool().allow(null).example(false),
+      volumeExemptionDescription: Joi.string().allow(null)
     }
   }
 }
