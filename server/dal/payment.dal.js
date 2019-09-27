@@ -9,6 +9,8 @@ module.exports = class Payment extends BaseDal {
       description: 'varchar',
       reference: 'varchar',
       status: 'varchar',
+      code: 'varchar',
+      message: 'varchar',
       amount: 'integer',
       createdDate: 'timestamptz'
     }
