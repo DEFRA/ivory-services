@@ -17,6 +17,8 @@ module.exports = class Payment extends BaseModel {
       description: Joi.string(),
       reference: Joi.string(),
       status: Joi.string(),
+      code: Joi.string(),
+      message: Joi.string(),
       amount: Joi.number(),
       createdDate: Joi.string()
     }
