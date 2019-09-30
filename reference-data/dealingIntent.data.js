@@ -2,11 +2,13 @@ module.exports = {
   choices: [
     {
       label: 'Sell it',
-      shortName: 'sell'
+      shortName: 'sell',
+      display: 'Sale'
     },
     {
       label: 'Hire it out',
-      shortName: 'hire'
+      shortName: 'hire',
+      display: 'Hire'
     }
   ]
 }

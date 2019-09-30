@@ -9,6 +9,7 @@ module.exports = class Choice extends BaseDal {
       label: 'varchar not null',
       heading: 'varchar',
       shortName: 'varchar not null',
+      display: 'varchar',
       ageExemptionDeclaration: 'varchar',
       volumeExemptionDeclaration: 'varchar',
       hint: 'varchar',
