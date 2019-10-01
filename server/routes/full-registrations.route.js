@@ -2,16 +2,18 @@ const Boom = require('@hapi/boom')
 const Joi = require('@hapi/joi')
 const { logger } = require('defra-logging-facade')
 const { utils } = require('ivory-shared')
-const { FullRegistration, Registration, Person, Item, Payment, Address } = require('../models')
+const { FullRegistration, Registration, Person, Item, Payment, Address, Photo } = require('../models')
 
 function buildInData (data, payload, path) {
-  data[path] = payload
   Object.entries(payload).forEach(([prop, val]) => {
     if (val !== null && typeof val === 'object') {
-      buildInData(data, val, `${path}.${prop}`)
-      delete payload[prop]
+      if (!(val instanceof Array)) { // We will deal with arrays later
+        buildInData(data, val, `${path}.${prop}`)
+        delete payload[prop]
+      }
     }
   })
+  data[path] = payload
   return data
 }
 
@@ -23,6 +25,7 @@ function getModel (type) {
     case 'owner':
     case 'agent': return Person
     case 'registration': return Registration
+    case 'photos': return Photo
   }
 }
 
@@ -34,6 +37,20 @@ class Handlers {
       delete person.addressId
     }
     return person
+  }
+
+  async getItem (itemId) {
+    const item = await Item.getById(itemId)
+    const photos = (await Photo.getAll({ itemId }))
+    // Make sure the photos are in rank order
+      .sort(({ rank: firstRank }, { rank: secondRank }) => firstRank > secondRank)
+    if (photos.length) {
+      photos.forEach((photo) => {
+        delete photo.itemId
+      })
+      item.photos = photos
+    }
+    return item
   }
 
   async getData (id) {
@@ -54,7 +71,7 @@ class Handlers {
     }
 
     if (itemId) {
-      registration.item = await Item.getById(registration.itemId)
+      registration.item = await this.getItem(itemId)
       delete registration.itemId
     }
 
@@ -77,13 +94,13 @@ class Handlers {
     return this.getData(request.params.id)
   }
 
-  async saveData (payload, registrationId) {
+  async saveData (payload, type, typeId) {
     // flatten data from payload
-    const data = buildInData({}, payload, 'registration')
+    const data = buildInData({}, payload, type)
 
-    // Make sure the registration has it's ID if it was passed in
-    if (registrationId) {
-      data.registration.id = registrationId
+    // Make sure the type has it's ID if it was passed in
+    if (typeId) {
+      data[type].id = typeId
     }
 
     // sort the keys of the objects to be persisted into the order they should be saved
@@ -95,6 +112,15 @@ class Handlers {
       const key = keys.pop()
       const current = data[key]
       const Model = getModel(key.split('.').pop())
+
+      // Locate and remove any children (arrays) as they'll be dealt with later
+      const childCollections = {}
+      Object.entries(current).forEach(([prop, val]) => {
+        if (val instanceof Array) {
+          childCollections[prop] = val
+          delete current[prop]
+        }
+      })
 
       let model
       if (current.id) {
@@ -113,6 +139,7 @@ class Handlers {
       } else {
         model = new Model(current)
       }
+
       // Now find and add the id's of the linked records
       const linked = Object.keys(result).filter((prop) => prop.startsWith(`${key}.`) && !prop.substr(key.length + 1).includes('.'))
       linked.forEach((prop) => {
@@ -122,21 +149,32 @@ class Handlers {
           model[localProp + 'Id'] = id
         }
       })
+
       result[key] = await model.save()
+
+      // Now save all the child collections linking back to their parent
+      const parentId = result[key].id
+      await Promise.all(Object.entries(childCollections).map(async ([type, collection]) => {
+        const parentPropId = key.split('.').pop() + 'Id'
+        return Promise.all(collection.map((item) => {
+          item[parentPropId] = parentId
+          return this.saveData(item, type, item.id)
+        }))
+      }))
     }
     return result
   }
 
   async handlePost (request) {
-    const result = await this.saveData(request.payload)
-    return this.handleGetById({ params: { id: result.registration.id } })
+    const result = await this.saveData(request.payload, 'registration')
+    return this.getData(result.registration.id)
   }
 
   async handlePatch (request) {
     const registration = await Registration.getById(request.params.id)
     if (registration) {
-      const result = await this.saveData(request.payload, registration.id)
-      return this.handleGetById({ params: { id: result.registration.id } })
+      await this.saveData(request.payload, 'registration', registration.id)
+      return this.getData(registration.id)
     }
     return Boom.notFound()
   }
