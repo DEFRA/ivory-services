@@ -37,7 +37,7 @@ module.exports = class TestHelper {
 
       // Stub any methods specific to the test
       if (stubCallback) {
-        stubCallback(context.sandbox)
+        stubCallback({ context })
       }
 
       // Stub the routes to include only the tested route derived from the test filename
