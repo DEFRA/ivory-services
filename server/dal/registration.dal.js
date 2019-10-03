@@ -10,7 +10,7 @@ module.exports = class Registration extends BaseDal {
       paymentId: 'uuid constraint registration_payment_id_fk references payment',
       registrationNumber: 'varchar',
       agentActingAs: 'varchar',
-      agentIsOwner: 'boolean default true',
+      agentIsOwner: 'boolean',
       dealingIntent: 'varchar',
       status: 'varchar'
     }
