@@ -24,7 +24,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
       id: uuid(),
       registration: new FullRegistration({
         agentActingAs: 'Agent acting as',
-        agentIsOwner: true,
+        ownerType: 'agent',
         owner: {
           id: uuid(),
           address: {
@@ -76,7 +76,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     delete registration.owner
     delete registration.item
     sandbox.stub(Registration, 'getById').value(async () => stubGetById(Registration, registration))
-    sandbox.stub(Registration.prototype, 'save').value(async (data) => this)
+    sandbox.stub(Registration.prototype, 'save').value(async () => this)
 
     const { address: agentAddress } = agent
     const { address: ownerAddress } = owner
@@ -92,7 +92,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
           return stubGetById(Person, owner)
       }
     })
-    sandbox.stub(Person.prototype, 'save').value(async (data) => this)
+    sandbox.stub(Person.prototype, 'save').value(async () => this)
     sandbox.stub(Address, 'getById').value(async (id) => {
       switch (id) {
         case agentAddress.id:
@@ -101,7 +101,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
           return stubGetById(Address, ownerAddress)
       }
     })
-    sandbox.stub(Address.prototype, 'save').value(async (data) => this)
+    sandbox.stub(Address.prototype, 'save').value(async () => this)
     sandbox.stub(Item, 'getById').value(async () => stubGetById(Item, item))
     sandbox.stub(Item.prototype, 'save').value(async () => this)
   })
