@@ -12,7 +12,7 @@ const registration = {
   agentId: uuid(),
   paymentId: uuid(),
   agentActingAs: 'Agent acting as',
-  agentIsOwner: true,
+  ownerType: 'agent',
   status: 'draft'
 }
 
@@ -34,13 +34,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     lab.test(`Registration data invalidates ${field} correctly`, async () => {
       data[field] = 1234
       const { error } = Joi.validate(data, Registration.schema, { abortEarly: false })
-      switch (field) {
-        case 'agentIsOwner':
-          Code.expect(error.toString()).to.contain(TestHelper.invalidBooleanMessage(field))
-          break
-        default:
-          Code.expect(error.toString()).to.contain(TestHelper.invalidStringMessage(field))
-      }
+      Code.expect(error.toString()).to.contain(TestHelper.invalidStringMessage(field))
     })
   })
 
