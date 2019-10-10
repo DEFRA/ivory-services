@@ -16,8 +16,6 @@ USER node
 
 COPY package*.json ./
 
-COPY ./bin ./bin
-
 COPY ./index.js .
 
 RUN npm install --production
