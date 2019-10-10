@@ -17,8 +17,6 @@
   },
   "scripts": {
     "start": "node index",
-    "build": "bin/build.sh",
-    "build:psql": "bin/build-psql.sh",
     "migrate": "node_modules/.bin/node-pg-migrate",
     "docker:build": "docker build --no-cache -t ivory/api .",
     "docker:run": "docker run -p \"3010:3010\" --env-file .env ivory/api",
