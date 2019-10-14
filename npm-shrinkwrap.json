@@ -31,6 +31,16 @@
       "requires": {
         "@hapi/boom": "7.x.x",
         "@hapi/hoek": "8.x.x"
+      },
+      "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        }
       }
     },
     "@hapi/address": {
@@ -55,9 +65,9 @@
       }
     },
     "@hapi/boom": {
-      "version": "7.4.11",
-      "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
-      "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+      "version": "8.0.1",
+      "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-8.0.1.tgz",
+      "integrity": "sha512-SnBM2GzEYEA6AGFKXBqNLWXR3uNBui0bkmklYXX1gYtevVhDTy2uakwkSauxvIWMtlANGRhzChYg95If3FWCwA==",
       "requires": {
         "@hapi/hoek": "8.x.x"
       }
@@ -73,6 +83,15 @@
         "@hapi/joi": "16.x.x"
       },
       "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "dev": true,
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        },
         "@hapi/joi": {
           "version": "16.1.7",
           "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.7.tgz",
@@ -95,6 +114,16 @@
       "requires": {
         "@hapi/boom": "7.x.x",
         "@hapi/hoek": "8.x.x"
+      },
+      "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        }
       }
     },
     "@hapi/bourne": {
@@ -109,6 +138,16 @@
       "requires": {
         "@hapi/boom": "7.x.x",
         "@hapi/hoek": "8.x.x"
+      },
+      "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        }
       }
     },
     "@hapi/catbox": {
@@ -122,6 +161,14 @@
         "@hapi/podium": "3.x.x"
       },
       "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        },
         "@hapi/joi": {
           "version": "16.1.5",
           "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.5.tgz",
@@ -143,12 +190,22 @@
       "requires": {
         "@hapi/boom": "7.x.x",
         "@hapi/hoek": "8.x.x"
+      },
+      "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        }
       }
     },
     "@hapi/code": {
-      "version": "6.0.0",
-      "resolved": "https://registry.npmjs.org/@hapi/code/-/code-6.0.0.tgz",
-      "integrity": "sha512-h7fMAMfkhDFVcu4mgIHiuLr03AkWm8zWt6T3kIlTdVWqZ7SK/OeQZBhhbXJ2GAidiCJJ31ilaeOEyCB45sYNrw==",
+      "version": "7.0.0",
+      "resolved": "https://registry.npmjs.org/@hapi/code/-/code-7.0.0.tgz",
+      "integrity": "sha512-fTq1x12vpchD/+9WfxhUbEnlEPVv5QNrsymw9/fSyN/mKNBfQmkv4Ssq3cDgW6mDyN4oiVFJBdLw6jpkmWZ9dQ==",
       "dev": true,
       "requires": {
         "@hapi/hoek": "8.x.x"
@@ -160,6 +217,16 @@
       "integrity": "sha512-hv2Czsl49hnWDEfRZOFow/BmYbKyfEknmk3k83gOp6moFn5ceHB4xVcna8OwsGfy8dxO81lhpPy+JgQEaU4SWw==",
       "requires": {
         "@hapi/boom": "7.x.x"
+      },
+      "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        }
       }
     },
     "@hapi/cryptiles": {
@@ -168,6 +235,16 @@
       "integrity": "sha512-XoqgKsHK0l/VpqPs+tr6j6vE+VQ3+2bkF2stvttmc7xAOf1oSAwHcJ0tlp/6MxMysktt1IEY0Csy3khKaP9/uQ==",
       "requires": {
         "@hapi/boom": "7.x.x"
+      },
+      "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        }
       }
     },
     "@hapi/eslint-config-hapi": {
@@ -200,9 +277,9 @@
       "integrity": "sha512-UFbtbGPjstz0eWHb+ga/GM3Z9EzqKXFWIbSOFURU0A/Gku0Bky4bCk9/h//K2Xr3IrCfjFNhMm4jyZ5dbCewGA=="
     },
     "@hapi/good": {
-      "version": "8.2.3",
-      "resolved": "https://registry.npmjs.org/@hapi/good/-/good-8.2.3.tgz",
-      "integrity": "sha512-cdTeXCzbBQr6OnUss6I0n4S+T7J/5BeX8qtV7hrpzy2oL++xw6uoJAwUMfv4zA6aPUee+J9Ui1FUeYxYQc9x4A==",
+      "version": "8.2.4",
+      "resolved": "https://registry.npmjs.org/@hapi/good/-/good-8.2.4.tgz",
+      "integrity": "sha512-Paj7BX4C295I+opJ5eIV0XvLhRPcKDLpP9RsnUWGXH/gLRi1SwVMOCYAqitSBjhYSIeZoq+jMmJn6+hUg4W3ug==",
       "requires": {
         "@hapi/hoek": "8.x.x",
         "@hapi/joi": "16.x.x",
@@ -211,9 +288,9 @@
       },
       "dependencies": {
         "@hapi/joi": {
-          "version": "16.1.5",
-          "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.5.tgz",
-          "integrity": "sha512-FnVe0t1YQbF0H4fhFM6qBL7lIP4wdVHdFFBkloxgCkpKKdaCB6Z2UaNI0UalaDRHbRM9BvfTfyUKJg7tGtBSXg==",
+          "version": "16.1.7",
+          "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.7.tgz",
+          "integrity": "sha512-anaIgnZhNooG3LJLrTFzgGALTiO97zRA1UkvQHm9KxxoSiIzCozB3RCNCpDnfhTJD72QlrHA8nwGmNgpFFCIeg==",
           "requires": {
             "@hapi/address": "^2.1.2",
             "@hapi/formula": "^1.2.0",
@@ -281,6 +358,16 @@
         "@hapi/subtext": "6.x.x",
         "@hapi/teamwork": "3.x.x",
         "@hapi/topo": "3.x.x"
+      },
+      "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        }
       }
     },
     "@hapi/heavy": {
@@ -293,6 +380,14 @@
         "@hapi/joi": "16.x.x"
       },
       "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        },
         "@hapi/joi": {
           "version": "16.1.5",
           "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.5.tgz",
@@ -325,6 +420,14 @@
         "lru-cache": "4.1.x"
       },
       "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        },
         "@hapi/joi": {
           "version": "16.1.5",
           "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.5.tgz",
@@ -349,6 +452,16 @@
         "@hapi/bourne": "1.x.x",
         "@hapi/cryptiles": "4.x.x",
         "@hapi/hoek": "8.x.x"
+      },
+      "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        }
       }
     },
     "@hapi/joi": {
@@ -446,6 +559,16 @@
         "@hapi/content": "4.x.x",
         "@hapi/hoek": "8.x.x",
         "@hapi/nigel": "3.x.x"
+      },
+      "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        }
       }
     },
     "@hapi/pinpoint": {
@@ -552,6 +675,14 @@
         "@hapi/joi": "16.x.x"
       },
       "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        },
         "@hapi/joi": {
           "version": "16.1.5",
           "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.5.tgz",
@@ -578,6 +709,16 @@
         "@hapi/hoek": "8.x.x",
         "@hapi/pez": "4.x.x",
         "@hapi/wreck": "15.x.x"
+      },
+      "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        }
       }
     },
     "@hapi/teamwork": {
@@ -612,6 +753,14 @@
         "@hapi/joi": "16.x.x"
       },
       "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        },
         "@hapi/joi": {
           "version": "16.1.5",
           "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.5.tgz",
@@ -634,6 +783,16 @@
         "@hapi/boom": "7.x.x",
         "@hapi/bourne": "1.x.x",
         "@hapi/hoek": "8.x.x"
+      },
+      "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          }
+        }
       }
     },
     "@nodelib/fs.scandir": {
@@ -2299,6 +2458,21 @@
         "swagger-ui-dist": "^3.22.1"
       },
       "dependencies": {
+        "@hapi/boom": {
+          "version": "7.4.11",
+          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
+          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
+          "requires": {
+            "@hapi/hoek": "8.x.x"
+          },
+          "dependencies": {
+            "@hapi/hoek": {
+              "version": "8.3.0",
+              "resolved": "https://registry.npmjs.org/@hapi/hoek/-/hoek-8.3.0.tgz",
+              "integrity": "sha512-C0QL9bmgUXTSuf8nDeGrpMjtJG7tPUr8wG6/wxPbP62tGwCwQtdMSJYfESowmY4P3Hn593f+8OzNY5bckcu/LQ=="
+            }
+          }
+        },
         "@hapi/hoek": {
           "version": "6.2.4",
           "resolved": "https://registry.npmjs.org/@hapi/hoek/-/hoek-6.2.4.tgz",
@@ -2581,7 +2755,7 @@
       "integrity": "sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo="
     },
     "ivory-shared": {
-      "version": "git+https://github.com/DEFRA/ivory-shared.git#270099a2c6fa14e552c6bf73f991cff9a455a2cf",
+      "version": "git+https://github.com/DEFRA/ivory-shared.git#b251ddf91ffb6be81c5ff89d9acd477ca713a521",
       "from": "git+https://github.com/DEFRA/ivory-shared.git#master",
       "requires": {
         "@hapi/hoek": "^8.3.0",
@@ -2652,9 +2826,9 @@
           "integrity": "sha512-1dVNHT76Uu5N3eJNTYcvxee+jzX4Z9lfciqRRHCU27ihbUcYi+iSc2iml5Ke1LXe1SyJCLA0+14Jh4tXJgOppA=="
         },
         "@hapi/code": {
-          "version": "6.0.0",
-          "resolved": "https://registry.npmjs.org/@hapi/code/-/code-6.0.0.tgz",
-          "integrity": "sha512-h7fMAMfkhDFVcu4mgIHiuLr03AkWm8zWt6T3kIlTdVWqZ7SK/OeQZBhhbXJ2GAidiCJJ31ilaeOEyCB45sYNrw==",
+          "version": "7.0.0",
+          "resolved": "https://registry.npmjs.org/@hapi/code/-/code-7.0.0.tgz",
+          "integrity": "sha512-fTq1x12vpchD/+9WfxhUbEnlEPVv5QNrsymw9/fSyN/mKNBfQmkv4Ssq3cDgW6mDyN4oiVFJBdLw6jpkmWZ9dQ==",
           "requires": {
             "@hapi/hoek": "8.x.x"
           }

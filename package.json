@@ -26,8 +26,8 @@
     "test": "npm run lint && npm run unit-test"
   },
   "dependencies": {
-    "@hapi/boom": "^7.4.11",
-    "@hapi/good": "^8.2.3",
+    "@hapi/boom": "^8.0.1",
+    "@hapi/good": "^8.2.4",
     "@hapi/good-console": "^8.1.2",
     "@hapi/good-squeeze": "^5.2.1",
     "@hapi/hapi": "^18.4.0",
@@ -53,7 +53,7 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "@hapi/code": "^6.0.0",
+    "@hapi/code": "^7.0.0",
     "@hapi/lab": "^20.4.0",
     "eslint-utils": "^1.4.2",
     "node-sass": "4.12.0",
