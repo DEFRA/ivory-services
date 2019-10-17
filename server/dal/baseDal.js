@@ -31,6 +31,9 @@ module.exports = class BaseDal {
       Object.entries(data).forEach(([col, val]) => {
         if (val !== null) {
           const pos = cols.indexOf(col)
+          if (typeof val === 'string') {
+            val = val.replace(/''/g, "'")
+          }
           model[props[pos]] = val
         }
       })
@@ -42,6 +45,9 @@ module.exports = class BaseDal {
     const where = !isEmpty(query) ? 'WHERE ' + Object.entries(query)
       .map(([col, val]) => {
         const def = this.table[col]
+        if (typeof val === 'string') {
+          val = val.replace(/''/g, "'")
+        }
         return `${col.toLowerCase()} = ${def.includes('varchar') || def.includes('uuid') ? `'${val}'` : val}`
       })
       .join(' AND ') : ''
@@ -74,6 +80,9 @@ module.exports = class BaseDal {
   static async save (data) {
     if (data.id) {
       const setArray = Object.entries(data).map(([col, val]) => {
+        if (typeof val === 'string') {
+          val = val.replace(/'/g, "''")
+        }
         return `${col.toLowerCase()} = ${val === null ? null : `'${val}'`}`
       }).join(', ')
       const queryText = `UPDATE "${this.tableName}" SET ${setArray} WHERE id = '${data.id}'`
@@ -101,7 +110,7 @@ module.exports = class BaseDal {
           }
         })
       const queryText = `INSERT INTO "${this.tableName}" (${columns.join(
-        ', ')}) VALUES (${values.join(', ')}) RETURNING *;`
+        ', ')}) VALUES (${values.map((val) => (typeof val === 'string' ? val.replace(/''/g, "'") : val)).join(', ')}) RETURNING *;`
       logger.debug(queryText, dataArray)
       const result = await this.pool.query(queryText, dataArray)
         .catch((error) => {
