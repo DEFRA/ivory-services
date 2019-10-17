@@ -18,6 +18,7 @@ module.exports = class Registration extends BaseModel {
       paymentId: Joi.string().guid().example(uuid()),
       registrationNumber: Joi.string(),
       agentActingAs: Joi.string(),
+      confirmationSent: Joi.bool().allow(null).example(false),
       ownerType: Joi.string().example('agent'),
       dealingIntent: Joi.string(),
       status: Joi.string()
