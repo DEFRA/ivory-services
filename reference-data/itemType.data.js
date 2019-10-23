@@ -17,7 +17,7 @@ module.exports = {
       label: 'Portrait miniature made before 1918',
       shortName: 'portrait-miniature-pre-1918',
       ageExemptionDeclaration: 'the item was made before 1918',
-      volumeExemptionDeclaration: 'the portrait miniature is less than 320cm²'
+      volumeExemptionDeclaration: 'the portrait miniature is less than 320 centimetres square'
     },
     {
       label: 'Item you\'re selling or hiring to an approved museum',
