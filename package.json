@@ -41,7 +41,7 @@
     "dotenv": "^8.2.0",
     "git-last-commit": "^1.0.0",
     "glob": "^7.1.5",
-    "govuk-frontend": "2.13.0",
+    "govuk-frontend": "3.3.0",
     "hapi-robots": "^3.2.0",
     "hapi-router": "^5.0.0",
     "hapi-swagger": "^10.2.0",
@@ -55,7 +55,7 @@
   "devDependencies": {
     "@hapi/code": "^7.0.0",
     "@hapi/lab": "^21.0.0",
-    "node-sass": "4.12.0",
+    "node-sass": "4.13.0",
     "sinon": "^7.5.0",
     "standard": "14.3.1",
     "supertest": "^4.0.2"
