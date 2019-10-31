@@ -6,7 +6,8 @@ module.exports = [
   {
     method: 'GET',
     path,
-    handler: async () => {
+    handler: async (request) => {
+      const { info: instance } = request.server
       const commit = await new Promise((resolve, reject) => {
         git.getLastCommit((err, commit) => {
           if (err) {
@@ -16,7 +17,7 @@ module.exports = [
           }
         })
       })
-      Object.assign(commit, { name, version, commit: homepage.replace('#readme', `/commit/${commit.hash}`) })
+      Object.assign(commit, { name, version, commit: homepage.replace('#readme', `/commit/${commit.hash}`), instance })
       return commit
     },
     options: {
