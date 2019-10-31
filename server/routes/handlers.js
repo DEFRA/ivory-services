@@ -1,4 +1,5 @@
 const Boom = require('@hapi/boom')
+const Joi = require('@hapi/joi')
 
 module.exports = class Handlers {
   constructor (Model) {
@@ -49,7 +50,9 @@ module.exports = class Handlers {
       .takeover()
   }
 
-  routes ({ path, params, schema }) {
+  routes ({ path, params, schema, label }) {
+    params = Joi.object(params)
+    schema = Joi.object(schema).label(label)
     const handleGet = this.handleGet.bind(this)
     const handleGetById = this.handleGetById.bind(this)
     const handlePost = this.handlePost.bind(this)

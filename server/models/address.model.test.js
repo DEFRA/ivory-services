@@ -1,6 +1,5 @@
 const Lab = require('@hapi/lab')
 const Code = require('@hapi/code')
-const Joi = require('@hapi/joi')
 const lab = exports.lab = Lab.script()
 const TestHelper = require('../../test-helper')
 const Address = require('../models/address.model')
@@ -25,27 +24,27 @@ lab.experiment(TestHelper.getFile(__filename), () => {
   TestHelper.modelTableTest(lab, Address)
 
   lab.test('Address data validates correctly', async () => {
-    const { value } = Joi.validate(data, Address.schema, { abortEarly: false })
+    const { value } = Address.validate(data, { abortEarly: false })
     Code.expect(value).to.equal(data)
   })
 
   Object.keys(address).forEach((field) => {
     lab.test(`Address data invalidates ${field} correctly`, async () => {
       data[field] = false
-      const { error } = Joi.validate(data, Address.schema, { abortEarly: false })
+      const { error } = Address.validate(data, { abortEarly: false })
       Code.expect(error.toString()).to.contain(TestHelper.invalidStringMessage(field))
     })
   })
 
   lab.test('Address data invalidates unknown field correctly', async () => {
     data.unknown = 'blah'
-    const { error } = Joi.validate(data, Address.schema, { abortEarly: false })
+    const { error } = Address.validate(data, { abortEarly: false })
     Code.expect(error.toString()).to.contain('"unknown" is not allowed')
   })
 
   lab.test('Address parameter validate correctly', async () => {
     const data = { id: 'abc' }
-    const { error } = Joi.validate(data, Address.params, { abortEarly: false })
+    const { error } = Address.validateParams(data, { abortEarly: false })
     Code.expect(error.toString()).to.contain(TestHelper.invalidGuidMessage('id'))
   })
 })

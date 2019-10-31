@@ -3,7 +3,7 @@ const lab = exports.lab = Lab.script()
 const Boom = require('@hapi/boom')
 const TestHelper = require('../../test-helper')
 const path = '/groups'
-const { Group } = require('../models')
+const Group = require('../models/group.model')
 const { uuid } = require('ivory-shared').utils
 
 const { emptyMessage } = TestHelper

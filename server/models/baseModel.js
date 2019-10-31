@@ -8,12 +8,28 @@ module.exports = class BaseModel {
   }
 
   constructor (data) {
-    const { value, error } = Joi.validate(data, this.constructor.schema, { abortEarly: false })
+    const { value, error } = this.constructor.validate(data, { abortEarly: false })
     if (error) {
       throw new Error(`The constructor data is invalid. ${error.message}`)
     } else {
       Object.assign(this, value)
     }
+  }
+
+  static validate (...args) {
+    const { schema } = this
+    if (Joi.isSchema(schema)) {
+      return schema.validate(...args)
+    }
+    return Joi.object(schema).validate(...args)
+  }
+
+  static validateParams (...args) {
+    const { params } = this
+    if (Joi.isSchema(params)) {
+      return params.validate(...args)
+    }
+    return Joi.object(params).validate(...args)
   }
 
   static async getAll (query) {

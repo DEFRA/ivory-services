@@ -1,4 +1,5 @@
 const Boom = require('@hapi/boom')
+const Joi = require('@hapi/joi')
 const { Group, Choice } = require('../models')
 
 class Handlers {
@@ -37,16 +38,17 @@ class Handlers {
   }
 
   routes ({ path, params, schema }) {
-    const handleGet = this.handleGet.bind(this)
-    const handleGetById = this.handleGetById.bind(this)
-    const handleError = this.handleError.bind(this)
-
-    const query = {}
+    let query = {}
     Object.entries(schema).forEach(([prop, val]) => {
       if (val._type !== 'object') {
         query[prop] = val
       }
     })
+    query = Joi.object(query)
+    params = Joi.object(params)
+    const handleGet = this.handleGet.bind(this)
+    const handleGetById = this.handleGetById.bind(this)
+    const handleError = this.handleError.bind(this)
 
     return [
       {
