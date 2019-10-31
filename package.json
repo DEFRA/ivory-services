@@ -45,7 +45,7 @@
     "hapi-robots": "^3.2.0",
     "hapi-router": "^5.0.0",
     "hapi-swagger": "^10.2.0",
-    "ivory-shared": "git+https://github.com/DEFRA/ivory-shared.git#v0.1.0",
+    "ivory-shared": "git+https://github.com/DEFRA/ivory-shared.git#master",
     "lodash.camelcase": "^4.3.0",
     "lodash.clonedeep": "^4.5.0",
     "pg": "^7.12.1",
