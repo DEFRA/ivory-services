@@ -318,30 +318,30 @@ module.exports = class TestHelper {
   }
 
   static invalidGuidMessage (prop) {
-    return `child "${prop}" fails because ["${prop}" must be a valid GUID]`
+    return `"${prop}" must be a valid GUID`
   }
 
   static invalidEmailMessage (prop) {
-    return `child "${prop}" fails because ["${prop}" must be a valid email]`
+    return `"${prop}" must be a valid email`
   }
 
   static invalidNumberMessage (prop) {
-    return `child "${prop}" fails because ["${prop}" must be a number]`
+    return `"${prop}" must be a number`
   }
 
   static invalidTimestampMessage (prop) {
-    return `child "${prop}" fails because ["${prop}" must be a valid timestamp or number of milliseconds]`
+    return `"${prop}" must be a valid timestamp or number of milliseconds`
   }
 
   static invalidStringMessage (prop) {
-    return `child "${prop}" fails because ["${prop}" must be a string]`
+    return `"${prop}" must be a string`
   }
 
   static invalidBooleanMessage (prop) {
-    return `child "${prop}" fails because ["${prop}" must be a boolean]`
+    return `"${prop}" must be a boolean`
   }
 
   static emptyMessage (prop) {
-    return `child "${prop}" fails because ["${prop}" is not allowed to be empty]`
+    return `"${prop}" is not allowed to be empty`
   }
 }

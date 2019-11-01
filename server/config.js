@@ -15,7 +15,7 @@ dotenv.config() // Load variables from .env before any other code (especially be
 const DEFAULT_PORT = 3010
 
 // Define the config schema
-const schema = {
+const schema = Joi.object({
   port: Joi.number().default(DEFAULT_PORT),
   env: Joi.string().valid(DEVELOPMENT, TEST, PRODUCTION).default(DEVELOPMENT),
 
@@ -40,7 +40,7 @@ const schema = {
     then: Joi.forbidden(),
     otherwise: Joi.bool().valid(true, false).default(false)
   })
-}
+})
 
 // Build the config
 const config = {
@@ -67,7 +67,7 @@ const config = {
 }
 
 // Validate the config
-const { value, error } = Joi.validate(config, schema, {
+const { value, error } = schema.validate(config, {
   abortEarly: false
 })
 

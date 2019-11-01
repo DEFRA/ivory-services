@@ -189,14 +189,16 @@ class Handlers {
       .takeover()
   }
 
-  routes ({ path, params, schema }) {
+  routes ({ path, params, schema, label }) {
+    params = Joi.object(params)
+    schema = Joi.object(schema).label(label)
     const handleGet = this.handleGet.bind(this)
     const handleGetById = this.handleGetById.bind(this)
     const handlePost = this.handlePost.bind(this)
     const handlePatch = this.handlePatch.bind(this)
     const handleError = this.handleError.bind(this)
 
-    const query = utils.cloneAndMerge(Registration.schema, { ownerId: null, agentId: null, itemId: null })
+    const query = Joi.object(utils.cloneAndMerge(Registration.schema, { ownerId: null, agentId: null, itemId: null }))
 
     return [
       {
@@ -264,5 +266,6 @@ const handlers = new Handlers()
 module.exports = handlers.routes({
   path: '/full-registrations',
   params: FullRegistration.params,
-  schema: Joi.object(FullRegistration.schema).label('Full-Registration')
+  schema: FullRegistration.schema,
+  label: FullRegistration.name
 })

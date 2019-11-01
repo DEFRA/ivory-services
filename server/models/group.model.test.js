@@ -1,6 +1,5 @@
 const Lab = require('@hapi/lab')
 const Code = require('@hapi/code')
-const Joi = require('@hapi/joi')
 const lab = exports.lab = Lab.script()
 const TestHelper = require('../../test-helper')
 const Group = require('../models/group.model')
@@ -23,14 +22,14 @@ lab.experiment(TestHelper.getFile(__filename), () => {
   TestHelper.modelTableTest(lab, Group)
 
   lab.test('Group data validates correctly', async () => {
-    const { value } = Joi.validate(data, Group.schema, { abortEarly: false })
+    const { value } = Group.validate(data, { abortEarly: false })
     Code.expect(value).to.equal(data)
   })
 
   Object.keys(group).forEach((field) => {
     lab.test(`Group data invalidates ${field} correctly`, async () => {
       data[field] = 1234
-      const { error } = Joi.validate(data, Group.schema, { abortEarly: false })
+      const { error } = Group.validate(data, { abortEarly: false })
       switch (field) {
         case 'multiple':
           Code.expect(error.toString()).to.contain(TestHelper.invalidBooleanMessage(field))
@@ -43,13 +42,13 @@ lab.experiment(TestHelper.getFile(__filename), () => {
 
   lab.test('Group data invalidates unknown field correctly', async () => {
     data.unknown = 'blah'
-    const { error } = Joi.validate(data, Group.schema, { abortEarly: false })
+    const { error } = Group.validate(data, { abortEarly: false })
     Code.expect(error.toString()).to.contain('"unknown" is not allowed')
   })
 
   lab.test('Group parameter validate correctly', async () => {
     const data = { id: 'abc' }
-    const { error } = Joi.validate(data, Group.params, { abortEarly: false })
+    const { error } = Group.validateParams(data, { abortEarly: false })
     Code.expect(error.toString()).to.contain(TestHelper.invalidGuidMessage('id'))
   })
 })
