@@ -22,7 +22,7 @@ function getModel (type) {
     case 'address': return Address
     case 'item': return Item
     case 'payment': return Payment
-    case 'owner':
+    case 'owner': return Person
     case 'agent': return Person
     case 'registration': return Registration
     case 'photos': return Photo
