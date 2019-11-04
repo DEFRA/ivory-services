@@ -48,6 +48,10 @@ module.exports = class BaseModel {
   }
 
   async delete () {
-    return Dal[this.constructor.name].delete(this.id)
+    return this.constructor.delete(this.id)
+  }
+
+  static async delete (id) {
+    return Dal[this.name].delete(id)
   }
 }

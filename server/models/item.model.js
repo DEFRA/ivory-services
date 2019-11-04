@@ -20,4 +20,18 @@ module.exports = class Item extends BaseModel {
       volumeExemptionDescription: Joi.string().allow(null)
     }
   }
+
+  async save () {
+    if (this.id) {
+      const prev = await Item.getById(this.id)
+      // Clear the item declaration data when the item type changes as it's now irrelevant
+      if (this.itemType !== prev.itemType) {
+        this.ageExemptionDeclaration = null
+        this.ageExemptionDescription = null
+        this.volumeExemptionDeclaration = null
+        this.volumeExemptionDescription = null
+      }
+    }
+    return super.save()
+  }
 }

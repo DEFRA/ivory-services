@@ -17,4 +17,24 @@ module.exports = class Person extends BaseModel {
       addressId: Joi.string().guid().example(uuid())
     }
   }
+
+  static async delete (id) {
+    // Make sure the person will be an orphan prior to deletion
+    const { Registration, Address } = require('../models')
+    const [ownerRegistrations, agentRegistrations] = await Promise.all([
+      Registration.getAll({ ownerId: id }),
+      Registration.getAll({ agentId: id })
+    ])
+    if (ownerRegistrations.length || agentRegistrations.length) {
+      return false
+    }
+    const person = await Person.getById(id)
+    const addressIdToDelete = person.addressId
+    const result = await super.delete(id)
+    // Delete the corresponding address
+    if (addressIdToDelete) {
+      await Address.delete(addressIdToDelete)
+    }
+    return result
+  }
 }

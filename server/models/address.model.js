@@ -22,4 +22,14 @@ module.exports = class Address extends BaseModel {
       uprn: Joi.string()
     }
   }
+
+  async delete () {
+    // Make sure the person will be an orphan prior to deletion
+    const { Person } = require('../models')
+    const people = Person.getAll({ addressId: this.id })
+    if (people.length) {
+      return false
+    }
+    return super.delete()
+  }
 }
