@@ -19,7 +19,7 @@ module.exports = class Registration extends BaseModel {
       registrationNumber: Joi.string(),
       agentActingAs: Joi.string(),
       confirmationSent: Joi.bool().allow(null).example(false),
-      ownerType: Joi.string().example('agent'),
+      ownerType: Joi.string().example('someone-else'),
       dealingIntent: Joi.string(),
       status: Joi.string()
     }
@@ -32,7 +32,7 @@ module.exports = class Registration extends BaseModel {
       // Switch the owner and agent when the ownerType is changed
       if (ownerType && this.ownerType !== ownerType) {
         switch (this.ownerType) {
-          case 'agent': {
+          case 'i-own-it': {
             personIdToDelete = this.ownerId
             this.ownerId = this.agentId || null
             this.agentId = null
@@ -52,5 +52,36 @@ module.exports = class Registration extends BaseModel {
       await Person.delete(personIdToDelete)
     }
     return result
+  }
+
+  static validForPayment (registration) {
+    if (!registration) {
+      return false
+    }
+
+    const { item, owner, agent, ownerType, dealingIntent, status } = registration
+
+    const { Item, Person } = require('../models')
+    if (!status || !dealingIntent || !Item.validForPayment(item)) {
+      return false
+    }
+
+    switch (ownerType) {
+      case 'i-own-it': {
+        if (agent || !Person.validForPayment(owner)) {
+          return false
+        }
+        break
+      }
+      case 'someone-else': {
+        if (!Person.validForPayment(agent) || !Person.validForPayment(owner, { skip: ['email'] })) {
+          return false
+        }
+        break
+      }
+      default: return false
+    }
+
+    return true
   }
 }

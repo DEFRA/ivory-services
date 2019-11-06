@@ -47,4 +47,20 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     const { error } = Address.validateParams(data, { abortEarly: false })
     Code.expect(error.toString()).to.contain(TestHelper.invalidGuidMessage('id'))
   })
+
+  lab.test('Address valid for payment', async () => {
+    Code.expect(Address.validForPayment(data)).to.equal(true)
+  })
+
+  lab.test('Address not valid for payment if it doesn\'t exist', async () => {
+    Code.expect(Address.validForPayment()).to.equal(false)
+  })
+
+  const requiredFields = ['addressLine1', 'town', 'postcode']
+  requiredFields.forEach((field) => {
+    lab.test(`Address not valid for payment when "${field}" is missing`, async () => {
+      delete data[field]
+      Code.expect(Address.validForPayment(data)).to.equal(false)
+    })
+  })
 })

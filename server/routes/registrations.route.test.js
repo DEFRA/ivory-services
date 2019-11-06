@@ -19,7 +19,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
         ownerId: uuid(),
         agentId: uuid(),
         agentActingAs: 'Agent acting as',
-        ownerType: 'agent'
+        ownerType: 'i-own-it'
       })
     }
   })

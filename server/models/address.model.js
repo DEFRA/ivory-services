@@ -24,12 +24,26 @@ module.exports = class Address extends BaseModel {
   }
 
   async delete () {
-    // Make sure the person will be an orphan prior to deletion
+    // Make sure there are no people linked to this address prior to deletion
     const { Person } = require('../models')
     const people = Person.getAll({ addressId: this.id })
     if (people.length) {
       return false
     }
     return super.delete()
+  }
+
+  static validForPayment (address) {
+    if (!address) {
+      return false
+    }
+
+    const { addressLine1, town, postcode } = address
+
+    if (!addressLine1 || !town || !postcode) {
+      return false
+    }
+
+    return true
   }
 }
