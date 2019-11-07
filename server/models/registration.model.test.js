@@ -1,8 +1,11 @@
+const sinon = require('sinon')
 const Lab = require('@hapi/lab')
 const Code = require('@hapi/code')
 const lab = exports.lab = Lab.script()
 const TestHelper = require('../../test-helper')
 const Registration = require('../models/registration.model')
+const Person = require('../models/person.model')
+const Item = require('../models/item.model')
 const { uuid } = require('ivory-shared').utils
 
 const registration = {
@@ -10,16 +13,25 @@ const registration = {
   ownerId: uuid(),
   agentId: uuid(),
   paymentId: uuid(),
-  agentActingAs: 'Agent acting as',
-  ownerType: 'agent',
+  ownerType: 'i-own-it',
+  dealingIntent: 'hire',
   status: 'draft'
 }
 
 lab.experiment(TestHelper.getFile(__filename), () => {
   let data
 
-  lab.beforeEach(() => {
+  lab.beforeEach(({ context }) => {
+    const sandbox = sinon.createSandbox()
+    sandbox.stub(Person, 'validForPayment').value(() => data.ownerId && data.agentId)
+    sandbox.stub(Item, 'validForPayment').value(() => !!data.itemId)
     data = Object.assign({}, registration)
+    context.sandbox = sandbox
+  })
+
+  lab.afterEach(async ({ context }) => {
+    // Restore the sandbox to make sure the stubs are removed correctly
+    context.sandbox.restore()
   })
 
   TestHelper.modelTableTest(lab, Registration)
@@ -65,5 +77,27 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     const data = { id: 'abc' }
     const { error } = Registration.validateParams(data, { abortEarly: false })
     Code.expect(error.toString()).to.contain(TestHelper.invalidGuidMessage('id'))
+  })
+
+  lab.test('Registration valid for payment', async () => {
+    Code.expect(Registration.validForPayment(data)).to.equal(true)
+  })
+
+  lab.test('Registration not valid for payment if it doesn\'t exist', async () => {
+    Code.expect(Registration.validForPayment()).to.equal(false)
+  })
+
+  const requiredFields = ['itemId', 'ownerId', 'agentId', 'dealingIntent', 'ownerType', 'status']
+  requiredFields.forEach((field) => {
+    lab.test(`Registration not valid for payment when "${field}" is missing`, async () => {
+      delete data[field]
+      Code.expect(Registration.validForPayment(data)).to.equal(false)
+    })
+  })
+
+  lab.test('Registration not valid for payment when agent is missing and owner type is someone else', async () => {
+    delete data.agentId
+    data.ownerType = 'someone-else'
+    Code.expect(Registration.validForPayment(data)).to.equal(false)
   })
 })

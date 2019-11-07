@@ -9,7 +9,7 @@ const { uuid } = require('ivory-shared').utils
 
 const item = {
   description: 'item description',
-  itemType: 'item-type',
+  itemType: 'pre-1947-less-than-10-percent',
   ageExemptionDeclaration: true,
   ageExemptionDescription: 'age exemption',
   volumeExemptionDeclaration: true,
@@ -81,5 +81,41 @@ lab.experiment(TestHelper.getFile(__filename), () => {
       volumeExemptionDescription: null,
       id: data.id
     })
+  })
+
+  lab.test('Item valid for payment', async () => {
+    Code.expect(Item.validForPayment(data)).to.equal(true)
+  })
+
+  lab.test('Item not valid for payment if it doesn\'t exist', async () => {
+    Code.expect(Item.validForPayment()).to.equal(false)
+  })
+
+  lab.test('Item not valid for payment if item type is invalid', async () => {
+    data.itemType = 'invalid-item-type'
+    Code.expect(Item.validForPayment(data)).to.equal(false)
+  })
+
+  const requiredFields = ['description', 'ageExemptionDeclaration', 'ageExemptionDescription', 'volumeExemptionDeclaration', 'volumeExemptionDescription']
+  requiredFields.forEach((field) => {
+    lab.test(`Item not valid for payment when "${field}" is missing`, async () => {
+      delete data[field]
+      Code.expect(Item.validForPayment(data)).to.equal(false)
+    })
+
+    lab.test(`Item not valid for payment when "${field}" is missing`, async () => {
+      data.itemType = 'sell-or-hire-to-museum'
+      delete data[field]
+      Code.expect(Item.validForPayment(data)).to.equal(false)
+    })
+  })
+
+  lab.test('Item is valid for payment if item type is "sell-or-hire-to-museum" and declarations have not been set', async () => {
+    data.itemType = 'sell-or-hire-to-museum'
+    delete data.ageExemptionDeclaration
+    delete data.ageExemptionDescription
+    delete data.volumeExemptionDeclaration
+    delete data.volumeExemptionDescription
+    Code.expect(Item.validForPayment(data)).to.equal(true)
   })
 })

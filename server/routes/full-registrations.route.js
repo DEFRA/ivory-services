@@ -30,6 +30,10 @@ function getModel (type) {
 }
 
 class Handlers {
+  validForPayment (registration) {
+    return Registration.validForPayment(registration)
+  }
+
   async getPerson (id) {
     const person = await Person.getById(id)
     if (person.addressId) {
@@ -79,6 +83,9 @@ class Handlers {
       registration.payment = await Payment.getById(registration.paymentId)
       delete registration.paymentId
     }
+
+    // Check and report if registration is valid for payment
+    registration.validForPayment = this.validForPayment(registration)
 
     return registration
   }

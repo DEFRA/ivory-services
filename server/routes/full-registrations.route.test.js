@@ -18,13 +18,19 @@ function stubGetById (Model, data) {
   return model
 }
 
+function validate (registration, flag) {
+  return Object.assign({}, registration, { validForPayment: flag })
+}
+
 lab.experiment(TestHelper.getFile(__filename), () => {
   TestHelper.createRoutesHelper(lab, __filename, {
     mocks: {
       id: uuid(),
       registration: new FullRegistration({
         agentActingAs: 'Agent acting as',
-        ownerType: 'agent',
+        ownerType: 'someone-else',
+        status: 'draft',
+        dealingIntent: 'hire',
         owner: {
           id: uuid(),
           address: {
@@ -57,7 +63,12 @@ lab.experiment(TestHelper.getFile(__filename), () => {
         },
         item: {
           id: uuid(),
-          description: 'item description'
+          description: 'item description',
+          itemType: 'musical-pre-1975-less-than-20-percent',
+          ageExemptionDeclaration: true,
+          ageExemptionDescription: 'age exemption',
+          volumeExemptionDeclaration: true,
+          volumeExemptionDescription: 'volume exemption'
         }
       })
     }
@@ -120,7 +131,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
 
       TestHelper.testResponse(await server.inject(request(mocks.id)), {
         statusCode: 200,
-        payload: mocks.registration
+        payload: validate(mocks.registration, true)
       })
     })
 
@@ -161,7 +172,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
 
       TestHelper.testResponse(await server.inject(request(mocks.registration)), {
         statusCode: 200,
-        payload: mocks.registration
+        payload: validate(mocks.registration, true)
       })
     })
 
@@ -195,7 +206,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
 
       TestHelper.testResponse(await server.inject(request(mocks.id, mocks.registration)), {
         statusCode: 200,
-        payload: mocks.registration
+        payload: validate(mocks.registration, true)
       })
     })
 

@@ -34,4 +34,40 @@ module.exports = class Item extends BaseModel {
     }
     return super.save()
   }
+
+  static validForPayment (item) {
+    if (!item) {
+      return false
+    }
+
+    const { itemType, description, ageExemptionDeclaration, ageExemptionDescription, volumeExemptionDeclaration, volumeExemptionDescription } = item
+
+    if (!description) {
+      return false
+    }
+
+    switch (itemType) {
+      // Declarations unnecessary when selling or hiring to a museum
+      case 'sell-or-hire-to-museum': {
+        if (ageExemptionDescription || ageExemptionDeclaration || volumeExemptionDeclaration || volumeExemptionDescription) {
+          return false
+        }
+        break
+      }
+
+      // Declarations necessary when not selling or not hiring to a museum
+      case 'musical-pre-1975-less-than-20-percent':
+      case 'pre-1947-less-than-10-percent':
+      case 'portrait-miniature-pre-1918': {
+        if (!ageExemptionDescription || !ageExemptionDeclaration || !volumeExemptionDeclaration || !volumeExemptionDescription) {
+          return false
+        }
+        break
+      }
+
+      default: return false
+    }
+
+    return true
+  }
 }

@@ -1,8 +1,10 @@
+const sinon = require('sinon')
 const Lab = require('@hapi/lab')
 const Code = require('@hapi/code')
 const lab = exports.lab = Lab.script()
 const TestHelper = require('../../test-helper')
 const Person = require('../models/person.model')
+const Address = require('../models/address.model')
 const { uuid } = require('ivory-shared').utils
 
 const person = {
@@ -13,6 +15,18 @@ const person = {
 
 lab.experiment(TestHelper.getFile(__filename), () => {
   let data
+
+  lab.beforeEach(({ context }) => {
+    const sandbox = sinon.createSandbox()
+    sandbox.stub(Address, 'validForPayment').value(() => !!data.addressId)
+    data = Object.assign({}, person)
+    context.sandbox = sandbox
+  })
+
+  lab.afterEach(async ({ context }) => {
+    // Restore the sandbox to make sure the stubs are removed correctly
+    context.sandbox.restore()
+  })
 
   lab.beforeEach(() => {
     data = Object.assign({}, person)
@@ -55,5 +69,26 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     const data = { id: 'abc' }
     const { error } = Person.validateParams(data, { abortEarly: false })
     Code.expect(error.toString()).to.contain(TestHelper.invalidGuidMessage('id'))
+  })
+
+  lab.test('Person valid for payment', async () => {
+    Code.expect(Person.validForPayment(data)).to.equal(true)
+  })
+
+  lab.test('Person not valid for payment if it doesn\'t exist', async () => {
+    Code.expect(Person.validForPayment()).to.equal(false)
+  })
+
+  const requiredFields = ['fullName', 'email', 'addressId']
+  requiredFields.forEach((field) => {
+    lab.test(`Person not valid for payment when "${field}" is missing`, async () => {
+      delete data[field]
+      Code.expect(Person.validForPayment(data)).to.equal(false)
+    })
+  })
+
+  lab.test('Person valid for payment if email is missing and email check skipped', async () => {
+    delete data.email
+    Code.expect(Person.validForPayment(data, { skip: ['email'] })).to.equal(true)
   })
 })

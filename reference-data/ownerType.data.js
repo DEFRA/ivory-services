@@ -2,7 +2,7 @@ module.exports = {
   choices: [
     {
       label: 'I own it',
-      shortName: 'agent'
+      shortName: 'i-own-it'
     },
     {
       label: 'Someone else owns it',
