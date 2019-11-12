@@ -1,11 +1,12 @@
 const Lab = require('@hapi/lab')
+const Code = require('@hapi/code')
 const lab = exports.lab = Lab.script()
 const Boom = require('@hapi/boom')
 const cloneDeep = require('lodash.clonedeep')
 const TestHelper = require('../../test-helper')
 const path = '/full-registrations'
 const models = require('../models')
-const { FullRegistration, Registration, Person, Address, Item } = models
+const { FullRegistration, Registration, Person, Address, Item, Photo } = models
 const { uuid, cloneAndMerge } = require('ivory-shared').utils
 
 const UNKNOWN_GUID = uuid()
@@ -13,7 +14,13 @@ const INVALID_GUID = 'INVALID-GUID'
 
 function stubGetById (Model, data) {
   const { id } = data
-  const model = new Model(cloneAndMerge(data, { id: null }))
+  const options = { id: null }
+  Object.entries(data).forEach(([key, val]) => {
+    if (val instanceof Array) {
+      options[key] = null
+    }
+  })
+  const model = new Model(cloneAndMerge(data, options))
   model.id = id
   return model
 }
@@ -68,7 +75,19 @@ lab.experiment(TestHelper.getFile(__filename), () => {
           ageExemptionDeclaration: true,
           ageExemptionDescription: 'age exemption',
           volumeExemptionDeclaration: true,
-          volumeExemptionDescription: 'volume exemption'
+          volumeExemptionDescription: 'volume exemption',
+          photos: [
+            {
+              id: uuid(),
+              filename: 'first.jpg',
+              rank: 0
+            },
+            {
+              id: uuid(),
+              filename: 'second.jpg',
+              rank: 1
+            }
+          ]
         }
       })
     }
@@ -115,6 +134,8 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     sandbox.stub(Address.prototype, 'save').value(async () => this)
     sandbox.stub(Item, 'getById').value(async () => stubGetById(Item, item))
     sandbox.stub(Item.prototype, 'save').value(async () => this)
+    sandbox.stub(Photo, 'getAll').value(async () => item.photos.map((photo) => stubGetById(Photo, photo)))
+    sandbox.stub(Photo.prototype, 'delete').value(async () => true)
   })
 
   /** ********************** GET By Id ************************** **/
@@ -208,6 +229,30 @@ lab.experiment(TestHelper.getFile(__filename), () => {
         statusCode: 200,
         payload: validate(mocks.registration, true)
       })
+    })
+
+    lab.test('responds with the updated registration when {id} is an existing guid and deletes orphaned photos', async ({ context }) => {
+      const { mocks, request, server, sandbox } = context
+      sandbox.stub(Registration, 'getById').value(async () => mocks.registration)
+      sandbox.stub(Registration.prototype, 'save').value(async () => mocks.registration)
+      const photo = {
+        id: uuid(),
+        filename: 'to-delete.jpg',
+        rank: 0
+      }
+      sandbox.stub(Photo, 'getAll').value(async () => [photo])
+      const deletedPhotoIds = []
+      sandbox.stub(Photo, 'delete').value(async (id) => {
+        deletedPhotoIds.push(id)
+        return true
+      })
+
+      TestHelper.testResponse(await server.inject(request(mocks.id, mocks.registration)), {
+        statusCode: 200,
+        payload: validate(mocks.registration, true)
+      })
+
+      Code.expect(deletedPhotoIds).to.include(photo.id)
     })
 
     lab.test('responds with "Not Found" when {id} is an unknown guid', async ({ context }) => {
