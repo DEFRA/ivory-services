@@ -163,6 +163,15 @@ class Handlers {
       const parentId = result[key].id
       await Promise.all(Object.entries(childCollections).map(async ([type, collection]) => {
         const parentPropId = key.split('.').pop() + 'Id'
+        const collectionIds = collection.map(({ id }) => id)
+        // Now find and delete any items that no longer link to the parent
+        const Model = getModel(type)
+        const currentCollection = await Model.getAll({ [parentPropId]: parentId })
+        const itemsToDelete = currentCollection.filter(({ id }) => !collectionIds.includes(id))
+        await Promise.all(itemsToDelete.map((item) => {
+          return Model.delete(item.id)
+        }))
+        // Finally save the items
         return Promise.all(collection.map((item) => {
           item[parentPropId] = parentId
           return this.saveData(item, type, item.id)
