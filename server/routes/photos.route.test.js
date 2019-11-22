@@ -4,7 +4,7 @@ const Boom = require('@hapi/boom')
 const TestHelper = require('../../test-helper')
 const path = '/photos'
 const { Photo } = require('../models')
-const { uuid } = require('ivory-shared').utils
+const { uuid } = require('defra-hapi-utils').utils
 
 const { invalidGuidMessage } = TestHelper
 

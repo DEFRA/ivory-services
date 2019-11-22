@@ -2,7 +2,7 @@
 const Joi = require('@hapi/joi')
 const BaseModel = require('./baseModel')
 
-const { cloneAndMerge } = require('ivory-shared').utils
+const { cloneAndMerge } = require('defra-hapi-utils').utils
 const { params, schema } = require('./registration.model')
 
 const address = Joi.object(require('./address.model').schema).label('Person-Address')

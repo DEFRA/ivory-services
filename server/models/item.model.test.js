@@ -5,7 +5,7 @@ const lab = exports.lab = Lab.script()
 const TestHelper = require('../../test-helper')
 const Item = require('../models/item.model')
 const Dal = require('../dal')
-const { uuid } = require('ivory-shared').utils
+const { uuid } = require('defra-hapi-utils').utils
 
 const item = {
   description: 'item description',

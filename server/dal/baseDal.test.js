@@ -2,7 +2,7 @@ const sinon = require('sinon')
 const Lab = require('@hapi/lab')
 const lab = exports.lab = Lab.script()
 const Code = require('@hapi/code')
-const { utils } = require('ivory-shared')
+const { utils } = require('defra-hapi-utils')
 const TestHelper = require('../../test-helper')
 const BaseDal = require('../dal/baseDal')
 const Pool = require('../dal/inMemoryPg').Pool

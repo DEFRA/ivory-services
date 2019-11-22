@@ -1,6 +1,6 @@
 const Joi = require('@hapi/joi')
 const BaseModel = require('./baseModel')
-const { uuid } = require('ivory-shared').utils
+const { uuid } = require('defra-hapi-utils').utils
 
 module.exports = class Choice extends BaseModel {
   static get params () {
