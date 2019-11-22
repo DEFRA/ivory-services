@@ -3,7 +3,7 @@ const Code = require('@hapi/code')
 const lab = exports.lab = Lab.script()
 const TestHelper = require('../../test-helper')
 const Photo = require('../models/photo.model')
-const { uuid } = require('ivory-shared').utils
+const { uuid } = require('defra-hapi-utils').utils
 
 const photo = {
   itemId: uuid(),

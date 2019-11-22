@@ -6,7 +6,7 @@ const TestHelper = require('../../test-helper')
 const Registration = require('../models/registration.model')
 const Person = require('../models/person.model')
 const Item = require('../models/item.model')
-const { uuid } = require('ivory-shared').utils
+const { uuid } = require('defra-hapi-utils').utils
 
 const registration = {
   itemId: uuid(),

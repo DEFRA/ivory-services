@@ -1,7 +1,7 @@
 const Boom = require('@hapi/boom')
 const Joi = require('@hapi/joi')
 const { logger } = require('defra-logging-facade')
-const { utils } = require('ivory-shared')
+const { utils } = require('defra-hapi-utils')
 const { FullRegistration, Registration, Person, Item, Payment, Address, Photo } = require('../models')
 
 function buildInData (data, payload, path) {

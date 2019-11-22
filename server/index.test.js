@@ -6,7 +6,7 @@ const TestHelper = require('../test-helper')
 const { startHandler } = require('./index')
 const BaseDal = require('./dal/baseDal')
 const BaseModel = require('./models/baseModel')
-const { uuid } = require('ivory-shared').utils
+const { uuid } = require('defra-hapi-utils').utils
 
 lab.experiment(TestHelper.getFile(__filename), () => {
   lab.beforeEach(({ context }) => {
