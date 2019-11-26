@@ -72,8 +72,7 @@ async function createServer () {
       require('blipp'),
       require('@hapi/inert'),
       require('./plugins/views'),
-      // ToDo: Add Swagger back when it has been upgraded to Joi version 16
-      // require('./plugins/hapi-swagger'),
+      require('./plugins/hapi-swagger'),
       require('./plugins/logging')
     ])
   }
