@@ -29,9 +29,8 @@ const schema = Joi.object({
 
   // Logging
   logLevel: Joi.string().valid(ERROR, INFO, DEBUG).default(INFO),
-  airbrakeEnabled: Joi.bool().default(true),
-  airbrakeHost: Joi.when('airbrakeEnabled', { is: true, then: Joi.string().uri().required() }),
-  airbrakeKey: Joi.when('airbrakeEnabled', { is: true, then: Joi.string().min(32).required() }),
+  airbrakeHost: Joi.string().uri(),
+  airbrakeKey: Joi.string().min(32),
   airbrakeLogLevel: Joi.string().valid(ERROR, INFO, DEBUG).default(INFO),
 
   // Initialise database
@@ -57,7 +56,6 @@ const config = {
 
   // Logging
   logLevel: process.env.LOG_LEVEL,
-  airbrakeEnabled: process.env.AIRBRAKE_ENABLED,
   airbrakeHost: process.env.AIRBRAKE_HOST,
   airbrakeKey: process.env.AIRBRAKE_PROJECT_KEY,
   airbrakeLogLevel: process.env.AIRBRAKE_LOG_LEVEL,
