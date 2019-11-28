@@ -80,11 +80,13 @@ lab.experiment(TestHelper.getFile(__filename), () => {
             {
               id: uuid(),
               filename: 'first.jpg',
+              confirmed: true,
               rank: 0
             },
             {
               id: uuid(),
               filename: 'second.jpg',
+              confirmed: true,
               rank: 1
             }
           ]

@@ -14,7 +14,18 @@ module.exports = class Photo extends BaseModel {
       id: Joi.string().guid().allow(null).optional().example(uuid()),
       itemId: Joi.string().guid().example(uuid()),
       filename: Joi.string().example('1234567890.jpg'),
+      confirmed: Joi.bool(),
       rank: Joi.number().example(10)
     }
+  }
+
+  static validForPayment (photo) {
+    if (!photo) {
+      return false
+    }
+
+    const { filename, confirmed } = photo
+
+    return !(!filename || !confirmed)
   }
 }
