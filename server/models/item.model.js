@@ -40,9 +40,17 @@ module.exports = class Item extends BaseModel {
       return false
     }
 
-    const { itemType, description, ageExemptionDeclaration, ageExemptionDescription, volumeExemptionDeclaration, volumeExemptionDescription } = item
+    const { itemType, description, ageExemptionDeclaration, ageExemptionDescription, volumeExemptionDeclaration, volumeExemptionDescription, photos = [] } = item
 
     if (!description) {
+      return false
+    }
+
+    const { Photo } = require('../models')
+    const unconfirmedPhoto = photos.find((photo) => {
+      return !Photo.validForPayment(photo)
+    })
+    if (unconfirmedPhoto) {
       return false
     }
 

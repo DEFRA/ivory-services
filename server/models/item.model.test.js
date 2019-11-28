@@ -4,6 +4,7 @@ const Code = require('@hapi/code')
 const lab = exports.lab = Lab.script()
 const TestHelper = require('../../test-helper')
 const Item = require('../models/item.model')
+const Photo = require('../models/photo.model')
 const Dal = require('../dal')
 const { uuid } = require('defra-hapi-utils').utils
 
@@ -25,6 +26,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     TestHelper.stubCommon(sandbox)
     context.sandbox = sandbox
     context.data = data
+    sandbox.stub(Photo, 'validForPayment').value(() => data.photos && data.photos.length)
     sandbox.stub(Dal.Item, 'find').value(() => new Item(data))
     sandbox.stub(Dal.Item, 'save').value((data) => data)
   })
