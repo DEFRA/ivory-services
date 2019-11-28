@@ -4,6 +4,7 @@ const Joi = require('@hapi/joi')
 const DEVELOPMENT = 'development'
 const TEST = 'test'
 const PRODUCTION = 'production'
+const UNIT_TEST = 'unit-test'
 
 // Define logging levels
 const ERROR = 'error'
@@ -17,7 +18,7 @@ const DEFAULT_PORT = 3010
 // Define the config schema
 const schema = Joi.object({
   port: Joi.number().default(DEFAULT_PORT),
-  env: Joi.string().valid(DEVELOPMENT, TEST, PRODUCTION).default(DEVELOPMENT),
+  env: Joi.string().valid(DEVELOPMENT, TEST, PRODUCTION, UNIT_TEST).default(DEVELOPMENT),
 
   // Persistence
   postgresEnabled: Joi.bool().default(true),
@@ -81,6 +82,7 @@ value.loggingLevels = { DEBUG, INFO, ERROR }
 value.isDev = value.env === DEVELOPMENT
 value.isProd = value.env === PRODUCTION
 value.isTest = value.env === TEST
+value.isUnitTest = value.env === UNIT_TEST
 value.isDebug = value.airbrakeLogLevel === DEBUG
 value.isInfo = value.airbrakeLogLevel === INFO
 value.isError = value.airbrakeLogLevel === ERROR

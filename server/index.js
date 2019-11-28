@@ -67,13 +67,19 @@ async function createServer () {
     require('./plugins/error-routes')
   ])
 
-  if (config.isDev) {
+  // Register the logging plugin only if not running in unit test
+  if (!config.isUnitTest) {
+    await server.register([
+      require('./plugins/logging')
+    ])
+  }
+
+  if (config.isDev || config.isTest) {
     await server.register([
       require('blipp'),
       require('@hapi/inert'),
       require('./plugins/views'),
-      require('./plugins/hapi-swagger'),
-      require('./plugins/logging')
+      require('./plugins/hapi-swagger')
     ])
   }
 

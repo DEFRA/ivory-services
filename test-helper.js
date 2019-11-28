@@ -6,6 +6,7 @@ const { logger } = require('defra-logging-facade')
 
 // SET Environment variables before loading the config
 process.env.POSTGRES_ENABLED = false
+process.env.NODE_ENV = 'unit-test'
 process.env.LOG_LEVEL = 'error'
 const config = require('./server/config')
 
