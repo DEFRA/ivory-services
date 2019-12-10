@@ -20,8 +20,12 @@ module.exports = {
       volumeExemptionDeclaration: 'the portrait miniature is less than 320 centimetres square'
     },
     {
-      label: 'Item you\'re selling or hiring to an approved museum',
-      shortName: 'sell-or-hire-to-museum'
+      label: 'Item to be acquired by a qualifying museum',
+      shortName: 'apply-to-register-to-sell-an-item-to-a-museum'
+    },
+    {
+      label: 'Item of outstanding artistic, cultural or historical value made before 1918',
+      shortName: 'apply-for-an-rmi-certificate'
     }
   ]
 }
