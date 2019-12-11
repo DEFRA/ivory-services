@@ -79,6 +79,7 @@ async function createServer () {
       require('blipp'),
       require('@hapi/inert'),
       require('./plugins/views'),
+      require('./plugins/hapi-version-status'),
       require('./plugins/hapi-swagger')
     ])
   }
