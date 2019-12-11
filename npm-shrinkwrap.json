@@ -5301,11 +5301,13 @@
       }
     },
     "hapi-version-status": {
-      "version": "0.1.0",
-      "resolved": "https://registry.npmjs.org/hapi-version-status/-/hapi-version-status-0.1.0.tgz",
-      "integrity": "sha512-wxSeYQy1B6CAliazwIG/Gw+vASjBBUChWKS8VgoX5KJxf1TieeXJkW2k2h4vIsrLoOFu1TF8a6961BjrCojD4w==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/hapi-version-status/-/hapi-version-status-2.0.0.tgz",
+      "integrity": "sha512-9CdfcjyIDcBXiZO3uCdBSnfXjCT0sKWdqExESKiXiSrzmq3Qtf8Cv7FrIJuwT8qtAAWbBNq7jac+aODHqsJGig==",
       "requires": {
-        "git-last-commit": "^1.0.0"
+        "@hapi/wreck": "^16.0.1",
+        "git-last-commit": "^1.0.0",
+        "moment": "^2.24.0"
       },
       "dependencies": {
         "@babel/code-frame": {
