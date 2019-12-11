@@ -46,7 +46,7 @@
     "hapi-robots": "^3.2.0",
     "hapi-router": "^5.0.0",
     "hapi-swagger": "^11.1.0",
-    "hapi-version-status": "^0.1.0",
+    "hapi-version-status": "^2.0.0",
     "lodash.camelcase": "^4.3.0",
     "lodash.clonedeep": "^4.5.0",
     "pg": "^7.14.0",
