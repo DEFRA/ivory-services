@@ -5301,9 +5301,9 @@
       }
     },
     "hapi-version-status": {
-      "version": "2.0.0",
-      "resolved": "https://registry.npmjs.org/hapi-version-status/-/hapi-version-status-2.0.0.tgz",
-      "integrity": "sha512-9CdfcjyIDcBXiZO3uCdBSnfXjCT0sKWdqExESKiXiSrzmq3Qtf8Cv7FrIJuwT8qtAAWbBNq7jac+aODHqsJGig==",
+      "version": "2.0.1",
+      "resolved": "https://registry.npmjs.org/hapi-version-status/-/hapi-version-status-2.0.1.tgz",
+      "integrity": "sha512-f5xV0aKkJzoJXn0Ikht0D4C+aoTlU92VrLijGEeQWT9D3ArxaCYc++6fTY4oF5+M33/YRr5pvHJDS4gXTgvGJQ==",
       "requires": {
         "@hapi/wreck": "^16.0.1",
         "git-last-commit": "^1.0.0",
