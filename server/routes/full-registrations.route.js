@@ -4,6 +4,9 @@ const { logger } = require('defra-logging-facade')
 const { utils } = require('defra-hapi-utils')
 const { FullRegistration, Registration, Person, Item, Payment, Address, Photo } = require('../models')
 
+const config = require('../config')
+const cors = (config.isDev || config.isTest)
+
 function buildInData (data, payload, path) {
   Object.entries(payload).forEach(([prop, val]) => {
     if (val !== null && typeof val === 'object') {
@@ -222,6 +225,7 @@ class Handlers {
         path,
         handler: handleGet,
         options: {
+          cors,
           tags: ['api'],
           security: true,
           validate: {
@@ -234,6 +238,7 @@ class Handlers {
         path: `${path}/{id}`,
         handler: handleGetById,
         options: {
+          cors,
           tags: ['api'],
           security: true,
           validate: {
@@ -246,6 +251,7 @@ class Handlers {
         path,
         handler: handlePost,
         options: {
+          cors,
           tags: ['api'],
           security: true,
           payload: {
@@ -261,6 +267,7 @@ class Handlers {
         path: `${path}/{id}`,
         handler: handlePatch,
         options: {
+          cors,
           tags: ['api'],
           security: true,
           payload: {
