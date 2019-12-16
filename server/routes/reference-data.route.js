@@ -2,6 +2,9 @@ const Boom = require('@hapi/boom')
 const Joi = require('@hapi/joi')
 const { Group, Choice } = require('../models')
 
+const config = require('../config')
+const cors = (config.isDev || config.isTest)
+
 class Handlers {
   async getChoices (groupId) {
     const choices = await Choice.getAll({ groupId })
@@ -56,6 +59,7 @@ class Handlers {
         path,
         handler: handleGet,
         options: {
+          cors,
           tags: ['api'],
           security: true,
           validate: {
@@ -68,6 +72,7 @@ class Handlers {
         path: `${path}/{id}`,
         handler: handleGetById,
         options: {
+          cors,
           tags: ['api'],
           security: true,
           validate: {

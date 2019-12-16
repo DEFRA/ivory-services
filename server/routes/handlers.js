@@ -1,5 +1,7 @@
 const Boom = require('@hapi/boom')
 const Joi = require('@hapi/joi')
+const config = require('../config')
+const cors = (config.isDev || config.isTest)
 
 module.exports = class Handlers {
   constructor (Model) {
@@ -66,6 +68,7 @@ module.exports = class Handlers {
         path,
         handler: handleGet,
         options: {
+          cors,
           tags: ['api'],
           security: true,
           validate: {
@@ -78,6 +81,7 @@ module.exports = class Handlers {
         path: `${path}/{id}`,
         handler: handleGetById,
         options: {
+          cors,
           tags: ['api'],
           security: true,
           validate: {
@@ -90,6 +94,7 @@ module.exports = class Handlers {
         path,
         handler: handlePost,
         options: {
+          cors,
           tags: ['api'],
           security: true,
           payload: {
@@ -105,6 +110,7 @@ module.exports = class Handlers {
         path: `${path}/{id}`,
         handler: handlePatch,
         options: {
+          cors,
           tags: ['api'],
           security: true,
           payload: {
@@ -121,6 +127,7 @@ module.exports = class Handlers {
         path: `${path}/{id}`,
         handler: handleDelete,
         options: {
+          cors,
           tags: ['api'],
           security: true,
           payload: {
