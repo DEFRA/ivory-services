@@ -49,7 +49,7 @@
     "hapi-version-status": "^2.0.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.clonedeep": "^4.5.0",
-    "pg": "^7.15.0",
+    "pg": "^7.15.1",
     "require-all": "^3.0.0",
     "uuid": "^3.3.3"
   },
