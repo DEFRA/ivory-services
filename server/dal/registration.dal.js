@@ -13,7 +13,8 @@ module.exports = class Registration extends BaseDal {
       confirmationSent: 'boolean',
       ownerType: 'varchar',
       dealingIntent: 'varchar',
-      status: 'varchar'
+      status: 'varchar',
+      submittedDate: 'timestamptz'
     }
   }
 }
