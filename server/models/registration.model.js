@@ -21,7 +21,8 @@ module.exports = class Registration extends BaseModel {
       confirmationSent: Joi.bool().allow(null).example(false),
       ownerType: Joi.string().example('someone-else'),
       dealingIntent: Joi.string(),
-      status: Joi.string()
+      status: Joi.string(),
+      submittedDate: Joi.string()
     }
   }
 
