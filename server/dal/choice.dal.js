@@ -12,6 +12,8 @@ module.exports = class Choice extends BaseDal {
       display: 'varchar',
       ageExemptionDeclaration: 'varchar',
       volumeExemptionDeclaration: 'varchar',
+      ageExemptionLabel: 'varchar',
+      volumeExemptionLabel: 'varchar',
       hint: 'varchar',
       value: 'varchar'
     }

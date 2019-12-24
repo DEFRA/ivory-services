@@ -20,6 +20,8 @@ module.exports = class Choice extends BaseModel {
       display: Joi.string().example('display'),
       ageExemptionDeclaration: Joi.string().example('age-exemption-declaration'),
       volumeExemptionDeclaration: Joi.string().example('volume-exemption-declaration'),
+      ageExemptionLabel: Joi.string().example('age-exemption-explanation'),
+      volumeExemptionLabel: Joi.string().example('volume-exemption-explanation'),
       hint: Joi.string().example('hint'),
       value: Joi.optional()
     }

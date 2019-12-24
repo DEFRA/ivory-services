@@ -6,6 +6,8 @@ module.exports = {
       hint: 'For example piano, violin bow, flute',
       ageExemptionDeclaration: 'the item was made before 1975',
       volumeExemptionDeclaration: 'the item has less than 20% ivory',
+      ageExemptionLabel: 'Pre-1975',
+      volumeExemptionLabel: 'Less than 20% ivory',
       display: 'Musical instrument'
     },
     {
@@ -13,6 +15,8 @@ module.exports = {
       shortName: 'pre-1947-less-than-10-percent',
       ageExemptionDeclaration: 'the item was made before 1947',
       volumeExemptionDeclaration: 'the item has less than 10% ivory',
+      ageExemptionLabel: 'Pre-1947',
+      volumeExemptionLabel: 'Less than 10% ivory',
       display: 'Pre-1947 less than 10%'
     },
     {
@@ -20,6 +24,8 @@ module.exports = {
       shortName: 'portrait-miniature-pre-1918',
       ageExemptionDeclaration: 'the item was made before 1918',
       volumeExemptionDeclaration: 'the portrait miniature is less than 320 centimetres square',
+      ageExemptionLabel: 'Pre-1918',
+      volumeExemptionLabel: 'Less than 320 centimetres square',
       display: 'Portrait miniature'
     },
     {

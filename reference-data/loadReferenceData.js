@@ -14,7 +14,7 @@ async function loadReferenceData () {
     if (hint !== undefined) group.hint = hint
     const { id: groupId } = await group.save()
 
-    return Promise.all(choices.map(async ({ label, shortName, hint, value, display, ageExemptionDeclaration, volumeExemptionDeclaration }, rank) => {
+    return Promise.all(choices.map(async ({ label, shortName, hint, value, display, ageExemptionDeclaration, volumeExemptionDeclaration, ageExemptionLabel, volumeExemptionLabel }, rank) => {
       const result = await Choice.getAll({ shortName })
       const choice = new Choice(result.length ? result.pop() : { shortName, rank, groupId })
       if (label !== undefined) choice.label = label
@@ -22,6 +22,8 @@ async function loadReferenceData () {
       if (value !== undefined) choice.value = value
       if (ageExemptionDeclaration !== undefined) choice.ageExemptionDeclaration = ageExemptionDeclaration
       if (volumeExemptionDeclaration !== undefined) choice.volumeExemptionDeclaration = volumeExemptionDeclaration
+      if (ageExemptionLabel !== undefined) choice.ageExemptionLabel = ageExemptionLabel
+      if (volumeExemptionLabel !== undefined) choice.volumeExemptionLabel = volumeExemptionLabel
       if (display !== undefined) choice.display = display
       await choice.save()
     }))

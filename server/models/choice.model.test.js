@@ -14,7 +14,9 @@ const choice = {
   hint: 'Choice hint',
   value: true,
   ageExemptionDeclaration: 'ageExemptionDeclaration',
-  volumeExemptionDeclaration: 'volumeExemptionDeclaration'
+  volumeExemptionDeclaration: 'volumeExemptionDeclaration',
+  ageExemptionLabel: 'ageExemptionLabel',
+  volumeExemptionLabel: 'volumeExemptionLabel'
 }
 
 lab.experiment(TestHelper.getFile(__filename), () => {
