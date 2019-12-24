@@ -3,10 +3,12 @@ const Lab = require('@hapi/lab')
 const Code = require('@hapi/code')
 const lab = exports.lab = Lab.script()
 const TestHelper = require('../../test-helper')
+const registrationNumberGenerator = require('../utils/registration-number-generator')
 const Registration = require('../models/registration.model')
 const Person = require('../models/person.model')
 const Item = require('../models/item.model')
 const { uuid } = require('defra-hapi-utils').utils
+const registrationNumber = 'IVR99999'
 
 const registration = {
   itemId: uuid(),
@@ -25,6 +27,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     const sandbox = sinon.createSandbox()
     sandbox.stub(Person, 'validForPayment').value(() => data.ownerId && data.agentId)
     sandbox.stub(Item, 'validForPayment').value(() => !!data.itemId)
+    sandbox.stub(registrationNumberGenerator, 'get').value(() => registrationNumber)
     data = Object.assign({}, registration)
     context.sandbox = sandbox
   })
@@ -39,6 +42,13 @@ lab.experiment(TestHelper.getFile(__filename), () => {
   lab.test('Registration data validates correctly', async () => {
     const { value } = Registration.validate(data, { abortEarly: false })
     Code.expect(value).to.equal(data)
+  })
+
+  lab.test('Registration number is created when status is ready for payment', async () => {
+    const registration = new Registration(data)
+    registration.status = 'ready-for-payment'
+    await registration.save()
+    Code.expect(registration.registrationNumber).to.equal(registrationNumber)
   })
 
   Object.keys(registration).forEach((field) => {

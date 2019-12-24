@@ -1,6 +1,7 @@
 const Joi = require('@hapi/joi')
 const BaseModel = require('./baseModel')
 const { uuid } = require('defra-hapi-utils').utils
+const registrationNumberGenerator = require('../utils/registration-number-generator')
 
 module.exports = class Registration extends BaseModel {
   static get params () {
@@ -29,8 +30,8 @@ module.exports = class Registration extends BaseModel {
   async save () {
     let personIdToDelete
     if (this.id) {
-      const { ownerType } = await Registration.getById(this.id) || {}
       // Switch the owner and agent when the ownerType is changed
+      const { ownerType } = await Registration.getById(this.id) || {}
       if (ownerType && this.ownerType !== ownerType) {
         switch (this.ownerType) {
           case 'i-own-it': {
@@ -47,6 +48,12 @@ module.exports = class Registration extends BaseModel {
         }
       }
     }
+
+    // Create registration number if required
+    if (this.status === 'ready-for-payment' && !this.registrationNumber) {
+      this.registrationNumber = await registrationNumberGenerator.get()
+    }
+
     const result = await super.save()
     if (personIdToDelete) {
       const { Person } = require('../models')
