@@ -27,7 +27,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     const sandbox = sinon.createSandbox()
     sandbox.stub(Person, 'validForPayment').value(() => data.ownerId && data.agentId)
     sandbox.stub(Item, 'validForPayment').value(() => !!data.itemId)
-    sandbox.stub(registrationNumberGenerator, 'get').value(() => registrationNumber)
+    sandbox.stub(registrationNumberGenerator, 'random').value(() => registrationNumber)
     data = Object.assign({}, registration)
     context.sandbox = sandbox
   })

@@ -51,7 +51,7 @@ module.exports = class Registration extends BaseModel {
 
     // Create registration number if required
     if (this.status === 'ready-for-payment' && !this.registrationNumber) {
-      this.registrationNumber = await registrationNumberGenerator.get()
+      this.registrationNumber = await Registration.getUniqueRegistrationNumber()
     }
 
     const result = await super.save()
@@ -60,6 +60,16 @@ module.exports = class Registration extends BaseModel {
       await Person.delete(personIdToDelete)
     }
     return result
+  }
+
+  static async getUniqueRegistrationNumber () {
+    const registrationNumber = await registrationNumberGenerator.random()
+    const results = await Registration.getAll({ registrationNumber: this.registrationNumber })
+    if (results.length) {
+      return this.getUniqueRegistrationNumber()
+    } else {
+      return registrationNumber
+    }
   }
 
   static validForPayment (registration) {
