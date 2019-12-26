@@ -35,6 +35,7 @@
     "@hapi/joi": "^16.1.8",
     "@hapi/vision": "^5.5.4",
     "adal-node": "^0.2.1",
+    "bad-words": "^3.0.3",
     "blipp": "^4.0.1",
     "cross-fetch": "^3.0.4",
     "defra-hapi-utils": "git+https://github.com/DEFRA/defra-hapi-utils.git#master",
