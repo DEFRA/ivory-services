@@ -6,11 +6,11 @@ const registrationNumber = require('./registration-number-generator')
 
 lab.experiment(TestHelper.getFile(__filename), () => {
   lab.experiment('registrationNumber', () => {
-    lab.test('bad should be true', async () => {
-      Code.expect(await registrationNumber.bad('NM2CUNTY')).to.equal(true)
+    lab.test('isClean should be false', async () => {
+      Code.expect(await registrationNumber.isClean('NM2CUNTY')).to.equal(false)
     })
 
-    lab.test('bad should be false', async () => {
+    lab.test('isClean should be true', async () => {
       Code.expect(await registrationNumber.isClean('1FTREEX3')).to.equal(true)
     })
 
