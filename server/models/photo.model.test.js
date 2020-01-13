@@ -7,7 +7,8 @@ const { uuid } = require('defra-hapi-utils').utils
 
 const photo = {
   itemId: uuid(),
-  filename: '1234567890.jpg'
+  filename: '1234567890.jpg',
+  originalFilename: 'example.jpg'
 }
 
 lab.experiment(TestHelper.getFile(__filename), () => {
