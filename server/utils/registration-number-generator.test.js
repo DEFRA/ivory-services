@@ -23,7 +23,7 @@ lab.experiment(TestHelper.getFile(__filename), () => {
     })
 
     lab.test('isAllowed passes when correct', async () => {
-      Code.expect(await registrationNumber.isAllowed('12345A78')).to.equal(true)
+      Code.expect(await registrationNumber.isAllowed('12345D78')).to.equal(true)
     })
 
     lab.test('isAllowed fails when not allowed', async () => {

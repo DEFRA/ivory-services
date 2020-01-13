@@ -3,11 +3,13 @@ const filter = new Filter()
 
 module.exports = {
   get characters () {
-    return 'ACDEFGHJKMNPRTUVWXYZ'.split('')
+    // consonant alpha characters without those that could be confused with a numeral
+    return 'CDFGHJKMNPRTVWXYZ'.split('')
   },
 
   get numbers () {
-    return '234679'.split('')
+    // numeric characters without those that could be confused with an alpha character
+    return '23679'.split('')
   },
 
   get sequence () {
