@@ -58,7 +58,7 @@
     "@hapi/code": "^7.0.0",
     "@hapi/lab": "^21.0.0",
     "node-sass": "4.13.0",
-    "sinon": "^8.0.4",
+    "sinon": "^8.1.0",
     "standard": "14.3.1",
     "supertest": "^4.0.2"
   }
