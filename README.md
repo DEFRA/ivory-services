@@ -9,21 +9,25 @@
 
 This module was developed by the Ivory team as part of a digital transformation project at [DEFRA](https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs), a department of the UK government
 
+## Purpose
+
+This service is part of a [suite of services and modules](https://github.com/DEFRA/ivory) working together to allow self registration of ivory items as required by the ivory act.
+
 ## Prerequisites
 
 Please make sure the following are installed:
 
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Node.js v10/Dubnuim](https://nodejs.org/en/) recommend
-  installing nvm and using `nvm install --lts`
+  installing nvm and using `nvm install 10`
 - [StandardJS](https://standardjs.com/) using `npm install -g standard`
 
 Check that your environment is running the correct versions of `node` and `npm`:
 ```bash
 $ npm --version
-6.9.0
+6.13.4
 $ node --version
-v10.15.3
+v10.18.1
 ```
 
 ## Installation
@@ -46,6 +50,8 @@ cp .env.example .env
 ```
 
 ## Running the app
+
+Make sure instances of redis and postgres are running and accessible
 
 Run the app using  **npm**
 
