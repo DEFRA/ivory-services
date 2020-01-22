@@ -22,7 +22,6 @@
     "docker:run": "docker run -p \"3010:3010\" --env-file .env ivory/api",
     "lint": "standard",
     "unit-test": "lab --coverage --reporter console --output stdout --reporter lcov --output lcov.info --reporter html --output coverage.html --verbose",
-    "api-test": "lab --pattern api --reporter console --output stdout --reporter json --output api-test.json --verbose -I 'core,__core-js_shared__'",
     "test": "npm run lint && npm run unit-test"
   },
   "dependencies": {
@@ -59,7 +58,6 @@
     "@hapi/lab": "^22.0.3",
     "node-sass": "4.13.1",
     "sinon": "^8.1.0",
-    "standard": "14.3.1",
-    "supertest": "^4.0.2"
+    "standard": "14.3.1"
   }
 }

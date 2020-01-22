@@ -63,14 +63,6 @@ report
 npm test
 ```
 
-## Testing the API
-
-When the app is running, use the following **npm** task. This sends a sequence of requests to the REST API of the app and makes sure the results are as expected.
-
-```bash
-npm run api-test
-```
-
 ## API Documentation using Swagger
 
 [Swagger](https://github.com/glennjones/hapi-swagger) can be accessed in the path "/documentation"
