@@ -1,4 +1,7 @@
 # Ivory API Service
+Digital service to support the Ivory Act.
+
+(Please note that this service is best installed through [ivory](https://github.com/DEFRA/ivory))
 
 [![Build Status](https://travis-ci.com/DEFRA/ivory-services.svg?branch=master)](https://travis-ci.com/DEFRA/ivory-services)
 [![Known Vulnerabilities](https://snyk.io/test/github/defra/ivory-services/badge.svg)](https://snyk.io/test/github/defra/ivory-services)
