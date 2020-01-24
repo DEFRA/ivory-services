@@ -60,19 +60,19 @@ async function createServer () {
   // Add a reference to the server in the config
   config.server = server
 
-  // Register the plugins
-  await server.register([
-    require('./plugins/hapi-router'),
-    require('./plugins/hapi-robots'),
-    require('./plugins/error-routes')
-  ])
-
   // Register the logging plugin only if not running in unit test
   if (!config.isUnitTest) {
     await server.register([
       require('./plugins/logging')
     ])
   }
+
+  // Register the plugins
+  await server.register([
+    require('./plugins/hapi-router'),
+    require('./plugins/hapi-robots'),
+    require('./plugins/error-routes')
+  ])
 
   if (config.isDev || config.isTest) {
     await server.register([
