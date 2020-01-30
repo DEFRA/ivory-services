@@ -1,6 +1,6 @@
 {
   "name": "ivory-services",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "GOV.UK REST API service for the Ivory service",
   "author": "Department for Environment, Food & Rural Affairs",
   "license": "SEE LICENSE IN LICENSE",
@@ -37,7 +37,7 @@
     "bad-words": "^3.0.3",
     "blipp": "^4.0.1",
     "cross-fetch": "^3.0.4",
-    "defra-hapi-utils": "git+https://github.com/DEFRA/defra-hapi-utils.git#v0.1.1",
+    "defra-hapi-utils": "git+https://github.com/DEFRA/defra-hapi-utils.git#v0.1.2",
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#master",
     "dotenv": "^8.2.0",
     "git-last-commit": "^1.0.0",
@@ -49,7 +49,7 @@
     "hapi-version-status": "^2.0.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.clonedeep": "^4.5.0",
-    "pg": "^7.17.1",
+    "pg": "^7.18.1",
     "require-all": "^3.0.0",
     "uuid": "^3.4.0"
   },
