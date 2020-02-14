@@ -172,9 +172,9 @@
       }
     },
     "@hapi/accept": {
-      "version": "3.2.3",
-      "resolved": "https://registry.npmjs.org/@hapi/accept/-/accept-3.2.3.tgz",
-      "integrity": "sha512-qEzsOJkCAJZxwj3iF83bSG9Lxy8Bpbrt8mRLNdvSALT6vlU2cYh6ZEHKEZPy4h/Mo31Su3j0rJgFF91+W1RWDQ==",
+      "version": "3.2.4",
+      "resolved": "https://registry.npmjs.org/@hapi/accept/-/accept-3.2.4.tgz",
+      "integrity": "sha512-soThGB+QMgfxlh0Vzhzlf3ZOEOPk5biEwcOXhkF0Eedqx8VnhGiggL9UYHrIsOb1rUg3Be3K8kp0iDL2wbVSOQ==",
       "requires": {
         "@hapi/boom": "7.x.x",
         "@hapi/hoek": "8.x.x"
@@ -318,9 +318,9 @@
       "integrity": "sha512-1dVNHT76Uu5N3eJNTYcvxee+jzX4Z9lfciqRRHCU27ihbUcYi+iSc2iml5Ke1LXe1SyJCLA0+14Jh4tXJgOppA=="
     },
     "@hapi/call": {
-      "version": "5.1.2",
-      "resolved": "https://registry.npmjs.org/@hapi/call/-/call-5.1.2.tgz",
-      "integrity": "sha512-10XyXbpo0fAXmOf/Q4BCgsQrrTZuwa6/FcSnuKqD06sZz5yMCmJTD8VpmolEjEfwJqXtQBZHj9g/IYcmHk3nxQ==",
+      "version": "5.1.3",
+      "resolved": "https://registry.npmjs.org/@hapi/call/-/call-5.1.3.tgz",
+      "integrity": "sha512-5DfWpMk7qZiYhvBhM5oUiT4GQ/O8a2rFR121/PdwA/eZ2C1EsuD547ZggMKAR5bZ+FtxOf0fdM20zzcXzq2mZA==",
       "requires": {
         "@hapi/boom": "7.x.x",
         "@hapi/hoek": "8.x.x"
@@ -354,28 +354,6 @@
           "requires": {
             "@hapi/hoek": "8.x.x"
           }
-        },
-        "@hapi/formula": {
-          "version": "1.2.0",
-          "resolved": "https://registry.npmjs.org/@hapi/formula/-/formula-1.2.0.tgz",
-          "integrity": "sha512-UFbtbGPjstz0eWHb+ga/GM3Z9EzqKXFWIbSOFURU0A/Gku0Bky4bCk9/h//K2Xr3IrCfjFNhMm4jyZ5dbCewGA=="
-        },
-        "@hapi/joi": {
-          "version": "16.1.8",
-          "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.8.tgz",
-          "integrity": "sha512-wAsVvTPe+FwSrsAurNt5vkg3zo+TblvC5Bb1zMVK6SJzZqw9UrJnexxR+76cpePmtUZKHAPxcQ2Bf7oVHyahhg==",
-          "requires": {
-            "@hapi/address": "^2.1.2",
-            "@hapi/formula": "^1.2.0",
-            "@hapi/hoek": "^8.2.4",
-            "@hapi/pinpoint": "^1.0.2",
-            "@hapi/topo": "^3.1.3"
-          }
-        },
-        "@hapi/pinpoint": {
-          "version": "1.0.2",
-          "resolved": "https://registry.npmjs.org/@hapi/pinpoint/-/pinpoint-1.0.2.tgz",
-          "integrity": "sha512-dtXC/WkZBfC5vxscazuiJ6iq4j9oNx1SHknmIr8hofarpKUZKmlUVYVIhNVzIEgK5Wrc4GMHL5lZtt1uS2flmQ=="
         }
       }
     },
@@ -416,9 +394,9 @@
       }
     },
     "@hapi/content": {
-      "version": "4.1.0",
-      "resolved": "https://registry.npmjs.org/@hapi/content/-/content-4.1.0.tgz",
-      "integrity": "sha512-hv2Czsl49hnWDEfRZOFow/BmYbKyfEknmk3k83gOp6moFn5ceHB4xVcna8OwsGfy8dxO81lhpPy+JgQEaU4SWw==",
+      "version": "4.1.1",
+      "resolved": "https://registry.npmjs.org/@hapi/content/-/content-4.1.1.tgz",
+      "integrity": "sha512-3TWvmwpVPxFSF3KBjKZ8yDqIKKZZIm7VurDSweYpXYENZrJH3C1hd1+qEQW9wQaUaI76pPBLGrXl6I3B7i3ipA==",
       "requires": {
         "@hapi/boom": "7.x.x"
       },
@@ -609,15 +587,15 @@
       }
     },
     "@hapi/hapi": {
-      "version": "18.4.0",
-      "resolved": "https://registry.npmjs.org/@hapi/hapi/-/hapi-18.4.0.tgz",
-      "integrity": "sha512-uk9zqknRLcNVQKgrPURm85DqkdroWP8eDRekh/IPoKvC4VjdZSn6EH2eUriOwyud/CldeBS3HDIJ/PtRj3VxDQ==",
+      "version": "18.4.1",
+      "resolved": "https://registry.npmjs.org/@hapi/hapi/-/hapi-18.4.1.tgz",
+      "integrity": "sha512-9HjVGa0Z4Qv9jk9AVoUdJMQLA+KuZ+liKWyEEkVBx3e3H1F0JM6aGbPkY9jRfwsITBWGBU2iXazn65SFKSi/tg==",
       "requires": {
-        "@hapi/accept": "3.x.x",
-        "@hapi/ammo": "3.x.x",
+        "@hapi/accept": "^3.2.4",
+        "@hapi/ammo": "^3.1.2",
         "@hapi/boom": "7.x.x",
         "@hapi/bounce": "1.x.x",
-        "@hapi/call": "5.x.x",
+        "@hapi/call": "^5.1.3",
         "@hapi/catbox": "10.x.x",
         "@hapi/catbox-memory": "4.x.x",
         "@hapi/heavy": "6.x.x",
@@ -628,15 +606,15 @@
         "@hapi/shot": "4.x.x",
         "@hapi/somever": "2.x.x",
         "@hapi/statehood": "6.x.x",
-        "@hapi/subtext": "6.x.x",
+        "@hapi/subtext": "^6.1.3",
         "@hapi/teamwork": "3.x.x",
         "@hapi/topo": "3.x.x"
       },
       "dependencies": {
         "@hapi/ammo": {
-          "version": "3.1.1",
-          "resolved": "https://registry.npmjs.org/@hapi/ammo/-/ammo-3.1.1.tgz",
-          "integrity": "sha512-NYFK27VSPGyQ/KmOQedpQH4PSjE7awLntepX68vrYtRvuJO21W1kX0bK2p3C+6ltUwtCQSvmNT8a4uMVAysC6Q==",
+          "version": "3.1.2",
+          "resolved": "https://registry.npmjs.org/@hapi/ammo/-/ammo-3.1.2.tgz",
+          "integrity": "sha512-ej9OtFmiZv1qr45g1bxEZNGyaR4jRpyMxU6VhbxjaYThymvOwsyIsUKMZnP5Qw2tfYFuwqCJuIBHGpeIbdX9gQ==",
           "requires": {
             "@hapi/hoek": "8.x.x"
           }
@@ -647,22 +625,6 @@
           "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
           "requires": {
             "@hapi/hoek": "8.x.x"
-          }
-        },
-        "@hapi/bounce": {
-          "version": "1.3.2",
-          "resolved": "https://registry.npmjs.org/@hapi/bounce/-/bounce-1.3.2.tgz",
-          "integrity": "sha512-3bnb1AlcEByFZnpDIidxQyw1Gds81z/1rSqlx4bIEE+wUN0ATj0D49B5cE1wGocy90Rp/de4tv7GjsKd5RQeew==",
-          "requires": {
-            "@hapi/boom": "7.x.x",
-            "@hapi/hoek": "^8.3.1"
-          },
-          "dependencies": {
-            "@hapi/hoek": {
-              "version": "8.5.0",
-              "resolved": "https://registry.npmjs.org/@hapi/hoek/-/hoek-8.5.0.tgz",
-              "integrity": "sha512-7XYT10CZfPsH7j9F1Jmg1+d0ezOux2oM2GfArAzLwWe4mE2Dr3hVjsAL6+TFY49RRJlCdJDMw3nJsLFroTc8Kw=="
-            }
           }
         },
         "@hapi/joi": {
@@ -695,28 +657,6 @@
           "requires": {
             "@hapi/hoek": "8.x.x"
           }
-        },
-        "@hapi/formula": {
-          "version": "1.2.0",
-          "resolved": "https://registry.npmjs.org/@hapi/formula/-/formula-1.2.0.tgz",
-          "integrity": "sha512-UFbtbGPjstz0eWHb+ga/GM3Z9EzqKXFWIbSOFURU0A/Gku0Bky4bCk9/h//K2Xr3IrCfjFNhMm4jyZ5dbCewGA=="
-        },
-        "@hapi/joi": {
-          "version": "16.1.8",
-          "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.8.tgz",
-          "integrity": "sha512-wAsVvTPe+FwSrsAurNt5vkg3zo+TblvC5Bb1zMVK6SJzZqw9UrJnexxR+76cpePmtUZKHAPxcQ2Bf7oVHyahhg==",
-          "requires": {
-            "@hapi/address": "^2.1.2",
-            "@hapi/formula": "^1.2.0",
-            "@hapi/hoek": "^8.2.4",
-            "@hapi/pinpoint": "^1.0.2",
-            "@hapi/topo": "^3.1.3"
-          }
-        },
-        "@hapi/pinpoint": {
-          "version": "1.0.2",
-          "resolved": "https://registry.npmjs.org/@hapi/pinpoint/-/pinpoint-1.0.2.tgz",
-          "integrity": "sha512-dtXC/WkZBfC5vxscazuiJ6iq4j9oNx1SHknmIr8hofarpKUZKmlUVYVIhNVzIEgK5Wrc4GMHL5lZtt1uS2flmQ=="
         }
       }
     },
@@ -908,13 +848,13 @@
       }
     },
     "@hapi/pez": {
-      "version": "4.1.1",
-      "resolved": "https://registry.npmjs.org/@hapi/pez/-/pez-4.1.1.tgz",
-      "integrity": "sha512-TUa2C7Xk6J69HWrm+Ad+O6dFvdVAG0BiFUYaRsmkdWjFIfwHBCaOI1dWT/juNukSb39Lj6/mDVyjN+H4nKB3xg==",
+      "version": "4.1.2",
+      "resolved": "https://registry.npmjs.org/@hapi/pez/-/pez-4.1.2.tgz",
+      "integrity": "sha512-8zSdJ8cZrJLFldTgwjU9Fb1JebID+aBCrCsycgqKYe0OZtM2r3Yv3aAwW5z97VsZWCROC1Vx6Mdn4rujh5Ktcg==",
       "requires": {
         "@hapi/b64": "4.x.x",
         "@hapi/boom": "7.x.x",
-        "@hapi/content": "4.x.x",
+        "@hapi/content": "^4.1.1",
         "@hapi/hoek": "8.x.x",
         "@hapi/nigel": "3.x.x"
       },
@@ -941,30 +881,6 @@
       "requires": {
         "@hapi/hoek": "8.x.x",
         "@hapi/joi": "16.x.x"
-      },
-      "dependencies": {
-        "@hapi/formula": {
-          "version": "1.2.0",
-          "resolved": "https://registry.npmjs.org/@hapi/formula/-/formula-1.2.0.tgz",
-          "integrity": "sha512-UFbtbGPjstz0eWHb+ga/GM3Z9EzqKXFWIbSOFURU0A/Gku0Bky4bCk9/h//K2Xr3IrCfjFNhMm4jyZ5dbCewGA=="
-        },
-        "@hapi/joi": {
-          "version": "16.1.8",
-          "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.8.tgz",
-          "integrity": "sha512-wAsVvTPe+FwSrsAurNt5vkg3zo+TblvC5Bb1zMVK6SJzZqw9UrJnexxR+76cpePmtUZKHAPxcQ2Bf7oVHyahhg==",
-          "requires": {
-            "@hapi/address": "^2.1.2",
-            "@hapi/formula": "^1.2.0",
-            "@hapi/hoek": "^8.2.4",
-            "@hapi/pinpoint": "^1.0.2",
-            "@hapi/topo": "^3.1.3"
-          }
-        },
-        "@hapi/pinpoint": {
-          "version": "1.0.2",
-          "resolved": "https://registry.npmjs.org/@hapi/pinpoint/-/pinpoint-1.0.2.tgz",
-          "integrity": "sha512-dtXC/WkZBfC5vxscazuiJ6iq4j9oNx1SHknmIr8hofarpKUZKmlUVYVIhNVzIEgK5Wrc4GMHL5lZtt1uS2flmQ=="
-        }
       }
     },
     "@hapi/rule-capitalize-modules": {
@@ -1004,30 +920,6 @@
       "requires": {
         "@hapi/hoek": "8.x.x",
         "@hapi/joi": "16.x.x"
-      },
-      "dependencies": {
-        "@hapi/formula": {
-          "version": "1.2.0",
-          "resolved": "https://registry.npmjs.org/@hapi/formula/-/formula-1.2.0.tgz",
-          "integrity": "sha512-UFbtbGPjstz0eWHb+ga/GM3Z9EzqKXFWIbSOFURU0A/Gku0Bky4bCk9/h//K2Xr3IrCfjFNhMm4jyZ5dbCewGA=="
-        },
-        "@hapi/joi": {
-          "version": "16.1.8",
-          "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.8.tgz",
-          "integrity": "sha512-wAsVvTPe+FwSrsAurNt5vkg3zo+TblvC5Bb1zMVK6SJzZqw9UrJnexxR+76cpePmtUZKHAPxcQ2Bf7oVHyahhg==",
-          "requires": {
-            "@hapi/address": "^2.1.2",
-            "@hapi/formula": "^1.2.0",
-            "@hapi/hoek": "^8.2.4",
-            "@hapi/pinpoint": "^1.0.2",
-            "@hapi/topo": "^3.1.3"
-          }
-        },
-        "@hapi/pinpoint": {
-          "version": "1.0.2",
-          "resolved": "https://registry.npmjs.org/@hapi/pinpoint/-/pinpoint-1.0.2.tgz",
-          "integrity": "sha512-dtXC/WkZBfC5vxscazuiJ6iq4j9oNx1SHknmIr8hofarpKUZKmlUVYVIhNVzIEgK5Wrc4GMHL5lZtt1uS2flmQ=="
-        }
       }
     },
     "@hapi/somever": {
@@ -1037,32 +929,6 @@
       "requires": {
         "@hapi/bounce": "1.x.x",
         "@hapi/hoek": "8.x.x"
-      },
-      "dependencies": {
-        "@hapi/boom": {
-          "version": "7.4.11",
-          "resolved": "https://registry.npmjs.org/@hapi/boom/-/boom-7.4.11.tgz",
-          "integrity": "sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==",
-          "requires": {
-            "@hapi/hoek": "8.x.x"
-          }
-        },
-        "@hapi/bounce": {
-          "version": "1.3.2",
-          "resolved": "https://registry.npmjs.org/@hapi/bounce/-/bounce-1.3.2.tgz",
-          "integrity": "sha512-3bnb1AlcEByFZnpDIidxQyw1Gds81z/1rSqlx4bIEE+wUN0ATj0D49B5cE1wGocy90Rp/de4tv7GjsKd5RQeew==",
-          "requires": {
-            "@hapi/boom": "7.x.x",
-            "@hapi/hoek": "^8.3.1"
-          },
-          "dependencies": {
-            "@hapi/hoek": {
-              "version": "8.5.0",
-              "resolved": "https://registry.npmjs.org/@hapi/hoek/-/hoek-8.5.0.tgz",
-              "integrity": "sha512-7XYT10CZfPsH7j9F1Jmg1+d0ezOux2oM2GfArAzLwWe4mE2Dr3hVjsAL6+TFY49RRJlCdJDMw3nJsLFroTc8Kw=="
-            }
-          }
-        }
       }
     },
     "@hapi/statehood": {
@@ -1086,58 +952,20 @@
           "requires": {
             "@hapi/hoek": "8.x.x"
           }
-        },
-        "@hapi/bounce": {
-          "version": "1.3.2",
-          "resolved": "https://registry.npmjs.org/@hapi/bounce/-/bounce-1.3.2.tgz",
-          "integrity": "sha512-3bnb1AlcEByFZnpDIidxQyw1Gds81z/1rSqlx4bIEE+wUN0ATj0D49B5cE1wGocy90Rp/de4tv7GjsKd5RQeew==",
-          "requires": {
-            "@hapi/boom": "7.x.x",
-            "@hapi/hoek": "^8.3.1"
-          },
-          "dependencies": {
-            "@hapi/hoek": {
-              "version": "8.5.0",
-              "resolved": "https://registry.npmjs.org/@hapi/hoek/-/hoek-8.5.0.tgz",
-              "integrity": "sha512-7XYT10CZfPsH7j9F1Jmg1+d0ezOux2oM2GfArAzLwWe4mE2Dr3hVjsAL6+TFY49RRJlCdJDMw3nJsLFroTc8Kw=="
-            }
-          }
-        },
-        "@hapi/formula": {
-          "version": "1.2.0",
-          "resolved": "https://registry.npmjs.org/@hapi/formula/-/formula-1.2.0.tgz",
-          "integrity": "sha512-UFbtbGPjstz0eWHb+ga/GM3Z9EzqKXFWIbSOFURU0A/Gku0Bky4bCk9/h//K2Xr3IrCfjFNhMm4jyZ5dbCewGA=="
-        },
-        "@hapi/joi": {
-          "version": "16.1.8",
-          "resolved": "https://registry.npmjs.org/@hapi/joi/-/joi-16.1.8.tgz",
-          "integrity": "sha512-wAsVvTPe+FwSrsAurNt5vkg3zo+TblvC5Bb1zMVK6SJzZqw9UrJnexxR+76cpePmtUZKHAPxcQ2Bf7oVHyahhg==",
-          "requires": {
-            "@hapi/address": "^2.1.2",
-            "@hapi/formula": "^1.2.0",
-            "@hapi/hoek": "^8.2.4",
-            "@hapi/pinpoint": "^1.0.2",
-            "@hapi/topo": "^3.1.3"
-          }
-        },
-        "@hapi/pinpoint": {
-          "version": "1.0.2",
-          "resolved": "https://registry.npmjs.org/@hapi/pinpoint/-/pinpoint-1.0.2.tgz",
-          "integrity": "sha512-dtXC/WkZBfC5vxscazuiJ6iq4j9oNx1SHknmIr8hofarpKUZKmlUVYVIhNVzIEgK5Wrc4GMHL5lZtt1uS2flmQ=="
         }
       }
     },
     "@hapi/subtext": {
-      "version": "6.1.2",
-      "resolved": "https://registry.npmjs.org/@hapi/subtext/-/subtext-6.1.2.tgz",
-      "integrity": "sha512-G1kqD1E2QdxpvpL26WieIyo3z0qCa/sAGSa2TJI/PYPWCR9rL0rqFvhWY774xPZ4uK1PV3TIaJcx8AruAvxclg==",
+      "version": "6.1.3",
+      "resolved": "https://registry.npmjs.org/@hapi/subtext/-/subtext-6.1.3.tgz",
+      "integrity": "sha512-qWN6NbiHNzohVcJMeAlpku/vzbyH4zIpnnMPMPioQMwIxbPFKeNViDCNI6fVBbMPBiw/xB4FjqiJkRG5P9eWWg==",
       "requires": {
         "@hapi/boom": "7.x.x",
         "@hapi/bourne": "1.x.x",
-        "@hapi/content": "4.x.x",
+        "@hapi/content": "^4.1.1",
         "@hapi/file": "1.x.x",
         "@hapi/hoek": "8.x.x",
-        "@hapi/pez": "4.x.x",
+        "@hapi/pez": "^4.1.2",
         "@hapi/wreck": "15.x.x"
       },
       "dependencies": {
