@@ -6,7 +6,7 @@ const TestHelper = require('../../test-helper')
 const Item = require('../models/item.model')
 const Photo = require('../models/photo.model')
 const Dal = require('../dal')
-const { uuid } = require('defra-hapi-utils').utils
+const { uuid } = require('../utils/utils')
 
 const item = {
   description: 'item description',

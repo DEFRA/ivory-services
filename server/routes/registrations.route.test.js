@@ -4,7 +4,7 @@ const Boom = require('@hapi/boom')
 const TestHelper = require('../../test-helper')
 const path = '/registrations'
 const { Registration } = require('../models')
-const { uuid } = require('defra-hapi-utils').utils
+const { uuid } = require('../utils/utils')
 
 const INVALID_GUID = 'INVALID-GUID'
 

@@ -7,7 +7,7 @@ const TestHelper = require('../../test-helper')
 const path = '/full-registrations'
 const models = require('../models')
 const { FullRegistration, Registration, Person, Address, Item, Photo } = models
-const { uuid, cloneAndMerge } = require('defra-hapi-utils').utils
+const { uuid, cloneAndMerge } = require('../utils/utils')
 
 const UNKNOWN_GUID = uuid()
 const INVALID_GUID = 'INVALID-GUID'

@@ -1,7 +1,7 @@
 const Boom = require('@hapi/boom')
 const Joi = require('@hapi/joi')
 const { logger } = require('defra-logging-facade')
-const { utils } = require('defra-hapi-utils')
+const utils = require('../utils/utils')
 const { FullRegistration, Registration, Person, Item, Payment, Address, Photo } = require('../models')
 
 const config = require('../config')

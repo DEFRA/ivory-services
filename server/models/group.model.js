@@ -1,6 +1,6 @@
 const Joi = require('@hapi/joi')
 const BaseModel = require('./baseModel')
-const { uuid } = require('defra-hapi-utils').utils
+const { uuid } = require('../utils/utils')
 
 module.exports = class Group extends BaseModel {
   static get params () {

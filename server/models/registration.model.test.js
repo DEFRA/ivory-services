@@ -7,7 +7,7 @@ const registrationNumberGenerator = require('../utils/registration-number-genera
 const Registration = require('../models/registration.model')
 const Person = require('../models/person.model')
 const Item = require('../models/item.model')
-const { uuid } = require('defra-hapi-utils').utils
+const { uuid } = require('../utils/utils')
 const registrationNumber = 'IVR99999'
 
 const registration = {

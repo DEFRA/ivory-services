@@ -1,6 +1,6 @@
 const Joi = require('@hapi/joi')
 const BaseModel = require('./baseModel')
-const { uuid } = require('defra-hapi-utils').utils
+const { uuid } = require('../utils/utils')
 const registrationNumberGenerator = require('../utils/registration-number-generator')
 
 module.exports = class Registration extends BaseModel {

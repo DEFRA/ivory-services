@@ -5,7 +5,7 @@ const lab = exports.lab = Lab.script()
 const TestHelper = require('../../test-helper')
 const Person = require('../models/person.model')
 const Address = require('../models/address.model')
-const { uuid } = require('defra-hapi-utils').utils
+const { uuid } = require('../utils/utils')
 
 const person = {
   addressId: uuid(),

@@ -12,7 +12,7 @@ const config = require('./server/config')
 
 // const { logger } = require('defra-logging-facade')
 const routesPlugin = require('./server/plugins/hapi-router')
-const { uuid } = require('defra-hapi-utils').utils
+const { uuid } = require('./server/utils/utils')
 const Dal = require('./server/dal')
 
 const UNKNOWN_GUID = uuid()

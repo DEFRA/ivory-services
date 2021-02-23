@@ -4,7 +4,7 @@ const Boom = require('@hapi/boom')
 const TestHelper = require('../../test-helper')
 const path = '/choices'
 const { Choice } = require('../models')
-const { uuid } = require('defra-hapi-utils').utils
+const { uuid } = require('../utils/utils')
 
 const { emptyMessage } = TestHelper
 
