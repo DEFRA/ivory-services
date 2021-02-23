@@ -13,7 +13,7 @@
     "url": "https://github.com/DEFRA/ivory-services.git"
   },
   "engines": {
-    "node": "10.x"
+    "node": "14.x"
   },
   "scripts": {
     "start": "node index",
@@ -33,18 +33,18 @@
     "@hapi/joi": "^16.1.8",
     "@hapi/vision": "^5.5.4",
     "@hapi/wreck": "^16.0.1",
-    "bad-words": "^3.0.3",
-    "blipp": "^4.0.1",
+    "bad-words": "^3.0.4",
+    "blipp": "^4.0.2",
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#master",
     "dotenv": "^8.2.0",
     "git-last-commit": "^1.0.0",
     "glob": "^7.1.6",
-    "hapi-robots": "^3.2.0",
+    "hapi-robots": "^3.2.2",
     "hapi-router": "^5.0.0",
     "hapi-swagger": "^11.1.0",
     "lodash": "^4.17.21",
-    "moment": "^2.24.0",
-    "pg": "^7.18.1",
+    "moment": "^2.29.1",
+    "pg": "^8.5.1",
     "require-all": "^3.0.0",
     "uuid": "^8.3.2"
   },
