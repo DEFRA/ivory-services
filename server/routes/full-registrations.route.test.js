@@ -2,7 +2,7 @@ const Lab = require('@hapi/lab')
 const Code = require('@hapi/code')
 const lab = exports.lab = Lab.script()
 const Boom = require('@hapi/boom')
-const cloneDeep = require('lodash.clonedeep')
+const { cloneDeep } = require('lodash')
 const TestHelper = require('../../test-helper')
 const path = '/full-registrations'
 const models = require('../models')

@@ -1,5 +1,5 @@
 const requireAll = require('require-all')
-const camelCase = require('lodash.camelcase')
+const { camelCase } = require('lodash')
 
 // Requires all the "*.model.js" files in the current folder
 // eg. when the models directory contains files /registration.model.js and /person.model.js they will be exported as an object of classes { Registration, Person }
