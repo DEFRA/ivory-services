@@ -1,5 +1,5 @@
 
-const Joi = require('@hapi/joi')
+const Joi = require('joi')
 const BaseModel = require('./baseModel')
 
 const { cloneAndMerge } = require('../utils/utils')

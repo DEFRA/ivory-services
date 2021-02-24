@@ -1,4 +1,4 @@
-const Joi = require('@hapi/joi')
+const Joi = require('joi')
 const Dal = require('../dal')
 const { logger } = require('defra-logging-facade')
 

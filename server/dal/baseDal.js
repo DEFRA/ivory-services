@@ -42,7 +42,7 @@ module.exports = class BaseDal {
   }
 
   static async findAll (query) {
-    const where = !isEmpty(query) ? 'WHERE ' + Object.entries(query)
+    const where = !isEmpty(query) ? 'WHERE ' + Object.entries(query) // eslint-disable-line
       .map(([col, val]) => {
         const def = this.table[col]
         if (typeof val === 'string') {

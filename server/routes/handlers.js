@@ -1,5 +1,5 @@
 const Boom = require('@hapi/boom')
-const Joi = require('@hapi/joi')
+const Joi = require('joi')
 const config = require('../config')
 const cors = (config.isDev || config.isTest)
 
