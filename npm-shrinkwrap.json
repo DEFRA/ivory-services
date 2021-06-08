@@ -3436,14 +3436,6 @@
             "path-is-absolute": "^1.0.0"
           }
         },
-        "glob-parent": {
-          "version": "5.1.0",
-          "resolved": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.0.tgz",
-          "integrity": "sha512-qjtRgnIVmOfnKUE3NJAQEdk+lKrxfw8t5ke7SXtfMTHcjsBfOfWXCQfdb30zfDoZQ2IRSIiidmjtbHZPZ++Ihw==",
-          "requires": {
-            "is-glob": "^4.0.1"
-          }
-        },
         "globals": {
           "version": "11.12.0",
           "resolved": "https://registry.npmjs.org/globals/-/globals-11.12.0.tgz",
@@ -6069,10 +6061,9 @@
       }
     },
     "glob-parent": {
-      "version": "5.1.0",
-      "resolved": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.0.tgz",
-      "integrity": "sha512-qjtRgnIVmOfnKUE3NJAQEdk+lKrxfw8t5ke7SXtfMTHcjsBfOfWXCQfdb30zfDoZQ2IRSIiidmjtbHZPZ++Ihw==",
-      "dev": true,
+      "version": "5.1.2",
+      "resolved": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz",
+      "integrity": "sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==",
       "requires": {
         "is-glob": "^4.0.1"
       }
@@ -7344,14 +7335,6 @@
             "minimatch": "^3.0.4",
             "once": "^1.3.0",
             "path-is-absolute": "^1.0.0"
-          }
-        },
-        "glob-parent": {
-          "version": "5.1.0",
-          "resolved": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.0.tgz",
-          "integrity": "sha512-qjtRgnIVmOfnKUE3NJAQEdk+lKrxfw8t5ke7SXtfMTHcjsBfOfWXCQfdb30zfDoZQ2IRSIiidmjtbHZPZ++Ihw==",
-          "requires": {
-            "is-glob": "^4.0.1"
           }
         },
         "globals": {
@@ -9103,8 +9086,7 @@
     "is-extglob": {
       "version": "2.1.1",
       "resolved": "https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz",
-      "integrity": "sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=",
-      "dev": true
+      "integrity": "sha1-qIwCU1eR8C7TfHahueqXc8gz+MI="
     },
     "is-finite": {
       "version": "1.0.2",
@@ -9125,7 +9107,6 @@
       "version": "4.0.1",
       "resolved": "https://registry.npmjs.org/is-glob/-/is-glob-4.0.1.tgz",
       "integrity": "sha512-5G0tKtBTFImOqDnLB2hG6Bp2qcKEFduo4tZu9MT/H6NQv/ghhy30o55ufafxJ/LdH79LLs2Kfrn85TLKyA7BUg==",
-      "dev": true,
       "requires": {
         "is-extglob": "^2.1.1"
       }
