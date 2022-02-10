@@ -56,7 +56,7 @@
   "devDependencies": {
     "@hapi/code": "^8.0.1",
     "@hapi/lab": "^22.0.3",
-    "node-sass": "4.13.1",
+    "node-sass": "7.0.0",
     "sinon": "^8.1.1",
     "standard": "14.3.1"
   }
